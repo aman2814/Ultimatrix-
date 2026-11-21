@@ -1,6 +1,8 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { CalculatorCategory, CALCULATOR_CATEGORIES } from '../../data/calculators';
+import { useTranslations } from '../../i18n/utils';
+import { useRoute } from './Router';
 
 export type DialCategory = 'All' | CalculatorCategory;
 
@@ -20,6 +22,10 @@ interface OmnitrixDialProps {
 }
 
 export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) {
+  const { lang } = useRoute();
+  const t = useTranslations(lang);
+  const getOptionLabel = (val: DialCategory) =>
+    val === 'All' ? t('cat.all') : t(`cat.${val}`);
   const activeIndex = Math.max(
     0,
     DIAL_OPTIONS.findIndex((opt) => opt.value === selected)
@@ -182,7 +188,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
           <button
             type="button"
             onClick={() => rotateBy(1)}
-            aria-label={`Active category: ${DIAL_OPTIONS[activeIndex].label}. Click core to cycle next category.`}
+            aria-label={`Active category: ${getOptionLabel(DIAL_OPTIONS[activeIndex].value)}`}
             className="absolute inset-8 z-10 rounded-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#39FF14]"
           />
         </div>
@@ -218,7 +224,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
                   : 'text-slate-300 hover:bg-[#1E2D36]/60 hover:text-white'
               }`}
             >
-              <span>{opt.label}</span>
+              <span>{getOptionLabel(opt.value)}</span>
               <span
                 className={`font-mono text-xs tabular-nums ${
                   isActive ? 'text-[#070B0E]/80' : 'text-slate-400'

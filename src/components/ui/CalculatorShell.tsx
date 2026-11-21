@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ChevronDown, ChevronRight } from 'lucide-react';
 import { CalculatorDefinition, getCalculatorBySlug } from '../../data/calculators';
-import { Link } from './Router';
+import { getLocalizedCalculator } from '../../i18n/calculators';
+import { languages, SUPPORTED_LANGS } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
 import { SeoSchema } from '../seo/SeoSchema';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { Link, useRoute } from './Router';
 
 interface CalculatorShellProps {
   calculator: CalculatorDefinition;
@@ -10,81 +14,80 @@ interface CalculatorShellProps {
 }
 
 export function CalculatorShell({ calculator, children }: CalculatorShellProps) {
+  const { lang, pathname, basePath, translatePath } = useRoute();
+  const t = useTranslations(lang);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
   const relatedCalculators = calculator.relatedSlugs
     .map((slug) => getCalculatorBySlug(slug))
-    .filter((item): item is CalculatorDefinition => Boolean(item));
+    .filter((item): item is CalculatorDefinition => Boolean(item))
+    .map((item) => getLocalizedCalculator(item, lang));
 
   const categoryAnchor = `/#${calculator.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 
   return (
     <div className="min-h-screen bg-[#070B0E] text-slate-100">
-      <SeoSchema calculator={calculator} canonicalPath={calculator.slug} />
+      <SeoSchema calculator={calculator} canonicalPath={pathname} />
 
       {/* Slim 56px Sticky Focus Header */}
       <header className="sticky top-0 z-40 h-14 border-b border-[#1E2D36] bg-[#070B0E]/95 backdrop-blur-sm">
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <div className="flex min-w-0 items-center gap-3 sm:gap-4">
             <Link
               href="/"
               className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#10171D] px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-200 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
-              <span>All Calculators</span>
+              <span>{t('nav.allCalculators')}</span>
             </Link>
 
             {/* Clickable SEO Breadcrumbs */}
             <nav
               aria-label="Breadcrumb"
-              className="hidden md:flex min-w-0 items-center gap-1.5 text-xs text-slate-400"
+              className="hidden lg:flex min-w-0 items-center gap-1.5 text-xs text-slate-400"
             >
               <Link href="/" className="hover:text-white transition-colors whitespace-nowrap">
-                Home
+                {t('nav.home')}
               </Link>
               <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-600" />
               <Link
                 href={categoryAnchor}
                 className="hover:text-white transition-colors whitespace-nowrap"
               >
-                {calculator.category}
+                {t(`cat.${calculator.category}`)}
               </Link>
               <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-600" />
               <span className="truncate font-medium text-slate-200">{calculator.name}</span>
             </nav>
           </div>
 
-          {/* Compact Quick-Switch Variant Controls */}
-          {calculator.variants && calculator.variants.length > 0 ? (
-            <nav
-              aria-label="Related calculator variants"
-              className="flex items-center gap-1 rounded-lg border border-[#1E2D36] bg-[#10171D] p-1 shrink-0"
-            >
-              {calculator.variants.map((variant) => {
-                const isActive = variant.slug === calculator.slug;
-                return (
-                  <Link
-                    key={variant.slug}
-                    href={variant.slug}
-                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors duration-150 whitespace-nowrap shrink-0 ${
-                      isActive
-                        ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                        : 'text-slate-300 hover:text-white'
-                    }`}
-                  >
-                    {variant.label}
-                  </Link>
-                );
-              })}
-            </nav>
-          ) : (
-            <Link
-              href="/"
-              className="font-display text-sm font-bold tracking-tight text-white whitespace-nowrap shrink-0 hover:text-[#39FF14] transition-colors"
-            >
-              Ultimatrix Calculator
-            </Link>
-          )}
+          {/* Right Controls: Optional Quick-Switch Variants + Language Switcher */}
+          <div className="flex items-center gap-2 shrink-0">
+            {calculator.variants && calculator.variants.length > 0 && (
+              <nav
+                aria-label="Related calculator variants"
+                className="hidden sm:flex items-center gap-1 rounded-lg border border-[#1E2D36] bg-[#10171D] p-1 shrink-0"
+              >
+                {calculator.variants.map((variant) => {
+                  const isActive = variant.slug === calculator.slug;
+                  return (
+                    <Link
+                      key={variant.slug}
+                      href={variant.slug}
+                      className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors duration-150 whitespace-nowrap shrink-0 ${
+                        isActive
+                          ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
+                          : 'text-slate-300 hover:text-white'
+                      }`}
+                    >
+                      {variant.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            )}
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -92,9 +95,9 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         <div className="mb-6">
           <div className="flex items-center gap-2 text-xs text-slate-400">
-            <span>{calculator.category}</span>
+            <span>{t(`cat.${calculator.category}`)}</span>
             <span aria-hidden="true">·</span>
-            <span>Real-time calculation</span>
+            <span>{t('shell.realTime')}</span>
           </div>
           <h1 className="mt-1.5 font-display text-2xl sm:text-3xl font-bold tracking-tight text-white text-balance">
             {calculator.h1}
@@ -115,7 +118,9 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
           <div className="grid gap-6 lg:grid-cols-12">
             {/* 1. Direct Answer Summary Box */}
             <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-5">
-              <h2 className="font-display text-lg font-bold text-white">Direct Answer</h2>
+              <h2 className="font-display text-lg font-bold text-white">
+                {t('shell.directAnswer')}
+              </h2>
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-300">
                 {calculator.directAnswer}
               </p>
@@ -134,7 +139,7 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
               </p>
               <div className="mt-4 border-t border-[#1E2D36] pt-4">
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  Worked Example
+                  {t('shell.workedExample')}
                 </h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-200 tabular-nums">
                   {calculator.workedExample}
@@ -185,7 +190,7 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
           {/* 4. Accessible FAQ Accordion */}
           <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6">
             <h2 className="font-display text-lg font-bold text-white">
-              Frequently Asked Questions
+              {t('shell.faqTitle')}
             </h2>
             <div className="mt-4 divide-y divide-[#1E2D36]">
               {calculator.faqs.map((faq, idx) => {
@@ -219,7 +224,9 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
           {/* 5. Related Calculators */}
           {relatedCalculators.length > 0 && (
             <div>
-              <h2 className="font-display text-lg font-bold text-white">Related Calculators</h2>
+              <h2 className="font-display text-lg font-bold text-white">
+                {t('shell.relatedTitle')}
+              </h2>
               <div
                 className={`mt-4 grid gap-4 ${
                   relatedCalculators.length === 4
@@ -236,9 +243,9 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
                     className="group rounded-xl border border-[#1E2D36] bg-[#10171D] p-5 transition-colors duration-150 hover:border-[#39FF14]/60"
                   >
                     <div className="text-xs text-slate-400">
-                      <span>{rel.category}</span>
+                      <span>{t(`cat.${rel.category}`)}</span>
                       <span aria-hidden="true"> · </span>
-                      <span>Calculator</span>
+                      <span>{t('shell.calculatorWord')}</span>
                     </div>
                     <h3 className="mt-1.5 font-display text-base font-bold text-white group-hover:text-[#39FF14] transition-colors">
                       {rel.name}
@@ -253,16 +260,39 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
       </main>
 
       <footer className="mt-12 border-t border-[#1E2D36] bg-[#070B0E] py-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>© {new Date().getFullYear()} Ultimatrix Calculator. Precision utility suite.</p>
-          <div className="flex items-center gap-5">
-            <Link href="/" className="hover:text-white transition-colors">
-              All Calculators
-            </Link>
-            <a href="/sitemap.xml" className="hover:text-white transition-colors">
-              Sitemap
-            </a>
+        <div className="mx-auto max-w-6xl space-y-5 px-4 text-xs text-slate-400 sm:px-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {new Date().getFullYear()} {t('shell.footerNote')}
+            </p>
+            <div className="flex items-center gap-5">
+              <Link href="/" className="hover:text-white transition-colors">
+                {t('nav.allCalculators')}
+              </Link>
+              <a href="/sitemap.xml" className="hover:text-white transition-colors">
+                {t('nav.sitemap')}
+              </a>
+            </div>
           </div>
+
+          <nav
+            aria-label={t('nav.language')}
+            className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#1E2D36]/70 pt-4"
+          >
+            {SUPPORTED_LANGS.map((code) => (
+              <Link
+                key={code}
+                href={translatePath(basePath, code)}
+                preserveLocale={false}
+                hrefLang={code}
+                className={`transition-colors whitespace-nowrap ${
+                  code === lang ? 'font-semibold text-[#39FF14]' : 'hover:text-white'
+                }`}
+              >
+                {languages[code]}
+              </Link>
+            ))}
+          </nav>
         </div>
       </footer>
     </div>

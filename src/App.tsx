@@ -1,4 +1,6 @@
 import { getCalculatorBySlug } from './data/calculators';
+import { getLocalizedCalculator } from './i18n/calculators';
+import { useTranslations } from './i18n/utils';
 import { RouterProvider, useRoute, Link } from './components/ui/Router';
 import { HomeHub } from './components/ui/HomeHub';
 import { CalculatorShell } from './components/ui/CalculatorShell';
@@ -87,16 +89,18 @@ function renderCalculatorWidget(slug: string) {
 }
 
 function ActiveView() {
-  const { pathname } = useRoute();
+  const { basePath, lang } = useRoute();
+  const t = useTranslations(lang);
 
-  if (pathname === '/') {
+  if (basePath === '/') {
     return <HomeHub />;
   }
 
-  const calculator = getCalculatorBySlug(pathname);
+  const calculator = getCalculatorBySlug(basePath);
   if (calculator) {
+    const localizedCalculator = getLocalizedCalculator(calculator, lang);
     return (
-      <CalculatorShell calculator={calculator}>
+      <CalculatorShell calculator={localizedCalculator}>
         {renderCalculatorWidget(calculator.slug)}
       </CalculatorShell>
     );
@@ -104,15 +108,13 @@ function ActiveView() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#070B0E] px-4 text-center text-slate-100">
-      <h1 className="font-display text-3xl font-bold text-white">Calculator Not Found</h1>
-      <p className="mt-2 max-w-md text-sm text-slate-300">
-        The requested route does not match an Ultimatrix Calculator tool.
-      </p>
+      <h1 className="font-display text-3xl font-bold text-white">{t('shell.notFoundTitle')}</h1>
+      <p className="mt-2 max-w-md text-sm text-slate-300">{t('shell.notFoundDesc')}</p>
       <Link
         href="/"
         className="mt-6 rounded-lg bg-[#39FF14] px-5 py-2.5 text-sm font-semibold text-[#070B0E] hover:bg-[#39FF14]/90"
       >
-        Return to All Calculators
+        {t('shell.notFoundCta')}
       </Link>
     </div>
   );

@@ -1,15 +1,28 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { defaultLang, Lang } from '../../i18n/ui';
+import {
+  getLangFromPathname,
+  isSupportedLang,
+  stripLangPrefix,
+  useTranslatedPath,
+} from '../../i18n/utils';
 
 interface RouterContextValue {
   pathname: string;
+  basePath: string;
+  lang: Lang;
   hash: string;
-  navigate: (to: string) => void;
+  navigate: (to: string, options?: { preserveLocale?: boolean }) => void;
+  translatePath: (path: string, targetLang?: Lang) => string;
 }
 
 const RouterContext = createContext<RouterContextValue>({
   pathname: '/',
+  basePath: '/',
+  lang: defaultLang,
   hash: '',
   navigate: () => {},
+  translatePath: (p) => p,
 });
 
 function normalizePathname(raw: string): string {
@@ -17,6 +30,12 @@ function normalizePathname(raw: string): string {
   const [pathOnly] = raw.split('#');
   const cleaned = pathOnly.replace(/\/+$/, '');
   return cleaned || '/';
+}
+
+function hasExplicitLangPrefix(path: string): boolean {
+  const clean = path.split('#')[0].split('?')[0];
+  const [, firstSegment] = clean.split('/');
+  return Boolean(firstSegment && isSupportedLang(firstSegment));
 }
 
 export function RouterProvider({ children }: { children: React.ReactNode }) {
@@ -27,6 +46,16 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
     typeof window !== 'undefined' ? window.location.hash : ''
   );
 
+  const lang = getLangFromPathname(pathname);
+  const basePath = stripLangPrefix(pathname);
+  const translatePath = useTranslatedPath(lang);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = lang;
+    }
+  }, [lang]);
+
   useEffect(() => {
     const handlePop = () => {
       setPathname(normalizePathname(window.location.pathname));
@@ -36,8 +65,12 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener('popstate', handlePop);
   }, []);
 
-  const navigate = (to: string) => {
-    const [targetPathRaw, targetHashRaw] = to.split('#');
+  const navigate = (to: string, options?: { preserveLocale?: boolean }) => {
+    const preserveLocale = options?.preserveLocale ?? true;
+    const resolvedTarget =
+      preserveLocale && !hasExplicitLangPrefix(to) ? translatePath(to, lang) : to;
+
+    const [targetPathRaw, targetHashRaw] = resolvedTarget.split('#');
     const nextPath = normalizePathname(targetPathRaw || '/');
     const nextHash = targetHashRaw ? `#${targetHashRaw}` : '';
 
@@ -60,7 +93,7 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <RouterContext.Provider value={{ pathname, hash, navigate }}>
+    <RouterContext.Provider value={{ pathname, basePath, lang, hash, navigate, translatePath }}>
       {children}
     </RouterContext.Provider>
   );
@@ -72,11 +105,18 @@ export function useRoute() {
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
+  preserveLocale?: boolean;
   children: React.ReactNode;
 }
 
-export function Link({ href, onClick, children, ...rest }: LinkProps) {
-  const { navigate } = useRoute();
+export function Link({ href, preserveLocale = true, onClick, children, ...rest }: LinkProps) {
+  const { lang, navigate, translatePath } = useRoute();
+
+  const isExternal = href.startsWith('http') || href.startsWith('mailto:');
+  const resolvedHref =
+    !isExternal && preserveLocale && !hasExplicitLangPrefix(href)
+      ? translatePath(href, lang)
+      : href;
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (onClick) onClick(e);
@@ -87,17 +127,16 @@ export function Link({ href, onClick, children, ...rest }: LinkProps) {
       e.shiftKey ||
       e.altKey ||
       e.button !== 0 ||
-      href.startsWith('http') ||
-      href.startsWith('mailto:')
+      isExternal
     ) {
       return;
     }
     e.preventDefault();
-    navigate(href);
+    navigate(resolvedHref, { preserveLocale: false });
   };
 
   return (
-    <a href={href} onClick={handleClick} {...rest}>
+    <a href={resolvedHref} onClick={handleClick} {...rest}>
       {children}
     </a>
   );
