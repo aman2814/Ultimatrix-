@@ -38,17 +38,17 @@ export function CalculatorResultCard({
   visualBar,
 }: CalculatorResultCardProps) {
   return (
-    <div className="flex h-full flex-col justify-between rounded-xl border border-[#1E2D36] bg-[#10171D] p-6">
-      <div>
-        <div className="flex items-start justify-between gap-4">
-          <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+    <div className="flex h-full min-w-0 flex-col justify-between rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6">
+      <div className="min-w-0">
+        <div className="flex items-start justify-between gap-3 sm:gap-4">
+          <span className="min-w-0 text-xs font-semibold uppercase tracking-wider text-slate-400">
             {eyebrow}
           </span>
           <CopyResultButton value={copyText} />
         </div>
 
         <div className="mt-4 flex flex-wrap items-baseline gap-2">
-          <div className="font-mono text-3xl sm:text-4xl font-bold tracking-tight text-white tabular-nums">
+          <div className="break-words font-mono text-3xl sm:text-4xl font-bold tracking-tight text-white tabular-nums">
             {primaryValue}
           </div>
           {primaryUnit && (
@@ -69,11 +69,11 @@ export function CalculatorResultCard({
             {metrics.map((metric) => (
               <div
                 key={metric.label}
-                className="flex items-center justify-between gap-4 py-3 text-sm"
+                className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-3 text-sm"
               >
-                <span className="text-slate-400">{metric.label}</span>
+                <span className="min-w-0 text-slate-400">{metric.label}</span>
                 <span
-                  className={`font-mono font-semibold tabular-nums text-right ${
+                  className={`min-w-0 break-words font-mono font-semibold tabular-nums text-right ${
                     metric.highlight ? 'text-[#39FF14]' : 'text-slate-100'
                   }`}
                 >

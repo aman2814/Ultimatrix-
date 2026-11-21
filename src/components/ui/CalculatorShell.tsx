@@ -31,14 +31,14 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
 
       {/* Slim 56px Sticky Focus Header */}
       <header className="sticky top-0 z-40 h-14 border-b border-[#1E2D36] bg-[#070B0E]/95 backdrop-blur-sm">
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-          <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+        <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-2 sm:gap-3 px-4 sm:px-6">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#10171D] px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-200 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+              className="inline-flex min-h-[44px] sm:min-h-0 items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#10171D] px-2.5 sm:px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-200 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] whitespace-nowrap min-w-0 max-w-[calc(100vw-7.5rem)] sm:max-w-none sm:shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
             >
-              <ArrowLeft className="h-3.5 w-3.5" />
-              <span>{t('nav.allCalculators')}</span>
+              <ArrowLeft className="h-3.5 w-3.5 shrink-0" />
+              <span className="truncate">{t('nav.allCalculators')}</span>
             </Link>
 
             {/* Clickable SEO Breadcrumbs */}
@@ -105,6 +105,29 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
           <p className="mt-1.5 max-w-2xl text-sm sm:text-base text-slate-300">
             {calculator.tagline}
           </p>
+          {calculator.variants && calculator.variants.length > 0 && (
+            <nav
+              aria-label="Related calculator variants"
+              className="mt-4 flex sm:hidden flex-wrap items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#10171D] p-1"
+            >
+              {calculator.variants.map((variant) => {
+                const isActive = variant.slug === calculator.slug;
+                return (
+                  <Link
+                    key={variant.slug}
+                    href={variant.slug}
+                    className={`inline-flex min-h-[40px] items-center rounded-md px-3 py-1.5 text-xs font-medium transition-colors duration-150 whitespace-nowrap ${
+                      isActive
+                        ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
+                        : 'text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    {variant.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          )}
         </div>
 
         {/* Interactive Calculator Workspace */}
@@ -117,7 +140,7 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
         >
           <div className="grid gap-6 lg:grid-cols-12">
             {/* 1. Direct Answer Summary Box */}
-            <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-5">
+            <div className="min-w-0 rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6 lg:col-span-5">
               <h2 className="font-display text-lg font-bold text-white">
                 {t('shell.directAnswer')}
               </h2>
@@ -127,11 +150,11 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
             </div>
 
             {/* 2. Formula & Worked Example Card */}
-            <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7">
+            <div className="min-w-0 rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6 lg:col-span-7">
               <h2 className="font-display text-lg font-bold text-white">
                 {calculator.formulaTitle}
               </h2>
-              <div className="mt-3 overflow-x-auto rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-3 font-mono text-xs sm:text-sm text-[#39FF14] tabular-nums">
+              <div className="mt-3 overflow-x-auto no-scrollbar rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-3 font-mono text-xs sm:text-sm text-[#39FF14] tabular-nums">
                 {calculator.formulaExpression}
               </div>
               <p className="mt-3 text-sm leading-relaxed text-slate-300">
@@ -149,9 +172,9 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
           </div>
 
           {/* 3. Clean HTML Reference Table */}
-          <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6">
+          <div className="min-w-0 rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6">
             <h2 className="font-display text-lg font-bold text-white">{calculator.tableTitle}</h2>
-            <div className="mt-4 overflow-x-auto">
+            <div className="mt-4 overflow-x-auto no-scrollbar">
               <table className="w-full border-collapse text-left text-sm">
                 <thead>
                   <tr className="border-b border-[#1E2D36] text-xs uppercase tracking-wider text-slate-400">
@@ -188,7 +211,7 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
           </div>
 
           {/* 4. Accessible FAQ Accordion */}
-          <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6">
+          <div className="min-w-0 rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6">
             <h2 className="font-display text-lg font-bold text-white">
               {t('shell.faqTitle')}
             </h2>
@@ -201,7 +224,7 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
-                      className="flex w-full items-center justify-between gap-4 py-2 text-left text-sm sm:text-base font-semibold text-white transition-colors hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+                      className="flex min-h-[44px] md:min-h-0 w-full items-center justify-between gap-4 py-2.5 md:py-2 text-left text-sm sm:text-base font-semibold text-white transition-colors hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
                     >
                       <span>{faq.question}</span>
                       <ChevronDown
@@ -265,11 +288,41 @@ export function CalculatorShell({ calculator, children }: CalculatorShellProps) 
             <p>
               © {new Date().getFullYear()} {t('shell.footerNote')}
             </p>
-            <div className="flex items-center gap-5">
-              <Link href="/" className="hover:text-white transition-colors">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+              <Link
+                href="/about"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-200 hover:text-[#39FF14] transition-colors"
+              >
+                {t('nav.about')}
+              </Link>
+              <Link
+                href="/privacy-policy"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-200 hover:text-[#39FF14] transition-colors"
+              >
+                {t('nav.privacy')}
+              </Link>
+              <Link
+                href="/terms-and-conditions"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-200 hover:text-[#39FF14] transition-colors"
+              >
+                {t('nav.terms')}
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-200 hover:text-[#39FF14] transition-colors"
+              >
+                {t('nav.contact')}
+              </Link>
+              <Link
+                href="/"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+              >
                 {t('nav.allCalculators')}
               </Link>
-              <a href="/sitemap.xml" className="hover:text-white transition-colors">
+              <a
+                href="/sitemap.xml"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+              >
                 {t('nav.sitemap')}
               </a>
             </div>

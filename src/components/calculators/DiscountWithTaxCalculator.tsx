@@ -91,7 +91,7 @@ export function DiscountWithTaxCalculator() {
               </label>
               <input
                 id="dtax-price"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 step="0.01"
                 value={price}
@@ -106,7 +106,7 @@ export function DiscountWithTaxCalculator() {
               </label>
               <input
                 id="dtax-d1"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="100"
                 step="0.5"
@@ -122,7 +122,7 @@ export function DiscountWithTaxCalculator() {
               </label>
               <input
                 id="dtax-d2"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="100"
                 step="0.5"
@@ -138,7 +138,7 @@ export function DiscountWithTaxCalculator() {
               </label>
               <input
                 id="dtax-rate"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="100"
                 step="0.25"

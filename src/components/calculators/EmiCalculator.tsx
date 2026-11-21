@@ -59,7 +59,7 @@ export function EmiCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -79,6 +79,7 @@ export function EmiCalculator() {
               <input
                 id="emi-principal"
                 type="number"
+                inputMode="decimal"
                 min="1"
                 step="1000"
                 value={principal}
@@ -95,6 +96,7 @@ export function EmiCalculator() {
                 <input
                   id="emi-rate"
                   type="number"
+                  inputMode="decimal"
                   min="0"
                   max="60"
                   step="0.1"
@@ -149,6 +151,7 @@ export function EmiCalculator() {
                 <input
                   id="emi-tenure"
                   type="number"
+                  inputMode="decimal"
                   min="1"
                   step="1"
                   value={tenure}

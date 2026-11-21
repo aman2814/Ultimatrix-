@@ -77,6 +77,23 @@ export function buildSitemapEntries(baseUrl = getSiteBaseUrl()): SitemapEntry[] 
     }
   }
 
+  const infoSlugs = ['/about', '/privacy-policy', '/terms-and-conditions', '/contact'];
+  for (const slug of infoSlugs) {
+    const infoAlts = buildAlternates(slug, baseUrl);
+    for (const lang of SUPPORTED_LANGS) {
+      const url = getCanonicalUrl(localizedSlug(slug, lang), baseUrl);
+      if (seen.has(url)) continue;
+      seen.add(url);
+      entries.push({
+        url,
+        lastModified: SITE_LAST_MODIFIED,
+        changeFrequency: 'yearly',
+        priority: 0.6,
+        alternates: infoAlts,
+      });
+    }
+  }
+
   return entries;
 }
 

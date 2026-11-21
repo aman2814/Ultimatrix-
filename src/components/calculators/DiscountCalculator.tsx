@@ -55,7 +55,7 @@ export function DiscountCalculator() {
               </label>
               <input
                 id="disc-price"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 step="0.01"
                 value={price}
@@ -70,7 +70,7 @@ export function DiscountCalculator() {
               </label>
               <input
                 id="disc-1"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="100"
                 step="0.5"
@@ -86,7 +86,7 @@ export function DiscountCalculator() {
               </label>
               <input
                 id="disc-2"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="100"
                 step="0.5"
@@ -102,7 +102,7 @@ export function DiscountCalculator() {
               </label>
               <input
                 id="disc-tax"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="100"
                 step="0.25"

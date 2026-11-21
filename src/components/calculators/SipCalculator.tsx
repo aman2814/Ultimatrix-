@@ -84,7 +84,7 @@ export function SipCalculator() {
               </label>
               <input
                 id="sip-monthly"
-                type="number"
+                type="number" inputMode="decimal"
                 min="1"
                 step="500"
                 value={monthlyInvestment}
@@ -99,7 +99,7 @@ export function SipCalculator() {
               </label>
               <input
                 id="sip-return"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="50"
                 step="0.5"
@@ -115,7 +115,7 @@ export function SipCalculator() {
               </label>
               <input
                 id="sip-years"
-                type="number"
+                type="number" inputMode="decimal"
                 min="1"
                 max="60"
                 step="1"
@@ -131,7 +131,7 @@ export function SipCalculator() {
               </label>
               <input
                 id="sip-stepup"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="50"
                 step="1"

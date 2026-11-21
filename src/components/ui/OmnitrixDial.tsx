@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { CalculatorCategory, CALCULATOR_CATEGORIES } from '../../data/calculators';
 import { useTranslations } from '../../i18n/utils';
@@ -32,9 +32,25 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
   );
   const rotationDeg = activeIndex * 60;
 
+  const touchStartXRef = useRef<number | null>(null);
+
   const rotateBy = (delta: number) => {
     const nextIdx = (activeIndex + delta + DIAL_OPTIONS.length) % DIAL_OPTIONS.length;
     onSelect(DIAL_OPTIONS[nextIdx].value);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+    const endX = e.changedTouches[0]?.clientX ?? touchStartXRef.current;
+    const deltaX = endX - touchStartXRef.current;
+    touchStartXRef.current = null;
+    if (Math.abs(deltaX) >= 32) {
+      rotateBy(deltaX < 0 ? 1 : -1);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -55,18 +71,22 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
       aria-label="Category selector dial"
     >
       {/* Dial & Orbit Controls */}
-      <div className="relative flex items-center justify-center gap-4 sm:gap-8">
+      <div
+        className="relative flex items-center justify-center gap-2 sm:gap-8 touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <button
           type="button"
           onClick={() => rotateBy(-1)}
           aria-label="Rotate dial left to previous category"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#1E2D36] bg-[#10171D] text-slate-300 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#1E2D36] bg-[#10171D] text-slate-300 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
 
         {/* Precision Omnitrix Core Dial */}
-        <div className="group relative h-56 w-56 sm:h-64 sm:w-64 select-none">
+        <div className="group relative h-48 w-48 sm:h-64 sm:w-64 max-[360px]:scale-[0.9] sm:scale-100 select-none">
           <svg
             viewBox="0 0 260 260"
             className="h-full w-full overflow-visible"
@@ -197,7 +217,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
           type="button"
           onClick={() => rotateBy(1)}
           aria-label="Rotate dial right to next category"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#1E2D36] bg-[#10171D] text-slate-300 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#1E2D36] bg-[#10171D] text-slate-300 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
@@ -218,7 +238,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
               role="tab"
               aria-selected={isActive}
               onClick={() => onSelect(opt.value)}
-              className={`inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs sm:text-sm font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14] ${
+              className={`inline-flex min-h-[44px] md:min-h-0 items-center gap-2 rounded-lg px-3.5 py-2 text-xs sm:text-sm font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14] ${
                 isActive
                   ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
                   : 'text-slate-300 hover:bg-[#1E2D36]/60 hover:text-white'

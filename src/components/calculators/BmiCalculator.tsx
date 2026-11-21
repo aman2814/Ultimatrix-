@@ -165,7 +165,7 @@ export function BmiCalculator({ variant = 'general' }: BmiCalculatorProps) {
                   </label>
                   <input
                     id="bmi-weight-kg"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="1"
                     step="0.1"
                     value={weightKg}
@@ -179,7 +179,7 @@ export function BmiCalculator({ variant = 'general' }: BmiCalculatorProps) {
                   </label>
                   <input
                     id="bmi-height-cm"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="30"
                     step="0.5"
                     value={heightCm}
@@ -196,7 +196,7 @@ export function BmiCalculator({ variant = 'general' }: BmiCalculatorProps) {
                   </label>
                   <input
                     id="bmi-weight-lb"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="1"
                     step="0.5"
                     value={weightLb}
@@ -211,7 +211,7 @@ export function BmiCalculator({ variant = 'general' }: BmiCalculatorProps) {
                     </label>
                     <input
                       id="bmi-height-ft"
-                      type="number"
+                      type="number" inputMode="decimal"
                       min="1"
                       max="8"
                       value={heightFt}
@@ -225,7 +225,7 @@ export function BmiCalculator({ variant = 'general' }: BmiCalculatorProps) {
                     </label>
                     <input
                       id="bmi-height-in"
-                      type="number"
+                      type="number" inputMode="decimal"
                       min="0"
                       max="11.9"
                       step="0.5"
@@ -245,7 +245,7 @@ export function BmiCalculator({ variant = 'general' }: BmiCalculatorProps) {
                 </label>
                 <input
                   id="bmi-age"
-                  type="number"
+                  type="number" inputMode="decimal"
                   min="18"
                   max="120"
                   value={age}

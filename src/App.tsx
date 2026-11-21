@@ -1,8 +1,10 @@
 import { getCalculatorBySlug } from './data/calculators';
+import { isInfoPageSlug } from './data/infoPages';
 import { getLocalizedCalculator } from './i18n/calculators';
 import { useTranslations } from './i18n/utils';
 import { RouterProvider, useRoute, Link } from './components/ui/Router';
 import { HomeHub } from './components/ui/HomeHub';
+import { InfoPageView } from './components/ui/InfoPageView';
 import { CalculatorShell } from './components/ui/CalculatorShell';
 import { BmiCalculator } from './components/calculators/BmiCalculator';
 import { AgeCalculator } from './components/calculators/AgeCalculator';
@@ -94,6 +96,10 @@ function ActiveView() {
 
   if (basePath === '/') {
     return <HomeHub />;
+  }
+
+  if (isInfoPageSlug(basePath)) {
+    return <InfoPageView slug={basePath} />;
   }
 
   const calculator = getCalculatorBySlug(basePath);

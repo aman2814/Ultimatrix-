@@ -196,7 +196,7 @@ export function BmiByAgeCalculator() {
               </label>
               <input
                 id="bmia-age"
-                type="number"
+                type="number" inputMode="decimal"
                 min="2"
                 max="115"
                 value={age}
@@ -213,7 +213,7 @@ export function BmiByAgeCalculator() {
                   </label>
                   <input
                     id="bmia-hcm"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="40"
                     step="0.5"
                     value={heightCm}
@@ -227,7 +227,7 @@ export function BmiByAgeCalculator() {
                   </label>
                   <input
                     id="bmia-wkg"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="5"
                     step="0.1"
                     value={weightKg}
@@ -245,7 +245,7 @@ export function BmiByAgeCalculator() {
                     </label>
                     <input
                       id="bmia-hft"
-                      type="number"
+                      type="number" inputMode="decimal"
                       min="1"
                       max="8"
                       value={heightFt}
@@ -259,7 +259,7 @@ export function BmiByAgeCalculator() {
                     </label>
                     <input
                       id="bmia-hin"
-                      type="number"
+                      type="number" inputMode="decimal"
                       min="0"
                       max="11.9"
                       step="0.5"
@@ -275,7 +275,7 @@ export function BmiByAgeCalculator() {
                   </label>
                   <input
                     id="bmia-wlb"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="10"
                     step="0.5"
                     value={weightLb}

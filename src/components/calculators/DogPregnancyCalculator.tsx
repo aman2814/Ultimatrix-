@@ -80,7 +80,7 @@ export function DogPregnancyCalculator() {
   return (
     <div className="space-y-6">
       <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-        <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+        <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6 lg:col-span-7 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between gap-4">
               <h2 className="font-display text-base font-bold text-white">Breeding &amp; Breed Size</h2>
@@ -120,7 +120,7 @@ export function DogPregnancyCalculator() {
                       key={b.id}
                       type="button"
                       onClick={() => setDogSize(b.id as DogSize)}
-                      className={`rounded-lg border px-2.5 py-2.5 text-xs sm:text-sm font-medium transition-colors ${
+                      className={`min-h-[44px] md:min-h-0 rounded-lg border px-2.5 py-2.5 text-xs sm:text-sm font-medium transition-colors ${
                         dogSize === b.id
                           ? 'border-[#39FF14] bg-[#39FF14]/15 text-[#39FF14]'
                           : 'border-[#1E2D36] bg-[#070B0E] text-slate-300 hover:text-white'
@@ -133,7 +133,7 @@ export function DogPregnancyCalculator() {
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-4 border-t border-[#1E2D36] pt-5 text-xs">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-[#1E2D36] pt-5 text-xs">
               <div>
                 <span className="text-slate-400">Vet Ultrasound Window (Day 25–28)</span>
                 <p className="mt-1 font-mono font-semibold text-white tabular-nums">

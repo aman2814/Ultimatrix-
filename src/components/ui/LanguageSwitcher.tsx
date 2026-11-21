@@ -38,7 +38,7 @@ export function LanguageSwitcher() {
         aria-expanded={open}
         aria-haspopup="menu"
         aria-label={`${t('nav.language')}: ${languages[lang]}`}
-        className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#10171D] px-2.5 text-xs font-medium text-slate-200 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+        className="inline-flex min-h-[44px] sm:min-h-0 sm:h-9 items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#10171D] px-2.5 text-xs font-medium text-slate-200 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
       >
         <Globe className="h-3.5 w-3.5 text-[#39FF14]" />
         <span className="font-mono font-semibold">{languageCodes[lang]}</span>
@@ -53,7 +53,7 @@ export function LanguageSwitcher() {
         <div
           role="menu"
           aria-label={t('nav.language')}
-          className="absolute right-0 mt-2 w-44 rounded-xl border border-[#1E2D36] bg-[#10171D] p-1.5 shadow-2xl z-50"
+          className="absolute right-0 mt-2 w-44 max-w-[calc(100vw-2rem)] rounded-xl border border-[#1E2D36] bg-[#10171D] p-1.5 shadow-2xl z-50"
         >
           {SUPPORTED_LANGS.map((code: Lang) => {
             const isActive = code === lang;
@@ -66,7 +66,7 @@ export function LanguageSwitcher() {
                 hrefLang={code}
                 role="menuitem"
                 onClick={() => setOpen(false)}
-                className={`flex items-center justify-between rounded-lg px-2.5 py-2 text-xs transition-colors duration-150 ${
+                className={`flex min-h-[44px] sm:min-h-0 items-center justify-between rounded-lg px-2.5 py-2 text-xs transition-colors duration-150 ${
                   isActive
                     ? 'bg-[#39FF14]/15 font-semibold text-[#39FF14]'
                     : 'text-slate-200 hover:bg-[#1E2D36]/70 hover:text-white'

@@ -135,7 +135,7 @@ export function HeightCalculator() {
                   </label>
                   <input
                     id="ht-ft"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="0"
                     max="9"
                     value={feet}
@@ -149,7 +149,7 @@ export function HeightCalculator() {
                   </label>
                   <input
                     id="ht-in"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="0"
                     max="11.9"
                     step="0.5"
@@ -166,7 +166,7 @@ export function HeightCalculator() {
                 </label>
                 <input
                   id="ht-cm"
-                  type="number"
+                  type="number" inputMode="decimal"
                   min="1"
                   step="0.5"
                   value={cmInput}
@@ -282,7 +282,7 @@ export function HeightCalculator() {
               </label>
               <input
                 id="ht-father"
-                type="number"
+                type="number" inputMode="decimal"
                 min="100"
                 max="240"
                 step="0.5"
@@ -301,7 +301,7 @@ export function HeightCalculator() {
               </label>
               <input
                 id="ht-mother"
-                type="number"
+                type="number" inputMode="decimal"
                 min="100"
                 max="240"
                 step="0.5"

@@ -13,6 +13,12 @@
 }
 
 @layer base {
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
   html {
     font-family: var(--font-sans);
     background-color: #070B0E;
@@ -37,6 +43,39 @@
   input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(0.85) hue-rotate(85deg);
     cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Mobile-only (< 768px): prevent iOS/Android auto-zoom and hide visible scrollbar tracks while keeping scrolling functional */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  html,
+  body,
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
   }
 }
 

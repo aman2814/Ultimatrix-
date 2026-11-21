@@ -131,7 +131,7 @@ export function ChildBmiCalculator() {
               </label>
               <input
                 id="cbmi-yr"
-                type="number"
+                type="number" inputMode="decimal"
                 min="2"
                 max="19"
                 value={ageYears}
@@ -146,7 +146,7 @@ export function ChildBmiCalculator() {
               </label>
               <input
                 id="cbmi-mo"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="11"
                 value={ageMonths}
@@ -163,7 +163,7 @@ export function ChildBmiCalculator() {
                   </label>
                   <input
                     id="cbmi-hcm"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="50"
                     step="0.5"
                     value={heightCm}
@@ -177,7 +177,7 @@ export function ChildBmiCalculator() {
                   </label>
                   <input
                     id="cbmi-wkg"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="5"
                     step="0.1"
                     value={weightKg}
@@ -195,7 +195,7 @@ export function ChildBmiCalculator() {
                     </label>
                     <input
                       id="cbmi-hft"
-                      type="number"
+                      type="number" inputMode="decimal"
                       min="1"
                       max="7"
                       value={heightFt}
@@ -209,7 +209,7 @@ export function ChildBmiCalculator() {
                     </label>
                     <input
                       id="cbmi-hin"
-                      type="number"
+                      type="number" inputMode="decimal"
                       min="0"
                       max="11.9"
                       step="0.5"
@@ -225,7 +225,7 @@ export function ChildBmiCalculator() {
                   </label>
                   <input
                     id="cbmi-wlb"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="10"
                     step="0.5"
                     value={weightLb}

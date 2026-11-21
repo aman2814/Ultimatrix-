@@ -97,7 +97,7 @@ export function CgpaToPercentageCalculator() {
               </label>
               <input
                 id="cgpa-input"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max={maxScale}
                 step="0.01"
@@ -114,7 +114,7 @@ export function CgpaToPercentageCalculator() {
                 </label>
                 <input
                   id="cgpa-mult"
-                  type="number"
+                  type="number" inputMode="decimal"
                   min="1"
                   max="25"
                   step="0.1"

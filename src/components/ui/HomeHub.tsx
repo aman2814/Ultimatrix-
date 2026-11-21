@@ -83,10 +83,10 @@ export function HomeHub() {
 
       {/* Top Navigation Bar — Clean 3-Zone Contract */}
       <header className="sticky top-0 z-40 h-14 border-b border-[#1E2D36] bg-[#070B0E]/95 backdrop-blur-sm">
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:gap-8">
+        <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-2 sm:gap-4 px-4 sm:px-6 lg:gap-8">
           <Link
             href="/"
-            className="font-display text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0"
+            className="font-display text-base sm:text-lg font-bold tracking-tight text-white whitespace-nowrap min-w-0 truncate sm:overflow-visible"
           >
             Ultimatrix <span className="text-[#39FF14]">Calculator</span>
           </Link>
@@ -107,11 +107,11 @@ export function HomeHub() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2.5 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
             <LanguageSwitcher />
             <Link
               href="/scientific-calculator"
-              className="rounded-lg bg-[#39FF14] px-3.5 py-2 text-xs sm:text-sm font-semibold text-[#070B0E] transition-colors hover:bg-[#39FF14]/90 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+              className="inline-flex min-h-[44px] sm:min-h-0 items-center rounded-lg bg-[#39FF14] px-3 sm:px-3.5 py-2 text-xs sm:text-sm font-semibold text-[#070B0E] transition-colors hover:bg-[#39FF14]/90 whitespace-nowrap shrink-0 max-[400px]:max-w-[112px] max-[400px]:truncate focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
             >
               {t('nav.scientific')}
             </Link>
@@ -153,7 +153,7 @@ export function HomeHub() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('hub.searchPlaceholder')}
-                className="w-full rounded-xl border border-[#1E2D36] bg-[#10171D] py-3 pl-11 pr-10 text-sm text-white placeholder:text-slate-400 focus:border-[#39FF14] focus:outline-none"
+                className="w-full rounded-xl border border-[#1E2D36] bg-[#10171D] py-3 pl-11 pr-10 text-base md:text-sm text-white placeholder:text-slate-400 focus:border-[#39FF14] focus:outline-none"
               />
               {query && (
                 <button
@@ -240,28 +240,84 @@ export function HomeHub() {
       </main>
 
       <footer className="mt-16 border-t border-[#1E2D36] bg-[#070B0E] py-8">
-        <div className="mx-auto max-w-6xl space-y-5 px-4 text-xs text-slate-400 sm:px-6">
+        <div className="mx-auto max-w-6xl space-y-6 px-4 text-xs text-slate-400 sm:px-6">
+          {/* Prominent Company & Legal Quick-Access Info Bar */}
+          <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] px-4 py-4 sm:px-6">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#39FF14]">
+                {t('footer.companyLegal')}
+              </span>
+              <nav
+                aria-label={t('footer.companyLegal')}
+                className="flex flex-wrap items-center gap-x-6 gap-y-1 text-sm font-medium"
+              >
+                <Link
+                  href="/about"
+                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-100 hover:text-[#39FF14] transition-colors whitespace-nowrap"
+                >
+                  {t('nav.about')}
+                </Link>
+                <Link
+                  href="/privacy-policy"
+                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-100 hover:text-[#39FF14] transition-colors whitespace-nowrap"
+                >
+                  {t('nav.privacy')}
+                </Link>
+                <Link
+                  href="/terms-and-conditions"
+                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-100 hover:text-[#39FF14] transition-colors whitespace-nowrap"
+                >
+                  {t('nav.terms')}
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-100 hover:text-[#39FF14] transition-colors whitespace-nowrap"
+                >
+                  {t('nav.contact')}
+                </Link>
+              </nav>
+            </div>
+          </div>
+
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p>
               © {new Date().getFullYear()} {t('hub.footerNote')}
             </p>
-            <div className="flex flex-wrap items-center gap-5">
-              <Link href="/bmi-calculator" className="hover:text-white transition-colors">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+              <Link
+                href="/bmi-calculator"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+              >
                 BMI
               </Link>
-              <Link href="/emi-calculator" className="hover:text-white transition-colors">
+              <Link
+                href="/emi-calculator"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+              >
                 EMI
               </Link>
-              <Link href="/sip-calculator" className="hover:text-white transition-colors">
+              <Link
+                href="/sip-calculator"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+              >
                 SIP
               </Link>
-              <Link href="/gst-calculator" className="hover:text-white transition-colors">
+              <Link
+                href="/gst-calculator"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+              >
                 GST
               </Link>
-              <Link href="/scientific-calculator" className="hover:text-white transition-colors">
+              <Link
+                href="/scientific-calculator"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+              >
                 {t('nav.scientific')}
               </Link>
-              <a href="/sitemap.xml" className="hover:text-white transition-colors">
+              <a
+                href="/sitemap.xml"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+              >
                 {t('nav.sitemap')}
               </a>
             </div>
@@ -277,7 +333,7 @@ export function HomeHub() {
                 href={translatePath('/', code)}
                 preserveLocale={false}
                 hrefLang={code}
-                className={`transition-colors whitespace-nowrap ${
+                className={`inline-flex min-h-[44px] md:min-h-0 items-center transition-colors whitespace-nowrap ${
                   code === lang ? 'font-semibold text-[#39FF14]' : 'hover:text-white'
                 }`}
               >

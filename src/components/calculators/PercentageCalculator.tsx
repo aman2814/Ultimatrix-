@@ -148,7 +148,7 @@ export function PercentageCalculator() {
                 </label>
                 <input
                   id="pct-x1"
-                  type="number"
+                  type="number" inputMode="decimal"
                   step="any"
                   value={x1}
                   onChange={(e) => setX1(e.target.value)}
@@ -161,7 +161,7 @@ export function PercentageCalculator() {
                 </label>
                 <input
                   id="pct-y1"
-                  type="number"
+                  type="number" inputMode="decimal"
                   step="any"
                   value={y1}
                   onChange={(e) => setY1(e.target.value)}
@@ -179,7 +179,7 @@ export function PercentageCalculator() {
                 </label>
                 <input
                   id="pct-x2"
-                  type="number"
+                  type="number" inputMode="decimal"
                   step="any"
                   value={x2}
                   onChange={(e) => setX2(e.target.value)}
@@ -192,7 +192,7 @@ export function PercentageCalculator() {
                 </label>
                 <input
                   id="pct-y2"
-                  type="number"
+                  type="number" inputMode="decimal"
                   step="any"
                   value={y2}
                   onChange={(e) => setY2(e.target.value)}
@@ -210,7 +210,7 @@ export function PercentageCalculator() {
                 </label>
                 <input
                   id="pct-old"
-                  type="number"
+                  type="number" inputMode="decimal"
                   step="any"
                   value={oldVal}
                   onChange={(e) => setOldVal(e.target.value)}
@@ -223,7 +223,7 @@ export function PercentageCalculator() {
                 </label>
                 <input
                   id="pct-new"
-                  type="number"
+                  type="number" inputMode="decimal"
                   step="any"
                   value={newVal}
                   onChange={(e) => setNewVal(e.target.value)}

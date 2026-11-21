@@ -89,7 +89,7 @@ export function WeightLossPercentageCalculator() {
               </label>
               <input
                 id="wl-start"
-                type="number"
+                type="number" inputMode="decimal"
                 min="1"
                 step="0.1"
                 value={startWeight}
@@ -104,7 +104,7 @@ export function WeightLossPercentageCalculator() {
               </label>
               <input
                 id="wl-current"
-                type="number"
+                type="number" inputMode="decimal"
                 min="1"
                 step="0.1"
                 value={currentWeight}
@@ -119,7 +119,7 @@ export function WeightLossPercentageCalculator() {
               </label>
               <input
                 id="wl-goal"
-                type="number"
+                type="number" inputMode="decimal"
                 min="1"
                 step="0.1"
                 placeholder="Optional"

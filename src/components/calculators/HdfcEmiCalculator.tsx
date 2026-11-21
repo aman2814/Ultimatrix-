@@ -153,7 +153,7 @@ export function HdfcEmiCalculator() {
                 </div>
                 <input
                   id="hdfc-amount"
-                  type="number"
+                  type="number" inputMode="decimal"
                   min="1000"
                   step="10000"
                   value={amount}
@@ -169,7 +169,7 @@ export function HdfcEmiCalculator() {
                   </label>
                   <input
                     id="hdfc-rate"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="0"
                     max="45"
                     step="0.05"
@@ -221,7 +221,7 @@ export function HdfcEmiCalculator() {
                   </div>
                   <input
                     id="hdfc-tenure"
-                    type="number"
+                    type="number" inputMode="decimal"
                     min="1"
                     step="1"
                     value={tenure}
@@ -300,7 +300,7 @@ export function HdfcEmiCalculator() {
           </button>
 
           {showSchedule && (
-            <div className="mt-4 overflow-x-auto border-t border-[#1E2D36] pt-4">
+            <div className="mt-4 overflow-x-auto no-scrollbar border-t border-[#1E2D36] pt-4">
               <table className="w-full border-collapse text-left text-xs sm:text-sm">
                 <thead>
                   <tr className="border-b border-[#1E2D36] text-xs uppercase tracking-wider text-slate-400">

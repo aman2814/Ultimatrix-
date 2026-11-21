@@ -114,7 +114,7 @@ export function Sharp12DigitCalculator() {
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
       {/* Sharp EL-Series 12-Digit Chassis */}
-      <div className="rounded-2xl border border-[#1E2D36] bg-[#10171D] p-5 sm:p-6 lg:col-span-8">
+      <div className="rounded-2xl border border-[#1E2D36] bg-[#10171D] p-3.5 sm:p-6 lg:col-span-8">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
           <div className="flex items-center gap-2 text-xs font-mono">
             <span className="font-semibold text-white">EL-W516 · 12-DIGIT</span>
@@ -166,7 +166,7 @@ export function Sharp12DigitCalculator() {
               setExpr(e.target.value);
             }}
             placeholder="Enter D.A.L. expression..."
-            className="mt-3 w-full bg-transparent text-right font-mono text-sm text-slate-300 placeholder:text-slate-600 focus:outline-none tabular-nums"
+            className="mt-3 w-full bg-transparent text-right font-mono text-base md:text-sm text-slate-300 placeholder:text-slate-600 focus:outline-none tabular-nums"
           />
 
           <div
@@ -180,11 +180,11 @@ export function Sharp12DigitCalculator() {
         </div>
 
         {/* Memory & Mode Row */}
-        <div className="mt-4 grid grid-cols-6 gap-2">
+        <div className="mt-4 grid grid-cols-6 gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={() => setSecondF((s) => !s)}
-            className={`h-10 rounded-lg border font-mono text-xs font-bold transition-colors ${
+            className={`min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-bold transition-colors ${
               secondF
                 ? 'border-amber-400 bg-amber-400 text-[#070B0E]'
                 : 'border-[#1E2D36] bg-[#070B0E] text-amber-300 hover:border-amber-400/60'
@@ -195,42 +195,42 @@ export function Sharp12DigitCalculator() {
           <button
             type="button"
             onClick={cycleDrg}
-            className="h-10 rounded-lg border border-[#1E2D36] bg-[#070B0E] font-mono text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60"
+            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60"
           >
             DRG
           </button>
           <button
             type="button"
             onClick={() => handleMemory('STO')}
-            className="h-10 rounded-lg border border-[#1E2D36] bg-[#070B0E] font-mono text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60"
+            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60"
           >
             STO
           </button>
           <button
             type="button"
             onClick={() => handleMemory(secondF ? 'MC' : 'RCL')}
-            className="h-10 rounded-lg border border-[#1E2D36] bg-[#070B0E] font-mono text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60"
+            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60"
           >
             {secondF ? 'MC' : 'RCL'}
           </button>
           <button
             type="button"
             onClick={() => handleMemory('M+')}
-            className="h-10 rounded-lg border border-[#1E2D36] bg-[#070B0E] font-mono text-xs font-semibold text-[#39FF14] hover:border-[#39FF14]"
+            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-[#39FF14] hover:border-[#39FF14]"
           >
             M+
           </button>
           <button
             type="button"
             onClick={() => handleMemory('M-')}
-            className="h-10 rounded-lg border border-[#1E2D36] bg-[#070B0E] font-mono text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60"
+            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60"
           >
             M−
           </button>
         </div>
 
         {/* Scientific Row */}
-        <div className="mt-2.5 grid grid-cols-5 gap-2">
+        <div className="mt-2.5 grid grid-cols-5 gap-1.5 sm:gap-2">
           {[
             { p: 'sin', s: 'sin⁻¹', act: () => append(secondF ? 'asin(' : 'sin(') },
             { p: 'cos', s: 'cos⁻¹', act: () => append(secondF ? 'acos(' : 'cos(') },
@@ -260,7 +260,7 @@ export function Sharp12DigitCalculator() {
         </div>
 
         {/* Numeric + Business Keypad */}
-        <div className="mt-3 grid grid-cols-5 gap-2">
+        <div className="mt-3 grid grid-cols-5 gap-1.5 sm:gap-2">
           {[
             { label: '7', act: () => append('7') },
             { label: '8', act: () => append('8') },
@@ -332,7 +332,7 @@ export function Sharp12DigitCalculator() {
           )}
         </div>
 
-        <div className="mt-4 flex-1 space-y-2.5 overflow-y-auto max-h-[420px]">
+        <div className="mt-4 flex-1 space-y-2.5 overflow-y-auto no-scrollbar max-h-[420px]">
           {history.length === 0 ? (
             <p className="text-sm text-slate-400">
               Evaluated 12-digit expressions will appear here. Click any entry to reload.

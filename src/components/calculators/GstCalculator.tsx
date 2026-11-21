@@ -91,7 +91,7 @@ export function GstCalculator() {
               </label>
               <input
                 id="gst-amount"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 step="0.01"
                 value={amount}
@@ -106,7 +106,7 @@ export function GstCalculator() {
               </label>
               <input
                 id="gst-rate"
-                type="number"
+                type="number" inputMode="decimal"
                 min="0"
                 max="100"
                 step="0.5"

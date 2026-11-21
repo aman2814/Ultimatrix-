@@ -323,7 +323,7 @@ export function ScientificCalculator() {
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
       {/* Main Scientific Keypad */}
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-5 sm:p-6 lg:col-span-8">
+      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-3.5 sm:p-6 lg:col-span-8">
         {/* Top Controls + Readout */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
           <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
@@ -348,7 +348,7 @@ export function ScientificCalculator() {
               type="button"
               onClick={handleBackspace}
               aria-label="Delete last character"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white"
             >
               <Delete className="h-3.5 w-3.5" />
               <span>DEL</span>
@@ -369,7 +369,7 @@ export function ScientificCalculator() {
               setExpr(e.target.value);
             }}
             placeholder="Type expression e.g. sin(30) + sqrt(144)"
-            className="w-full bg-transparent text-right font-mono text-sm sm:text-base text-slate-300 placeholder:text-slate-600 focus:outline-none tabular-nums"
+            className="w-full bg-transparent text-right font-mono text-base text-slate-300 placeholder:text-slate-600 focus:outline-none tabular-nums"
           />
           <div
             aria-live="polite"
@@ -382,13 +382,13 @@ export function ScientificCalculator() {
         </div>
 
         {/* Scientific Function Row */}
-        <div className="mt-4 grid grid-cols-5 gap-2">
+        <div className="mt-4 grid grid-cols-5 gap-1.5 sm:gap-2">
           {sciButtons.map((btn) => (
             <button
               key={btn.label}
               type="button"
               onClick={() => appendText(btn.insert)}
-              className="h-10 rounded-lg border border-[#1E2D36] bg-[#070B0E] font-mono text-xs sm:text-sm font-medium text-slate-200 transition-colors hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-[#39FF14]"
+              className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 font-mono text-xs sm:text-sm font-medium text-slate-200 transition-colors hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-[#39FF14]"
             >
               {btn.label}
             </button>
@@ -396,7 +396,7 @@ export function ScientificCalculator() {
         </div>
 
         {/* Main Numeric & Operator Grid */}
-        <div className="mt-3 grid grid-cols-4 gap-2">
+        <div className="mt-3 grid grid-cols-4 gap-1.5 sm:gap-2">
           {mainButtons.map((btn) => {
             const cls =
               btn.variant === 'accent'
@@ -438,7 +438,7 @@ export function ScientificCalculator() {
           )}
         </div>
 
-        <div className="mt-4 flex-1 space-y-2.5 overflow-y-auto max-h-[380px]">
+        <div className="mt-4 flex-1 space-y-2.5 overflow-y-auto no-scrollbar max-h-[380px]">
           {history.length === 0 ? (
             <p className="text-sm text-slate-400">
               Evaluated expressions will appear here. Click any entry to reload it.

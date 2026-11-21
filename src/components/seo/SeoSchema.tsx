@@ -4,8 +4,16 @@ import { defaultLang, Lang, ogLocaleMap, showDefaultLang, SUPPORTED_LANGS } from
 import { getLangFromPathname, stripLangPrefix, useTranslations } from '../../i18n/utils';
 import { getCanonicalUrl, getSiteBaseUrl } from '../../seo/siteUrl';
 
+export interface SeoPageMeta {
+  title: string;
+  description: string;
+  name: string;
+  type?: 'AboutPage' | 'ContactPage' | 'WebPage';
+}
+
 interface SeoSchemaProps {
   calculator?: CalculatorDefinition;
+  pageMeta?: SeoPageMeta;
   canonicalPath: string;
 }
 
@@ -70,15 +78,23 @@ function syncHreflangTags(basePath: string, origin: string) {
   }
 }
 
-export function SeoSchema({ calculator, canonicalPath }: SeoSchemaProps) {
+export function SeoSchema({ calculator, pageMeta, canonicalPath }: SeoSchemaProps) {
   const origin = getSiteBaseUrl();
   const lang = getLangFromPathname(canonicalPath);
   const basePath = stripLangPrefix(canonicalPath);
   const fullUrl = getCanonicalUrl(localizePathForHreflang(basePath, lang), origin);
   const t = useTranslations(lang);
 
-  const title = calculator ? calculator.metaTitle : t('hub.metaTitle');
-  const description = calculator ? calculator.metaDescription : t('hub.metaDescription');
+  const title = calculator
+    ? calculator.metaTitle
+    : pageMeta
+    ? pageMeta.title
+    : t('hub.metaTitle');
+  const description = calculator
+    ? calculator.metaDescription
+    : pageMeta
+    ? pageMeta.description
+    : t('hub.metaDescription');
   const keywords = calculator ? calculator.keywords.join(', ') : '';
 
   useEffect(() => {
@@ -160,6 +176,40 @@ export function SeoSchema({ calculator, canonicalPath }: SeoSchemaProps) {
               text: faq.answer,
             },
           })),
+        },
+      ]
+    : pageMeta
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': pageMeta.type ?? 'WebPage',
+          name: pageMeta.name,
+          url: fullUrl,
+          inLanguage: lang,
+          description,
+          isPartOf: {
+            '@type': 'WebSite',
+            name: 'Ultimatrix Calculator',
+            url: getCanonicalUrl(localizePathForHreflang('/', lang), origin),
+          },
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: t('nav.home'),
+              item: getCanonicalUrl(localizePathForHreflang('/', lang), origin),
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: pageMeta.name,
+              item: fullUrl,
+            },
+          ],
         },
       ]
     : [
