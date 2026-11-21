@@ -1,0 +1,94 @@
+import { getCalculatorBySlug } from './data/calculators';
+import { RouterProvider, useRoute, Link } from './components/ui/Router';
+import { HomeHub } from './components/ui/HomeHub';
+import { CalculatorShell } from './components/ui/CalculatorShell';
+import { BmiCalculator } from './components/calculators/BmiCalculator';
+import { AgeCalculator } from './components/calculators/AgeCalculator';
+import { DateCalculator } from './components/calculators/DateCalculator';
+import { TimeDurationCalculator } from './components/calculators/TimeDurationCalculator';
+import { PregnancyDueDateCalculator } from './components/calculators/PregnancyDueDateCalculator';
+import { PercentageCalculator } from './components/calculators/PercentageCalculator';
+import { CgpaToPercentageCalculator } from './components/calculators/CgpaToPercentageCalculator';
+import { GpaCalculator } from './components/calculators/GpaCalculator';
+import { DiscountCalculator } from './components/calculators/DiscountCalculator';
+import { ScientificCalculator } from './components/calculators/ScientificCalculator';
+import { EmiCalculator } from './components/calculators/EmiCalculator';
+import { SipCalculator } from './components/calculators/SipCalculator';
+import { GstCalculator } from './components/calculators/GstCalculator';
+
+function renderCalculatorWidget(slug: string) {
+  switch (slug) {
+    case '/bmi-calculator':
+      return <BmiCalculator variant="general" />;
+    case '/bmi-calculator/men':
+      return <BmiCalculator variant="men" />;
+    case '/bmi-calculator/women':
+      return <BmiCalculator variant="women" />;
+    case '/age-calculator':
+      return <AgeCalculator />;
+    case '/date-calculator':
+      return <DateCalculator />;
+    case '/time-duration-calculator':
+      return <TimeDurationCalculator />;
+    case '/pregnancy-due-date-calculator':
+      return <PregnancyDueDateCalculator />;
+    case '/percentage-calculator':
+      return <PercentageCalculator />;
+    case '/cgpa-to-percentage-calculator':
+      return <CgpaToPercentageCalculator />;
+    case '/gpa-calculator':
+      return <GpaCalculator />;
+    case '/discount-calculator':
+      return <DiscountCalculator />;
+    case '/scientific-calculator':
+      return <ScientificCalculator />;
+    case '/emi-calculator':
+      return <EmiCalculator />;
+    case '/sip-calculator':
+      return <SipCalculator />;
+    case '/gst-calculator':
+      return <GstCalculator />;
+    default:
+      return null;
+  }
+}
+
+function ActiveView() {
+  const { pathname } = useRoute();
+
+  if (pathname === '/') {
+    return <HomeHub />;
+  }
+
+  const calculator = getCalculatorBySlug(pathname);
+  if (calculator) {
+    return (
+      <CalculatorShell calculator={calculator}>
+        {renderCalculatorWidget(calculator.slug)}
+      </CalculatorShell>
+    );
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#070B0E] px-4 text-center text-slate-100">
+      <h1 className="font-display text-3xl font-bold text-white">Calculator Not Found</h1>
+      <p className="mt-2 max-w-md text-sm text-slate-300">
+        The requested route does not match an Ultimatrix Calculator tool.
+      </p>
+      <Link
+        href="/"
+        className="mt-6 rounded-lg bg-[#39FF14] px-5 py-2.5 text-sm font-semibold text-[#070B0E] hover:bg-[#39FF14]/90"
+      >
+        Return to All Calculators
+      </Link>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <RouterProvider>
+      <ActiveView />
+    </RouterProvider>
+  );
+}

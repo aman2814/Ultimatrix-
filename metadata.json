@@ -1,0 +1,6 @@
+{
+  "name": "Ultimatrix Calculator",
+  "description": "Precision multi-calculator suite for health, finance, date & time, academic grades, and scientific math with instant real-time results and formula guides.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
