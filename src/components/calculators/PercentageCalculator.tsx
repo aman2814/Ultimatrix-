@@ -106,10 +106,10 @@ export function PercentageCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex flex-wrap rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1 gap-1">
+            <div className="inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1 gap-1">
               {[
                 { id: 'percent-of', label: 'X% of Y' },
                 { id: 'what-percent', label: 'X is what % of Y' },
@@ -119,10 +119,10 @@ export function PercentageCalculator() {
                   key={tab.id}
                   type="button"
                   onClick={() => setMode(tab.id as PctMode)}
-                  className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                     mode === tab.id
-                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {tab.label}
@@ -133,7 +133,7 @@ export function PercentageCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -143,7 +143,7 @@ export function PercentageCalculator() {
           {mode === 'percent-of' && (
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="pct-x1" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="pct-x1" className="block text-sm font-medium text-slate-700">
                   Percentage (X %)
                 </label>
                 <input
@@ -152,11 +152,11 @@ export function PercentageCalculator() {
                   step="any"
                   value={x1}
                   onChange={(e) => setX1(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
               <div>
-                <label htmlFor="pct-y1" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="pct-y1" className="block text-sm font-medium text-slate-700">
                   Total Value (Y)
                 </label>
                 <input
@@ -165,7 +165,7 @@ export function PercentageCalculator() {
                   step="any"
                   value={y1}
                   onChange={(e) => setY1(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
             </div>
@@ -174,7 +174,7 @@ export function PercentageCalculator() {
           {mode === 'what-percent' && (
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="pct-x2" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="pct-x2" className="block text-sm font-medium text-slate-700">
                   Part Value (X)
                 </label>
                 <input
@@ -183,11 +183,11 @@ export function PercentageCalculator() {
                   step="any"
                   value={x2}
                   onChange={(e) => setX2(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
               <div>
-                <label htmlFor="pct-y2" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="pct-y2" className="block text-sm font-medium text-slate-700">
                   Whole Value (Y)
                 </label>
                 <input
@@ -196,7 +196,7 @@ export function PercentageCalculator() {
                   step="any"
                   value={y2}
                   onChange={(e) => setY2(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
             </div>
@@ -205,7 +205,7 @@ export function PercentageCalculator() {
           {mode === 'pct-change' && (
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="pct-old" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="pct-old" className="block text-sm font-medium text-slate-700">
                   Initial Value (Old)
                 </label>
                 <input
@@ -214,11 +214,11 @@ export function PercentageCalculator() {
                   step="any"
                   value={oldVal}
                   onChange={(e) => setOldVal(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
               <div>
-                <label htmlFor="pct-new" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="pct-new" className="block text-sm font-medium text-slate-700">
                   Final Value (New)
                 </label>
                 <input
@@ -227,14 +227,14 @@ export function PercentageCalculator() {
                   step="any"
                   value={newVal}
                   onChange={(e) => setNewVal(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
             </div>
           )}
         </div>
 
-        <div className="mt-6 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-3 font-mono text-xs sm:text-sm text-slate-300 tabular-nums">
+        <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50/60 px-4 py-3 font-mono text-xs sm:text-sm text-[#15803d] tabular-nums">
           {stepFormula || 'Formula preview updates automatically as you enter values.'}
         </div>
       </div>

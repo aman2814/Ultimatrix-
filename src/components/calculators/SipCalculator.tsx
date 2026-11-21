@@ -63,14 +63,14 @@ export function SipCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex items-center justify-between gap-4">
-            <h2 className="font-display text-base font-bold text-white">SIP Plan Inputs</h2>
+            <h2 className="font-display text-base font-bold text-slate-900">SIP Plan Inputs</h2>
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -79,7 +79,7 @@ export function SipCalculator() {
 
           <div className="mt-5 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="sip-monthly" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="sip-monthly" className="block text-sm font-medium text-slate-700">
                 Monthly Investment
               </label>
               <input
@@ -89,12 +89,12 @@ export function SipCalculator() {
                 step="500"
                 value={monthlyInvestment}
                 onChange={(e) => setMonthlyInvestment(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="sip-return" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="sip-return" className="block text-sm font-medium text-slate-700">
                 Expected Annual Return (%)
               </label>
               <input
@@ -105,12 +105,12 @@ export function SipCalculator() {
                 step="0.5"
                 value={expectedReturn}
                 onChange={(e) => setExpectedReturn(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="sip-years" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="sip-years" className="block text-sm font-medium text-slate-700">
                 Investment Duration (Years)
               </label>
               <input
@@ -121,12 +121,12 @@ export function SipCalculator() {
                 step="1"
                 value={years}
                 onChange={(e) => setYears(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="sip-stepup" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="sip-stepup" className="block text-sm font-medium text-slate-700">
                 Annual Step-Up (% optional)
               </label>
               <input
@@ -137,13 +137,13 @@ export function SipCalculator() {
                 step="1"
                 value={stepUpPct}
                 onChange={(e) => setStepUpPct(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
           </div>
         </div>
 
-        <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs text-slate-400">
+        <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">
           Compounded monthly assuming contributions at the start of each month (annuity-due convention).
         </p>
       </div>
@@ -166,13 +166,13 @@ export function SipCalculator() {
           visualBar={
             isValid ? (
               <div>
-                <div className="flex justify-between text-xs text-slate-400 mb-1.5">
+                <div className="flex justify-between text-xs text-slate-600 mb-1.5">
                   <span>Invested ({investedPct.toFixed(1)}%)</span>
-                  <span className="text-[#39FF14]">Returns ({returnsPct.toFixed(1)}%)</span>
+                  <span className="font-medium text-[#15803d]">Returns ({returnsPct.toFixed(1)}%)</span>
                 </div>
-                <div className="flex h-2.5 w-full overflow-hidden rounded-full border border-[#1E2D36] bg-[#070B0E]">
+                <div className="flex h-2.5 w-full overflow-hidden rounded-full border border-slate-200 bg-slate-100">
                   <div className="h-full bg-slate-400" style={{ width: `${investedPct}%` }} />
-                  <div className="h-full bg-[#39FF14]" style={{ width: `${returnsPct}%` }} />
+                  <div className="h-full bg-[#16a34a]" style={{ width: `${returnsPct}%` }} />
                 </div>
               </div>
             ) : null

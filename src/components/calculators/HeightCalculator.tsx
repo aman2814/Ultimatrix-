@@ -69,21 +69,21 @@ export function HeightCalculator() {
 
     return (
       <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-        <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+        <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
           <div>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+              <div className="inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1">
                 <button
                   type="button"
                   onClick={() => setMode('converter')}
-                  className="rounded-md bg-[#39FF14] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-[#070B0E] whitespace-nowrap"
+                  className="min-h-[44px] md:min-h-0 rounded-md bg-[#16a34a] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white shadow-xs whitespace-nowrap"
                 >
                   Height Converter
                 </button>
                 <button
                   type="button"
                   onClick={() => setMode('predictor')}
-                  className="rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white whitespace-nowrap"
+                  className="min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 whitespace-nowrap"
                 >
                   Child Height Predictor
                 </button>
@@ -92,7 +92,7 @@ export function HeightCalculator() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>Reset</span>
@@ -100,15 +100,15 @@ export function HeightCalculator() {
             </div>
 
             <div className="mt-5">
-              <span className="block text-xs font-medium text-slate-400">Conversion Direction</span>
-              <div className="mt-2 inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+              <span className="block text-xs font-medium text-slate-500">Conversion Direction</span>
+              <div className="mt-2 inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1">
                 <button
                   type="button"
                   onClick={() => setConvDir('ft-to-cm')}
-                  className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                     convDir === 'ft-to-cm'
-                      ? 'bg-[#39FF14]/20 text-[#39FF14] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-emerald-50 text-[#15803d] font-semibold ring-1 ring-[#16a34a]/30'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Feet &amp; Inches → cm / m
@@ -116,10 +116,10 @@ export function HeightCalculator() {
                 <button
                   type="button"
                   onClick={() => setConvDir('cm-to-ft')}
-                  className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                     convDir === 'cm-to-ft'
-                      ? 'bg-[#39FF14]/20 text-[#39FF14] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-emerald-50 text-[#15803d] font-semibold ring-1 ring-[#16a34a]/30'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Centimeters → Feet &amp; Inches
@@ -130,7 +130,7 @@ export function HeightCalculator() {
             {convDir === 'ft-to-cm' ? (
               <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="ht-ft" className="block text-sm font-medium text-slate-200">
+                  <label htmlFor="ht-ft" className="block text-sm font-medium text-slate-700">
                     Feet (ft)
                   </label>
                   <input
@@ -140,11 +140,11 @@ export function HeightCalculator() {
                     max="9"
                     value={feet}
                     onChange={(e) => setFeet(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                    className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label htmlFor="ht-in" className="block text-sm font-medium text-slate-200">
+                  <label htmlFor="ht-in" className="block text-sm font-medium text-slate-700">
                     Inches (in)
                   </label>
                   <input
@@ -155,13 +155,13 @@ export function HeightCalculator() {
                     step="0.5"
                     value={inches}
                     onChange={(e) => setInches(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                    className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                   />
                 </div>
               </div>
             ) : (
               <div className="mt-5 max-w-xs">
-                <label htmlFor="ht-cm" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="ht-cm" className="block text-sm font-medium text-slate-700">
                   Height (cm)
                 </label>
                 <input
@@ -171,13 +171,13 @@ export function HeightCalculator() {
                   step="0.5"
                   value={cmInput}
                   onChange={(e) => setCmInput(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
             )}
           </div>
 
-          <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs text-slate-400">
+          <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">
             Exact international conversion: 1 foot = 30.48 cm and 1 inch = 2.54 cm.
           </p>
         </div>
@@ -225,21 +225,21 @@ export function HeightCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+            <div className="inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1">
               <button
                 type="button"
                 onClick={() => setMode('converter')}
-                className="rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white whitespace-nowrap"
+                className="min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 whitespace-nowrap"
               >
                 Height Converter
               </button>
               <button
                 type="button"
                 onClick={() => setMode('predictor')}
-                className="rounded-md bg-[#39FF14] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-[#070B0E] whitespace-nowrap"
+                className="min-h-[44px] md:min-h-0 rounded-md bg-[#16a34a] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white shadow-xs whitespace-nowrap"
               >
                 Child Height Predictor
               </button>
@@ -248,7 +248,7 @@ export function HeightCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -256,17 +256,17 @@ export function HeightCalculator() {
           </div>
 
           <div className="mt-5">
-            <span className="block text-sm font-medium text-slate-200">Child&apos;s Sex</span>
-            <div className="mt-2 inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+            <span className="block text-sm font-medium text-slate-700">Child&apos;s Sex</span>
+            <div className="mt-2 inline-flex rounded-lg border border-slate-200 bg-slate-100/80 p-1">
               {(['boy', 'girl'] as const).map((s) => (
                 <button
                   key={s}
                   type="button"
                   onClick={() => setChildSex(s)}
-                  className={`rounded-md px-4 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-4 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
                     childSex === s
-                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {s === 'boy' ? 'Boy (+13 cm)' : 'Girl (−13 cm)'}
@@ -277,7 +277,7 @@ export function HeightCalculator() {
 
           <div className="mt-5 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="ht-father" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="ht-father" className="block text-sm font-medium text-slate-700">
                 Father&apos;s Height (cm)
               </label>
               <input
@@ -288,15 +288,15 @@ export function HeightCalculator() {
                 step="0.5"
                 value={fatherCm}
                 onChange={(e) => setFatherCm(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
-              <span className="mt-1 block font-mono text-xs text-slate-400">
+              <span className="mt-1 block font-mono text-xs text-slate-500">
                 {Number.isFinite(fCm) && fCm > 100 ? cmToFtIn(fCm) : ''}
               </span>
             </div>
 
             <div>
-              <label htmlFor="ht-mother" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="ht-mother" className="block text-sm font-medium text-slate-700">
                 Mother&apos;s Height (cm)
               </label>
               <input
@@ -307,16 +307,16 @@ export function HeightCalculator() {
                 step="0.5"
                 value={motherCm}
                 onChange={(e) => setMotherCm(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
-              <span className="mt-1 block font-mono text-xs text-slate-400">
+              <span className="mt-1 block font-mono text-xs text-slate-500">
                 {Number.isFinite(mCm) && mCm > 100 ? cmToFtIn(mCm) : ''}
               </span>
             </div>
           </div>
         </div>
 
-        <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs text-slate-400">
+        <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">
           Mid-parental target height estimates genetic adult height within ±8.5 cm (±3.3 in) for 95% of healthy children.
         </p>
       </div>

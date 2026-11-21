@@ -46,17 +46,17 @@ export function DiscountWithTaxCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+            <div className="inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1">
               <button
                 type="button"
                 onClick={() => setTaxMode('after')}
-                className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   taxMode === 'after'
-                    ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                    : 'text-slate-300 hover:text-white'
+                    ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Tax After Discount
@@ -64,10 +64,10 @@ export function DiscountWithTaxCalculator() {
               <button
                 type="button"
                 onClick={() => setTaxMode('before')}
-                className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   taxMode === 'before'
-                    ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                    : 'text-slate-300 hover:text-white'
+                    ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Tax Before Discount
@@ -77,7 +77,7 @@ export function DiscountWithTaxCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -86,7 +86,7 @@ export function DiscountWithTaxCalculator() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="dtax-price" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="dtax-price" className="block text-sm font-medium text-slate-700">
                 Original Price
               </label>
               <input
@@ -96,12 +96,12 @@ export function DiscountWithTaxCalculator() {
                 step="0.01"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="dtax-d1" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="dtax-d1" className="block text-sm font-medium text-slate-700">
                 First Discount (%)
               </label>
               <input
@@ -112,12 +112,12 @@ export function DiscountWithTaxCalculator() {
                 step="0.5"
                 value={discount1}
                 onChange={(e) => setDiscount1(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="dtax-d2" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="dtax-d2" className="block text-sm font-medium text-slate-700">
                 Stacked Extra Discount (%)
               </label>
               <input
@@ -128,12 +128,12 @@ export function DiscountWithTaxCalculator() {
                 step="0.5"
                 value={discount2}
                 onChange={(e) => setDiscount2(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="dtax-rate" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="dtax-rate" className="block text-sm font-medium text-slate-700">
                 Sales Tax / GST (%)
               </label>
               <input
@@ -144,13 +144,13 @@ export function DiscountWithTaxCalculator() {
                 step="0.25"
                 value={taxRate}
                 onChange={(e) => setTaxRate(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
           </div>
         </div>
 
-        <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs leading-relaxed text-slate-400">
+        <p className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
           {taxMode === 'after'
             ? 'Standard Retail Rule: Sales tax / GST is assessed on the discounted subtotal.'
             : 'Pre-Discount Tax Rule: Sales tax / GST is calculated on the original tag price (used in select coupon/rebate jurisdictions).'}
@@ -175,15 +175,15 @@ export function DiscountWithTaxCalculator() {
           visualBar={
             isValid ? (
               <div>
-                <div className="flex justify-between text-xs text-slate-400 mb-1.5">
+                <div className="flex justify-between text-xs text-slate-600 mb-1.5">
                   <span>Final Bill vs Full Taxed Price</span>
-                  <span className="font-mono text-[#39FF14] tabular-nums">
+                  <span className="font-mono font-semibold text-[#15803d] tabular-nums">
                     {effectiveDiscountPct.toFixed(1)}% off
                   </span>
                 </div>
-                <div className="flex h-2.5 w-full overflow-hidden rounded-full border border-[#1E2D36] bg-[#070B0E]">
+                <div className="flex h-2.5 w-full overflow-hidden rounded-full border border-slate-200 bg-slate-100">
                   <div className="h-full bg-slate-400" style={{ width: `${payPct}%` }} />
-                  <div className="h-full bg-[#39FF14]" style={{ width: `${savedPctBar}%` }} />
+                  <div className="h-full bg-[#16a34a]" style={{ width: `${savedPctBar}%` }} />
                 </div>
               </div>
             ) : null

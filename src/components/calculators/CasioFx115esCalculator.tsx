@@ -97,41 +97,41 @@ export function CasioFx115esCalculator() {
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
       {/* Casio fx-115ES Plus Chassis */}
-      <div className="rounded-2xl border border-[#1E2D36] bg-[#10171D] p-3.5 sm:p-6 lg:col-span-8">
+      <div className="rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-6 shadow-xs lg:col-span-8">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
           <div className="flex items-center gap-2 text-xs font-mono">
-            <span className="font-semibold text-white">fx-115ES PLUS</span>
-            <span className="text-slate-500">·</span>
-            <span className="text-slate-400">Natural-V.P.A.M. Simulator</span>
+            <span className="font-semibold text-slate-900">fx-115ES PLUS</span>
+            <span className="text-slate-400">·</span>
+            <span className="text-slate-600">Natural-V.P.A.M. Simulator</span>
           </div>
           <CopyResultButton value={errorMsg ? '' : shownResult} label="Copy Result" />
         </div>
 
         {/* Natural Textbook Two-Line LCD Screen */}
-        <div className="rounded-xl border border-[#24382A] bg-[#0B140E] p-4 shadow-inner">
-          <div className="flex items-center justify-between border-b border-[#1E2D36]/70 pb-2 text-[11px] font-mono">
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50/40 p-4 shadow-inner">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2 text-[11px] font-mono">
             <div className="flex items-center gap-2">
               <span
                 className={`rounded px-1.5 py-0.5 font-bold ${
-                  shiftActive ? 'bg-amber-400 text-[#070B0E]' : 'text-slate-600'
+                  shiftActive ? 'bg-amber-500 text-white' : 'text-slate-400'
                 }`}
               >
                 SHIFT
               </span>
               <span
                 className={`rounded px-1.5 py-0.5 font-bold ${
-                  alphaActive ? 'bg-rose-400 text-[#070B0E]' : 'text-slate-600'
+                  alphaActive ? 'bg-rose-600 text-white' : 'text-slate-400'
                 }`}
               >
                 ALPHA
               </span>
-              <span className="text-slate-400">Math</span>
+              <span className="text-slate-600">Math</span>
             </div>
 
             <button
               type="button"
               onClick={cycleAngle}
-              className="rounded border border-[#1E2D36] bg-[#070B0E] px-2 py-0.5 font-semibold text-[#39FF14] hover:border-[#39FF14]"
+              className="rounded border border-slate-300 bg-white px-2 py-0.5 font-semibold text-[#15803d] hover:border-[#16a34a]"
               title="Cycle DEG / RAD / GRAD"
             >
               {angleUnit}
@@ -148,13 +148,13 @@ export function CasioFx115esCalculator() {
               setExpr(e.target.value);
             }}
             placeholder="e.g. (3/4) + logBase(2, 8) + nCr(5, 2)"
-            className="mt-3 w-full bg-transparent font-mono text-base text-slate-200 placeholder:text-slate-600 focus:outline-none tabular-nums"
+            className="mt-3 w-full bg-transparent font-mono text-base text-slate-900 placeholder:text-slate-400 focus:outline-none tabular-nums"
           />
 
           <div
             aria-live="polite"
             className={`mt-3 text-right font-mono text-2xl sm:text-3xl font-bold tabular-nums break-all ${
-              errorMsg ? 'text-rose-400' : 'text-[#39FF14]'
+              errorMsg ? 'text-rose-700' : 'text-[#15803d]'
             }`}
           >
             {shownResult}
@@ -171,8 +171,8 @@ export function CasioFx115esCalculator() {
             }}
             className={`min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-bold transition-colors truncate ${
               shiftActive
-                ? 'border-amber-400 bg-amber-400 text-[#070B0E]'
-                : 'border-[#1E2D36] bg-[#070B0E] text-amber-300 hover:border-amber-400/60'
+                ? 'border-amber-500 bg-amber-500 text-white'
+                : 'border-slate-200 bg-slate-50 text-amber-700 hover:border-amber-500'
             }`}
           >
             SHIFT
@@ -185,8 +185,8 @@ export function CasioFx115esCalculator() {
             }}
             className={`min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-bold transition-colors truncate ${
               alphaActive
-                ? 'border-rose-400 bg-rose-400 text-[#070B0E]'
-                : 'border-[#1E2D36] bg-[#070B0E] text-rose-300 hover:border-rose-400/60'
+                ? 'border-rose-600 bg-rose-600 text-white'
+                : 'border-slate-200 bg-slate-50 text-rose-700 hover:border-rose-500'
             }`}
           >
             ALPHA
@@ -194,7 +194,7 @@ export function CasioFx115esCalculator() {
           <button
             type="button"
             onClick={cycleAngle}
-            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60 truncate"
+            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-slate-200 bg-slate-50 px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-800 hover:border-[#16a34a] truncate"
           >
             DRG
           </button>
@@ -202,7 +202,7 @@ export function CasioFx115esCalculator() {
             type="button"
             onClick={() => append(shiftActive ? 'abs(' : '/')}
             title="Fraction bar or abs() with SHIFT"
-            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60 truncate"
+            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-slate-200 bg-slate-50 px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-800 hover:border-[#16a34a] truncate"
           >
             {shiftActive ? 'abs()' : 'a b/c'}
           </button>
@@ -212,8 +212,8 @@ export function CasioFx115esCalculator() {
             title="Toggle Standard Fraction / Decimal display"
             className={`min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold transition-colors truncate ${
               fractionMode
-                ? 'border-[#39FF14] bg-[#39FF14]/20 text-[#39FF14]'
-                : 'border-[#1E2D36] bg-[#070B0E] text-slate-200 hover:border-[#39FF14]/60'
+                ? 'border-[#16a34a] bg-emerald-50 text-[#15803d]'
+                : 'border-slate-200 bg-slate-50 text-slate-800 hover:border-[#16a34a]'
             }`}
           >
             S⇔D
@@ -221,7 +221,7 @@ export function CasioFx115esCalculator() {
           <button
             type="button"
             onClick={() => append(', ')}
-            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-200 hover:border-[#39FF14]/60 truncate"
+            className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-slate-200 bg-slate-50 px-0.5 sm:px-1 font-mono text-[11px] sm:text-xs font-semibold text-slate-800 hover:border-[#16a34a] truncate"
           >
             , (sep)
           </button>
@@ -295,12 +295,12 @@ export function CasioFx115esCalculator() {
               key={`${btn.primary}-${idx}`}
               type="button"
               onClick={btn.action}
-              className="flex h-12 min-w-0 flex-col items-center justify-center rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 sm:px-1 transition-colors hover:border-[#39FF14]/60"
+              className="flex h-12 min-w-0 flex-col items-center justify-center rounded-lg border border-slate-200 bg-slate-50 px-0.5 sm:px-1 transition-colors hover:border-[#16a34a] hover:bg-white"
             >
-              <span className="text-[10px] font-mono text-amber-300/85 leading-none truncate max-w-full">
+              <span className="text-[10px] font-mono text-amber-700 leading-none truncate max-w-full">
                 {btn.shift}
               </span>
-              <span className="mt-1 font-mono text-[11px] sm:text-sm font-semibold text-white leading-none truncate max-w-full">
+              <span className="mt-1 font-mono text-[11px] sm:text-sm font-semibold text-slate-900 leading-none truncate max-w-full">
                 {btn.primary}
               </span>
             </button>
@@ -333,14 +333,14 @@ export function CasioFx115esCalculator() {
           ].map((k) => {
             const cls =
               k.tone === 'accent'
-                ? 'bg-[#39FF14] text-[#070B0E] border-[#39FF14] font-bold hover:bg-[#39FF14]/90'
+                ? 'bg-[#16a34a] text-white border-[#16a34a] font-bold hover:bg-[#15803d]'
                 : k.tone === 'danger'
-                ? 'bg-[#141D25] text-rose-400 border-[#1E2D36] hover:border-rose-400/50'
+                ? 'bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400'
                 : k.tone === 'warn'
-                ? 'bg-[#141D25] text-amber-300 border-[#1E2D36] hover:border-amber-300/50'
+                ? 'bg-amber-50 text-amber-800 border-amber-200 hover:border-amber-400'
                 : k.tone === 'op'
-                ? 'bg-[#141D25] text-[#39FF14] border-[#1E2D36] hover:border-[#39FF14]/50'
-                : 'bg-[#070B0E] text-white border-[#1E2D36] hover:border-slate-500';
+                ? 'bg-slate-100 text-[#15803d] border-slate-200 hover:border-[#16a34a]'
+                : 'bg-white text-slate-900 border-slate-300 hover:border-slate-400 hover:bg-slate-50';
             return (
               <button
                 key={k.label}
@@ -363,17 +363,17 @@ export function CasioFx115esCalculator() {
       </div>
 
       {/* History Tape */}
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-5 sm:p-6 lg:col-span-4 flex flex-col">
-        <div className="flex items-center justify-between gap-2 border-b border-[#1E2D36] pb-3">
+      <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-4 sm:p-6 shadow-xs lg:col-span-4 flex flex-col">
+        <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-3">
           <div className="flex items-center gap-2">
-            <History className="h-4 w-4 text-[#39FF14]" />
-            <h2 className="font-display text-base font-bold text-white">Calculation Tape</h2>
+            <History className="h-4 w-4 text-[#16a34a]" />
+            <h2 className="font-display text-base font-bold text-slate-900">Calculation Tape</h2>
           </div>
           {history.length > 0 && (
             <button
               type="button"
               onClick={() => setHistory([])}
-              className="text-xs text-slate-400 hover:text-white"
+              className="text-xs text-slate-600 hover:text-slate-900"
             >
               Clear
             </button>
@@ -382,7 +382,7 @@ export function CasioFx115esCalculator() {
 
         <div className="mt-4 flex-1 space-y-2.5 overflow-y-auto no-scrollbar max-h-[420px]">
           {history.length === 0 ? (
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-slate-600">
               Evaluated Casio expressions appear here. Click any item to reload it.
             </p>
           ) : (
@@ -396,16 +396,16 @@ export function CasioFx115esCalculator() {
                   setAngleUnit(item.angle);
                   setErrorMsg(null);
                 }}
-                className="w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] p-3 text-left transition-colors hover:border-[#39FF14]/50"
+                className="w-full rounded-lg border border-slate-200 bg-white p-3 text-left transition-colors hover:border-[#16a34a]"
               >
-                <div className="flex items-center justify-between font-mono text-[11px] text-slate-400">
+                <div className="flex items-center justify-between font-mono text-[11px] text-slate-500">
                   <span>{item.angle}</span>
                   <span>Reload</span>
                 </div>
-                <div className="mt-1 truncate font-mono text-xs text-slate-300 tabular-nums">
+                <div className="mt-1 truncate font-mono text-xs text-slate-700 tabular-nums">
                   {item.expr}
                 </div>
-                <div className="mt-1 font-mono text-base font-bold text-[#39FF14] tabular-nums">
+                <div className="mt-1 font-mono text-base font-bold text-[#15803d] tabular-nums">
                   = {item.result}
                 </div>
               </button>

@@ -117,10 +117,10 @@ export function PregnancyDueDateCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex flex-wrap rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1 gap-1">
+            <div className="inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1 gap-1">
               {[
                 { id: 'ivf', label: 'IVF Transfer' },
                 { id: 'conception', label: 'Conception' },
@@ -132,8 +132,8 @@ export function PregnancyDueDateCalculator() {
                   onClick={() => setMethod(tab.id as DueDateMethod)}
                   className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                     method === tab.id
-                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {tab.label}
@@ -144,7 +144,7 @@ export function PregnancyDueDateCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -153,7 +153,7 @@ export function PregnancyDueDateCalculator() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="preg-date" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="preg-date" className="block text-sm font-medium text-slate-700">
                 {method === 'ivf'
                   ? 'Embryo Transfer Date'
                   : method === 'conception'
@@ -165,13 +165,13 @@ export function PregnancyDueDateCalculator() {
                 type="date"
                 value={inputDate}
                 onChange={(e) => setInputDate(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             {method === 'ivf' && (
               <div>
-                <span className="block text-sm font-medium text-slate-200">
+                <span className="block text-sm font-medium text-slate-700">
                   Embryo Age at Transfer (Fresh or FET)
                 </span>
                 <div className="mt-2 grid grid-cols-3 gap-1.5">
@@ -186,8 +186,8 @@ export function PregnancyDueDateCalculator() {
                       onClick={() => setEmbryoAge(opt.id as EmbryoAge)}
                       className={`min-h-[44px] md:min-h-0 rounded-lg border px-3 py-2.5 font-mono text-xs sm:text-sm font-semibold transition-colors ${
                         embryoAge === opt.id
-                          ? 'border-[#39FF14] bg-[#39FF14]/15 text-[#39FF14]'
-                          : 'border-[#1E2D36] bg-[#070B0E] text-slate-300 hover:text-white'
+                          ? 'border-[#16a34a] bg-emerald-50 text-[#15803d]'
+                          : 'border-slate-200 bg-slate-50/70 text-slate-700 hover:bg-white hover:text-slate-900'
                       }`}
                     >
                       {opt.label}
@@ -199,7 +199,7 @@ export function PregnancyDueDateCalculator() {
 
             {method === 'lmp' && (
               <div>
-                <label htmlFor="preg-cycle" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="preg-cycle" className="block text-sm font-medium text-slate-700">
                   Average Cycle Length (days)
                 </label>
                 <input
@@ -210,29 +210,29 @@ export function PregnancyDueDateCalculator() {
                   max="45"
                   value={cycleLength}
                   onChange={(e) => setCycleLength(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
             )}
           </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 border-t border-[#1E2D36] pt-5 text-xs">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 border-t border-slate-200 pt-5 text-xs">
             <div>
-              <span className="text-slate-400">End of 1st Trimester</span>
-              <p className="mt-1 font-mono font-semibold text-white tabular-nums">{endTri1}</p>
+              <span className="text-slate-500">End of 1st Trimester</span>
+              <p className="mt-1 font-mono font-semibold text-slate-900 tabular-nums">{endTri1}</p>
             </div>
             <div>
-              <span className="text-slate-400">20-Week Scan</span>
-              <p className="mt-1 font-mono font-semibold text-white tabular-nums">{anatomyWindow}</p>
+              <span className="text-slate-500">20-Week Scan</span>
+              <p className="mt-1 font-mono font-semibold text-slate-900 tabular-nums">{anatomyWindow}</p>
             </div>
             <div>
-              <span className="text-slate-400">3rd Trimester Starts</span>
-              <p className="mt-1 font-mono font-semibold text-white tabular-nums">{startTri3}</p>
+              <span className="text-slate-500">3rd Trimester Starts</span>
+              <p className="mt-1 font-mono font-semibold text-slate-900 tabular-nums">{startTri3}</p>
             </div>
           </div>
         </div>
 
-        <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs leading-relaxed text-amber-300/90">
+        <p className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-amber-800">
           Informational Estimate Only: Fresh and frozen IVF transfers (FET) use transfer date + (266 − embryo age). Always confirm dating with your OB/GYN or fertility clinic.
         </p>
       </div>
@@ -247,15 +247,15 @@ export function PregnancyDueDateCalculator() {
           visualBar={
             isValid && gestDays >= 0 ? (
               <div>
-                <div className="flex justify-between text-xs text-slate-400 mb-1.5">
+                <div className="flex justify-between text-xs text-slate-600 mb-1.5">
                   <span>Gestation Progress</span>
-                  <span className="font-mono text-[#39FF14] tabular-nums">
+                  <span className="font-mono font-semibold text-[#15803d] tabular-nums">
                     {progressPct.toFixed(0)}%
                   </span>
                 </div>
-                <div className="h-2.5 w-full overflow-hidden rounded-full border border-[#1E2D36] bg-[#070B0E]">
+                <div className="h-2.5 w-full overflow-hidden rounded-full border border-slate-200 bg-slate-100">
                   <div
-                    className="h-full bg-[#39FF14] transition-all duration-200"
+                    className="h-full bg-[#16a34a] transition-all duration-200"
                     style={{ width: `${progressPct}%` }}
                   />
                 </div>

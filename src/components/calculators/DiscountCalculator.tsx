@@ -34,14 +34,14 @@ export function DiscountCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex items-center justify-between gap-4">
-            <h2 className="font-display text-base font-bold text-white">Pricing & Discounts</h2>
+            <h2 className="font-display text-base font-bold text-slate-900">Pricing & Discounts</h2>
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -50,7 +50,7 @@ export function DiscountCalculator() {
 
           <div className="mt-5 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="disc-price" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="disc-price" className="block text-sm font-medium text-slate-700">
                 Original Price
               </label>
               <input
@@ -60,12 +60,12 @@ export function DiscountCalculator() {
                 step="0.01"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="disc-1" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="disc-1" className="block text-sm font-medium text-slate-700">
                 Primary Discount (%)
               </label>
               <input
@@ -76,12 +76,12 @@ export function DiscountCalculator() {
                 step="0.5"
                 value={discount1}
                 onChange={(e) => setDiscount1(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="disc-2" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="disc-2" className="block text-sm font-medium text-slate-700">
                 Extra Coupon Discount (%)
               </label>
               <input
@@ -92,12 +92,12 @@ export function DiscountCalculator() {
                 step="0.5"
                 value={discount2}
                 onChange={(e) => setDiscount2(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="disc-tax" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="disc-tax" className="block text-sm font-medium text-slate-700">
                 Optional Tax / GST (%)
               </label>
               <input
@@ -108,13 +108,13 @@ export function DiscountCalculator() {
                 step="0.25"
                 value={taxRate}
                 onChange={(e) => setTaxRate(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
           </div>
         </div>
 
-        <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs text-slate-400">
+        <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">
           Additional coupon discounts apply sequentially to the already discounted price, and tax is computed on the discounted subtotal.
         </p>
       </div>
@@ -137,13 +137,13 @@ export function DiscountCalculator() {
           visualBar={
             isValid ? (
               <div>
-                <div className="flex justify-between text-xs text-slate-400 mb-1.5">
+                <div className="flex justify-between text-xs text-slate-600 mb-1.5">
                   <span>Payable ({payRatio.toFixed(0)}%)</span>
-                  <span className="text-[#39FF14]">Saved ({savedRatio.toFixed(0)}%)</span>
+                  <span className="font-medium text-[#15803d]">Saved ({savedRatio.toFixed(0)}%)</span>
                 </div>
-                <div className="flex h-2.5 w-full overflow-hidden rounded-full border border-[#1E2D36] bg-[#070B0E]">
+                <div className="flex h-2.5 w-full overflow-hidden rounded-full border border-slate-200 bg-slate-100">
                   <div className="h-full bg-slate-400" style={{ width: `${payRatio}%` }} />
-                  <div className="h-full bg-[#39FF14]" style={{ width: `${savedRatio}%` }} />
+                  <div className="h-full bg-[#16a34a]" style={{ width: `${savedRatio}%` }} />
                 </div>
               </div>
             ) : null

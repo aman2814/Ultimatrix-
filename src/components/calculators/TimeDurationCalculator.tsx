@@ -77,21 +77,21 @@ export function TimeDurationCalculator() {
 
     return (
       <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-        <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6 lg:col-span-7 flex flex-col justify-between">
+        <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
           <div>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="inline-flex max-w-full flex-wrap rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+              <div className="inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1">
                 <button
                   type="button"
                   onClick={() => setMode('elapsed')}
-                  className="min-h-[44px] md:min-h-0 rounded-md bg-[#39FF14] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-[#070B0E] whitespace-nowrap"
+                  className="min-h-[44px] md:min-h-0 rounded-md bg-[#16a34a] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white shadow-xs whitespace-nowrap"
                 >
                   Elapsed Time
                 </button>
                 <button
                   type="button"
                   onClick={() => setMode('offset')}
-                  className="min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white whitespace-nowrap"
+                  className="min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 whitespace-nowrap"
                 >
                   Add / Subtract Time
                 </button>
@@ -99,7 +99,7 @@ export function TimeDurationCalculator() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>Reset</span>
@@ -108,7 +108,7 @@ export function TimeDurationCalculator() {
 
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="time-start" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="time-start" className="block text-sm font-medium text-slate-700">
                   Start Time (HH:MM:SS)
                 </label>
                 <input
@@ -117,11 +117,11 @@ export function TimeDurationCalculator() {
                   step="1"
                   value={startTime}
                   onChange={(e) => setStartTime(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
               <div>
-                <label htmlFor="time-end" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="time-end" className="block text-sm font-medium text-slate-700">
                   End Time (HH:MM:SS)
                 </label>
                 <input
@@ -130,23 +130,23 @@ export function TimeDurationCalculator() {
                   step="1"
                   value={endTime}
                   onChange={(e) => setEndTime(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
             </div>
 
-            <label className="mt-5 inline-flex cursor-pointer items-center gap-2.5 text-sm text-slate-300">
+            <label className="mt-5 inline-flex cursor-pointer items-center gap-2.5 text-sm text-slate-700">
               <input
                 type="checkbox"
                 checked={overnightWrap}
                 onChange={(e) => setOvernightWrap(e.target.checked)}
-                className="h-4 w-4 rounded border-[#1E2D36] bg-[#070B0E] accent-[#39FF14]"
+                className="h-4 w-4 rounded border-slate-300 bg-white accent-[#16a34a]"
               />
               <span>Overnight shift wrap (add 24h when end time is earlier)</span>
             </label>
           </div>
 
-          <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs text-slate-400">
+          <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">
             {wrapped
               ? 'Overnight shift detected: Wrapped across midnight to compute elapsed duration.'
               : 'Outputs exact HMS duration alongside decimal hours for timesheets and payroll.'}
@@ -210,21 +210,21 @@ export function TimeDurationCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex max-w-full flex-wrap rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+            <div className="inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1">
               <button
                 type="button"
                 onClick={() => setMode('elapsed')}
-                className="min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white whitespace-nowrap"
+                className="min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 whitespace-nowrap"
               >
                 Elapsed Time
               </button>
               <button
                 type="button"
                 onClick={() => setMode('offset')}
-                className="min-h-[44px] md:min-h-0 rounded-md bg-[#39FF14] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-[#070B0E] whitespace-nowrap"
+                className="min-h-[44px] md:min-h-0 rounded-md bg-[#16a34a] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white shadow-xs whitespace-nowrap"
               >
                 Add / Subtract Time
               </button>
@@ -232,7 +232,7 @@ export function TimeDurationCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -241,7 +241,7 @@ export function TimeDurationCalculator() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="time-base" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="time-base" className="block text-sm font-medium text-slate-700">
                 Base Time
               </label>
               <input
@@ -250,19 +250,19 @@ export function TimeDurationCalculator() {
                 step="1"
                 value={baseTime}
                 onChange={(e) => setBaseTime(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
             <div>
-              <span className="block text-sm font-medium text-slate-200">Operation</span>
+              <span className="block text-sm font-medium text-slate-700">Operation</span>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={() => setOp('add')}
                   className={`min-h-[44px] md:min-h-0 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors ${
                     op === 'add'
-                      ? 'border-[#39FF14] bg-[#39FF14]/15 text-[#39FF14]'
-                      : 'border-[#1E2D36] bg-[#070B0E] text-slate-300 hover:text-white'
+                      ? 'border-[#16a34a] bg-emerald-50 text-[#15803d] font-semibold'
+                      : 'border-slate-200 bg-slate-50/70 text-slate-700 hover:bg-white hover:text-slate-900'
                   }`}
                 >
                   + Add
@@ -272,8 +272,8 @@ export function TimeDurationCalculator() {
                   onClick={() => setOp('sub')}
                   className={`min-h-[44px] md:min-h-0 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors ${
                     op === 'sub'
-                      ? 'border-[#39FF14] bg-[#39FF14]/15 text-[#39FF14]'
-                      : 'border-[#1E2D36] bg-[#070B0E] text-slate-300 hover:text-white'
+                      ? 'border-[#16a34a] bg-emerald-50 text-[#15803d] font-semibold'
+                      : 'border-slate-200 bg-slate-50/70 text-slate-700 hover:bg-white hover:text-slate-900'
                   }`}
                 >
                   − Subtract
@@ -289,7 +289,7 @@ export function TimeDurationCalculator() {
               { id: 'dur-s', label: 'Seconds', val: durSecs, set: setDurSecs },
             ].map((f) => (
               <div key={f.id}>
-                <label htmlFor={f.id} className="block text-xs font-medium text-slate-300">
+                <label htmlFor={f.id} className="block text-xs font-medium text-slate-600">
                   {f.label}
                 </label>
                 <input
@@ -299,14 +299,14 @@ export function TimeDurationCalculator() {
                   min="0"
                   value={f.val}
                   onChange={(e) => f.set(e.target.value)}
-                  className="mt-1.5 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-2 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-1.5 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-3 py-2 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
             ))}
           </div>
         </div>
 
-        <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs text-slate-400">
+        <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">
           Supports multi-day shifts above 24 hours and reports the resulting 24-hour and 12-hour clock times.
         </p>
       </div>

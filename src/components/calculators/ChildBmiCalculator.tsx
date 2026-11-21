@@ -67,20 +67,20 @@ export function ChildBmiCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+              <div className="inline-flex rounded-lg border border-slate-200 bg-slate-100/80 p-1">
                 {(['boy', 'girl'] as const).map((s) => (
                   <button
                     key={s}
                     type="button"
                     onClick={() => setSex(s)}
-                    className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                    className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                       sex === s
-                        ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                        : 'text-slate-300 hover:text-white'
+                        ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     {s === 'boy' ? 'Boy' : 'Girl'}
@@ -88,14 +88,14 @@ export function ChildBmiCalculator() {
                 ))}
               </div>
 
-              <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+              <div className="inline-flex rounded-lg border border-slate-200 bg-slate-100/80 p-1">
                 <button
                   type="button"
                   onClick={() => setUnit('metric')}
-                  className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                     unit === 'metric'
-                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Metric
@@ -103,10 +103,10 @@ export function ChildBmiCalculator() {
                 <button
                   type="button"
                   onClick={() => setUnit('imperial')}
-                  className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                     unit === 'imperial'
-                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Imperial
@@ -117,7 +117,7 @@ export function ChildBmiCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -126,7 +126,7 @@ export function ChildBmiCalculator() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="cbmi-yr" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="cbmi-yr" className="block text-sm font-medium text-slate-700">
                 Age Years (2 – 19)
               </label>
               <input
@@ -136,12 +136,12 @@ export function ChildBmiCalculator() {
                 max="19"
                 value={ageYears}
                 onChange={(e) => setAgeYears(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="cbmi-mo" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="cbmi-mo" className="block text-sm font-medium text-slate-700">
                 Additional Months (0 – 11)
               </label>
               <input
@@ -151,14 +151,14 @@ export function ChildBmiCalculator() {
                 max="11"
                 value={ageMonths}
                 onChange={(e) => setAgeMonths(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             {unit === 'metric' ? (
               <>
                 <div>
-                  <label htmlFor="cbmi-hcm" className="block text-sm font-medium text-slate-200">
+                  <label htmlFor="cbmi-hcm" className="block text-sm font-medium text-slate-700">
                     Height (cm)
                   </label>
                   <input
@@ -168,11 +168,11 @@ export function ChildBmiCalculator() {
                     step="0.5"
                     value={heightCm}
                     onChange={(e) => setHeightCm(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                    className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label htmlFor="cbmi-wkg" className="block text-sm font-medium text-slate-200">
+                  <label htmlFor="cbmi-wkg" className="block text-sm font-medium text-slate-700">
                     Weight (kg)
                   </label>
                   <input
@@ -182,7 +182,7 @@ export function ChildBmiCalculator() {
                     step="0.1"
                     value={weightKg}
                     onChange={(e) => setWeightKg(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                    className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                   />
                 </div>
               </>
@@ -190,7 +190,7 @@ export function ChildBmiCalculator() {
               <>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="cbmi-hft" className="block text-sm font-medium text-slate-200">
+                    <label htmlFor="cbmi-hft" className="block text-sm font-medium text-slate-700">
                       Height (ft)
                     </label>
                     <input
@@ -200,11 +200,11 @@ export function ChildBmiCalculator() {
                       max="7"
                       value={heightFt}
                       onChange={(e) => setHeightFt(e.target.value)}
-                      className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                      className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label htmlFor="cbmi-hin" className="block text-sm font-medium text-slate-200">
+                    <label htmlFor="cbmi-hin" className="block text-sm font-medium text-slate-700">
                       Height (in)
                     </label>
                     <input
@@ -215,12 +215,12 @@ export function ChildBmiCalculator() {
                       step="0.5"
                       value={heightIn}
                       onChange={(e) => setHeightIn(e.target.value)}
-                      className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                      className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="cbmi-wlb" className="block text-sm font-medium text-slate-200">
+                  <label htmlFor="cbmi-wlb" className="block text-sm font-medium text-slate-700">
                     Weight (lbs)
                   </label>
                   <input
@@ -230,7 +230,7 @@ export function ChildBmiCalculator() {
                     step="0.5"
                     value={weightLb}
                     onChange={(e) => setWeightLb(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                    className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                   />
                 </div>
               </>
@@ -238,7 +238,7 @@ export function ChildBmiCalculator() {
           </div>
         </div>
 
-        <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs leading-relaxed text-slate-400">
+        <p className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
           Informational Screening Only: Child and teen BMI is plotted against CDC age- and sex-specific growth percentiles. Consult a pediatrician for individual growth assessment.
         </p>
       </div>
@@ -258,25 +258,25 @@ export function ChildBmiCalculator() {
           visualBar={
             evalData ? (
               <div>
-                <div className="flex justify-between text-xs text-slate-400 mb-1.5">
+                <div className="flex justify-between text-xs text-slate-600 mb-1.5">
                   <span>CDC Percentile Position</span>
-                  <span className="font-mono text-[#39FF14] tabular-nums">
+                  <span className="font-mono font-semibold text-[#15803d] tabular-nums">
                     {evalData.percentileLabel}
                   </span>
                 </div>
-                <div className="relative h-2.5 w-full overflow-hidden rounded-full border border-[#1E2D36] bg-[#070B0E] flex">
-                  <div className="h-full bg-amber-400/75" style={{ width: '5%' }} />
-                  <div className="h-full bg-[#39FF14]/80" style={{ width: '80%' }} />
-                  <div className="h-full bg-amber-400/80" style={{ width: '10%' }} />
-                  <div className="h-full bg-rose-500/80" style={{ width: '5%' }} />
+                <div className="relative h-2.5 w-full overflow-hidden rounded-full border border-slate-200 bg-slate-100 flex">
+                  <div className="h-full bg-amber-400" style={{ width: '5%' }} />
+                  <div className="h-full bg-[#16a34a]" style={{ width: '80%' }} />
+                  <div className="h-full bg-amber-500" style={{ width: '10%' }} />
+                  <div className="h-full bg-rose-500" style={{ width: '5%' }} />
                 </div>
                 <div className="relative mt-1.5 h-3 w-full">
                   <div
-                    className="absolute -translate-x-1/2 top-0 h-2.5 w-1 rounded-full bg-white"
+                    className="absolute -translate-x-1/2 top-0 h-2.5 w-1.5 rounded-full bg-slate-900 ring-1 ring-white"
                     style={{ left: `${evalData.percentile}%` }}
                   />
                 </div>
-                <div className="flex justify-between font-mono text-[11px] text-slate-400 tabular-nums">
+                <div className="flex justify-between font-mono text-[11px] text-slate-500 tabular-nums">
                   <span>0th</span>
                   <span>5th</span>
                   <span>50th</span>

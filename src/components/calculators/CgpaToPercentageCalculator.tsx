@@ -52,10 +52,10 @@ export function CgpaToPercentageCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex flex-wrap rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1 gap-1">
+            <div className="inline-flex flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1 gap-1">
               {[
                 { id: 'cbse-10', label: '10-Pt CBSE (×9.5)' },
                 { id: 'custom-10', label: 'Custom 10-Pt' },
@@ -69,10 +69,10 @@ export function CgpaToPercentageCalculator() {
                     if (tab.id === 'gpa-4' && parseFloat(cgpa) > 4) setCgpa('3.6');
                     if (tab.id !== 'gpa-4' && parseFloat(cgpa) <= 4) setCgpa('8.6');
                   }}
-                  className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                     scale === tab.id
-                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                      : 'text-slate-700 hover:bg-white hover:text-slate-900'
                   }`}
                 >
                   {tab.label}
@@ -83,7 +83,7 @@ export function CgpaToPercentageCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -92,7 +92,7 @@ export function CgpaToPercentageCalculator() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="cgpa-input" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="cgpa-input" className="block text-sm font-medium text-slate-700">
                 {scale === 'gpa-4' ? 'GPA (0.0 – 4.0)' : 'CGPA (0.0 – 10.0)'}
               </label>
               <input
@@ -103,13 +103,13 @@ export function CgpaToPercentageCalculator() {
                 step="0.01"
                 value={cgpa}
                 onChange={(e) => setCgpa(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             {scale === 'custom-10' && (
               <div>
-                <label htmlFor="cgpa-mult" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="cgpa-mult" className="block text-sm font-medium text-slate-700">
                   University Multiplier
                 </label>
                 <input
@@ -120,7 +120,7 @@ export function CgpaToPercentageCalculator() {
                   step="0.1"
                   value={multiplier}
                   onChange={(e) => setMultiplier(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
                 <div className="mt-2 flex flex-wrap gap-1.5">
                   {[
@@ -132,7 +132,7 @@ export function CgpaToPercentageCalculator() {
                       key={preset.val}
                       type="button"
                       onClick={() => setMultiplier(preset.val)}
-                      className="rounded border border-[#1E2D36] bg-[#070B0E] px-2 py-1 text-xs text-slate-300 hover:border-[#39FF14]/60 hover:text-[#39FF14]"
+                      className="rounded border border-slate-200 bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 hover:border-[#16a34a] hover:text-[#15803d]"
                     >
                       {preset.label}
                     </button>
@@ -143,7 +143,7 @@ export function CgpaToPercentageCalculator() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-3 font-mono text-xs sm:text-sm text-slate-300 tabular-nums">
+        <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50/60 px-4 py-3 font-mono text-xs sm:text-sm font-medium text-[#15803d] tabular-nums">
           {isValid
             ? formulaStr
             : `Enter a valid value between 0.0 and ${maxScale}.0.`}

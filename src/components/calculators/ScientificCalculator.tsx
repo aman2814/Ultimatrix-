@@ -323,10 +323,10 @@ export function ScientificCalculator() {
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
       {/* Main Scientific Keypad */}
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-3.5 sm:p-6 lg:col-span-8">
+      <div className="rounded-xl border border-slate-200 bg-white p-3.5 sm:p-6 shadow-xs lg:col-span-8">
         {/* Top Controls + Readout */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-          <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+          <div className="inline-flex rounded-lg border border-slate-200 bg-slate-100/80 p-1">
             {(['DEG', 'RAD'] as AngleMode[]).map((m) => (
               <button
                 key={m}
@@ -334,8 +334,8 @@ export function ScientificCalculator() {
                 onClick={() => setAngleMode(m)}
                 className={`rounded-md px-3.5 py-1 text-xs font-mono font-semibold transition-colors ${
                   angleMode === m
-                    ? 'bg-[#39FF14] text-[#070B0E]'
-                    : 'text-slate-300 hover:text-white'
+                    ? 'bg-[#16a34a] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {m}
@@ -348,7 +348,7 @@ export function ScientificCalculator() {
               type="button"
               onClick={handleBackspace}
               aria-label="Delete last character"
-              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <Delete className="h-3.5 w-3.5" />
               <span>DEL</span>
@@ -358,7 +358,7 @@ export function ScientificCalculator() {
         </div>
 
         {/* Expression + Result Screen */}
-        <div className="rounded-xl border border-[#1E2D36] bg-[#070B0E] p-4">
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50/40 p-4">
           <input
             id="sci-expr-input"
             type="text"
@@ -369,12 +369,12 @@ export function ScientificCalculator() {
               setExpr(e.target.value);
             }}
             placeholder="Type expression e.g. sin(30) + sqrt(144)"
-            className="w-full bg-transparent text-right font-mono text-base text-slate-300 placeholder:text-slate-600 focus:outline-none tabular-nums"
+            className="w-full bg-transparent text-right font-mono text-base text-slate-900 placeholder:text-slate-400 focus:outline-none tabular-nums"
           />
           <div
             aria-live="polite"
             className={`mt-2 text-right font-mono text-3xl sm:text-4xl font-bold tracking-tight tabular-nums break-all ${
-              errorMsg ? 'text-rose-400 text-xl sm:text-2xl' : 'text-[#39FF14]'
+              errorMsg ? 'text-rose-700 text-xl sm:text-2xl' : 'text-[#15803d]'
             }`}
           >
             {errorMsg || displayResult}
@@ -388,7 +388,7 @@ export function ScientificCalculator() {
               key={btn.label}
               type="button"
               onClick={() => appendText(btn.insert)}
-              className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-0.5 font-mono text-xs sm:text-sm font-medium text-slate-200 transition-colors hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-[#39FF14]"
+              className="min-h-[44px] md:min-h-0 md:h-10 min-w-0 rounded-lg border border-slate-200 bg-slate-50 px-0.5 font-mono text-xs sm:text-sm font-medium text-slate-800 transition-colors hover:border-[#16a34a] hover:bg-emerald-50/60 hover:text-[#15803d] focus-visible:outline-2 focus-visible:outline-[#16a34a]"
             >
               {btn.label}
             </button>
@@ -400,18 +400,18 @@ export function ScientificCalculator() {
           {mainButtons.map((btn) => {
             const cls =
               btn.variant === 'accent'
-                ? 'bg-[#39FF14] text-[#070B0E] font-bold hover:bg-[#39FF14]/90 border-[#39FF14]'
+                ? 'bg-[#16a34a] text-white font-bold hover:bg-[#15803d] border-[#16a34a] shadow-xs'
                 : btn.variant === 'op'
-                ? 'bg-[#141D25] text-[#39FF14] border-[#1E2D36] hover:border-[#39FF14]/50'
+                ? 'bg-slate-100 text-[#15803d] border-slate-200 hover:border-[#16a34a]/60 hover:bg-emerald-50'
                 : btn.variant === 'danger'
-                ? 'bg-[#141D25] text-rose-400 border-[#1E2D36] hover:border-rose-400/50'
-                : 'bg-[#070B0E] text-white border-[#1E2D36] hover:border-slate-500';
+                ? 'bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400'
+                : 'bg-white text-slate-900 border-slate-300 hover:border-slate-400 hover:bg-slate-50';
             return (
               <button
                 key={btn.label}
                 type="button"
                 onClick={btn.action}
-                className={`h-12 rounded-lg border font-mono text-base font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-[#39FF14] ${cls}`}
+                className={`h-12 rounded-lg border font-mono text-base font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-[#16a34a] ${cls}`}
               >
                 {btn.label}
               </button>
@@ -421,17 +421,17 @@ export function ScientificCalculator() {
       </div>
 
       {/* History Tape */}
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-5 sm:p-6 lg:col-span-4 flex flex-col">
-        <div className="flex items-center justify-between gap-2 border-b border-[#1E2D36] pb-3">
+      <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-6 shadow-xs lg:col-span-4 flex flex-col">
+        <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-3">
           <div className="flex items-center gap-2">
-            <History className="h-4 w-4 text-[#39FF14]" />
-            <h2 className="font-display text-base font-bold text-white">Calculation History</h2>
+            <History className="h-4 w-4 text-[#16a34a]" />
+            <h2 className="font-display text-base font-bold text-slate-900">Calculation History</h2>
           </div>
           {history.length > 0 && (
             <button
               type="button"
               onClick={() => setHistory([])}
-              className="text-xs text-slate-400 hover:text-white transition-colors"
+              className="text-xs text-slate-500 hover:text-slate-900 transition-colors"
             >
               Clear
             </button>
@@ -440,7 +440,7 @@ export function ScientificCalculator() {
 
         <div className="mt-4 flex-1 space-y-2.5 overflow-y-auto no-scrollbar max-h-[380px]">
           {history.length === 0 ? (
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-slate-500">
               Evaluated expressions will appear here. Click any entry to reload it.
             </p>
           ) : (
@@ -454,16 +454,16 @@ export function ScientificCalculator() {
                   setAngleMode(item.mode);
                   setErrorMsg(null);
                 }}
-                className="w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] p-3 text-left transition-colors hover:border-[#39FF14]/50"
+                className="w-full rounded-lg border border-slate-200 bg-slate-50/70 p-3 text-left transition-colors hover:border-[#16a34a]/60 hover:bg-white"
               >
-                <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <div className="flex items-center justify-between text-[11px] font-mono text-slate-500">
                   <span>{item.mode}</span>
                   <span>Load</span>
                 </div>
-                <div className="mt-1 truncate font-mono text-xs text-slate-300 tabular-nums">
+                <div className="mt-1 truncate font-mono text-xs text-slate-600 tabular-nums">
                   {item.expr}
                 </div>
-                <div className="mt-1 font-mono text-base font-bold text-[#39FF14] tabular-nums">
+                <div className="mt-1 font-mono text-base font-bold text-[#15803d] tabular-nums">
                   = {item.result}
                 </div>
               </button>

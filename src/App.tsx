@@ -113,12 +113,12 @@ function ActiveView() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#070B0E] px-4 text-center text-slate-100">
-      <h1 className="font-display text-3xl font-bold text-white">{t('shell.notFoundTitle')}</h1>
-      <p className="mt-2 max-w-md text-sm text-slate-300">{t('shell.notFoundDesc')}</p>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 text-center text-slate-900">
+      <h1 className="font-display text-3xl font-bold text-slate-900">{t('shell.notFoundTitle')}</h1>
+      <p className="mt-2 max-w-md text-sm text-slate-600">{t('shell.notFoundDesc')}</p>
       <Link
         href="/"
-        className="mt-6 rounded-lg bg-[#39FF14] px-5 py-2.5 text-sm font-semibold text-[#070B0E] hover:bg-[#39FF14]/90"
+        className="mt-6 rounded-lg bg-[#16a34a] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#15803d]"
       >
         {t('shell.notFoundCta')}
       </Link>

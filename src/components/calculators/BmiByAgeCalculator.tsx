@@ -132,20 +132,20 @@ export function BmiByAgeCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+              <div className="inline-flex rounded-lg border border-slate-200 bg-slate-100/80 p-1">
                 {(['male', 'female'] as const).map((g) => (
                   <button
                     key={g}
                     type="button"
                     onClick={() => setGender(g)}
-                    className={`rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                    className={`min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                       gender === g
-                        ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                        : 'text-slate-300 hover:text-white'
+                        ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                        : 'text-slate-700 hover:bg-white hover:text-slate-900'
                     }`}
                   >
                     {g === 'male' ? 'Male' : 'Female'}
@@ -153,14 +153,14 @@ export function BmiByAgeCalculator() {
                 ))}
               </div>
 
-              <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+              <div className="inline-flex rounded-lg border border-slate-200 bg-slate-100/80 p-1">
                 <button
                   type="button"
                   onClick={() => setUnit('metric')}
-                  className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                     unit === 'metric'
-                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                      : 'text-slate-700 hover:bg-white hover:text-slate-900'
                   }`}
                 >
                   Metric
@@ -168,10 +168,10 @@ export function BmiByAgeCalculator() {
                 <button
                   type="button"
                   onClick={() => setUnit('imperial')}
-                  className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`min-h-[44px] md:min-h-0 rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                     unit === 'imperial'
-                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                      : 'text-slate-700 hover:bg-white hover:text-slate-900'
                   }`}
                 >
                   Imperial
@@ -182,7 +182,7 @@ export function BmiByAgeCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -191,7 +191,7 @@ export function BmiByAgeCalculator() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-3">
             <div>
-              <label htmlFor="bmia-age" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="bmia-age" className="block text-sm font-medium text-slate-700">
                 Age (2 – 110)
               </label>
               <input
@@ -201,14 +201,14 @@ export function BmiByAgeCalculator() {
                 max="115"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             {unit === 'metric' ? (
               <>
                 <div>
-                  <label htmlFor="bmia-hcm" className="block text-sm font-medium text-slate-200">
+                  <label htmlFor="bmia-hcm" className="block text-sm font-medium text-slate-700">
                     Height (cm)
                   </label>
                   <input
@@ -218,11 +218,11 @@ export function BmiByAgeCalculator() {
                     step="0.5"
                     value={heightCm}
                     onChange={(e) => setHeightCm(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                    className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label htmlFor="bmia-wkg" className="block text-sm font-medium text-slate-200">
+                  <label htmlFor="bmia-wkg" className="block text-sm font-medium text-slate-700">
                     Weight (kg)
                   </label>
                   <input
@@ -232,7 +232,7 @@ export function BmiByAgeCalculator() {
                     step="0.1"
                     value={weightKg}
                     onChange={(e) => setWeightKg(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                    className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                   />
                 </div>
               </>
@@ -240,7 +240,7 @@ export function BmiByAgeCalculator() {
               <>
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label htmlFor="bmia-hft" className="block text-sm font-medium text-slate-200">
+                    <label htmlFor="bmia-hft" className="block text-sm font-medium text-slate-700">
                       Ft
                     </label>
                     <input
@@ -250,11 +250,11 @@ export function BmiByAgeCalculator() {
                       max="8"
                       value={heightFt}
                       onChange={(e) => setHeightFt(e.target.value)}
-                      className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                      className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-3 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label htmlFor="bmia-hin" className="block text-sm font-medium text-slate-200">
+                    <label htmlFor="bmia-hin" className="block text-sm font-medium text-slate-700">
                       In
                     </label>
                     <input
@@ -265,12 +265,12 @@ export function BmiByAgeCalculator() {
                       step="0.5"
                       value={heightIn}
                       onChange={(e) => setHeightIn(e.target.value)}
-                      className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                      className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-3 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="bmia-wlb" className="block text-sm font-medium text-slate-200">
+                  <label htmlFor="bmia-wlb" className="block text-sm font-medium text-slate-700">
                     Weight (lbs)
                   </label>
                   <input
@@ -280,7 +280,7 @@ export function BmiByAgeCalculator() {
                     step="0.5"
                     value={weightLb}
                     onChange={(e) => setWeightLb(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                    className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                   />
                 </div>
               </>
@@ -288,8 +288,8 @@ export function BmiByAgeCalculator() {
           </div>
         </div>
 
-        <div className="mt-6 border-t border-[#1E2D36] pt-4 text-xs leading-relaxed text-slate-400">
-          Active Model: <span className="text-slate-200 font-medium">{modeLabel}</span>. Ages 2–19 evaluate against sex-specific CDC growth percentiles; ages 20+ apply WHO adult tiers with age-adjusted body fat context.
+        <div className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-600">
+          Active Model: <span className="text-slate-900 font-medium">{modeLabel}</span>. Ages 2–19 evaluate against sex-specific CDC growth percentiles; ages 20+ apply WHO adult tiers with age-adjusted body fat context.
         </div>
       </div>
 

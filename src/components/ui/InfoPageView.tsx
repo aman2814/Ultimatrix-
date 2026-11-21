@@ -38,7 +38,7 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#070B0E] text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col">
       <SeoSchema
         canonicalPath={pathname}
         pageMeta={{
@@ -50,12 +50,12 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
       />
 
       {/* Slim 56px Sticky Focus Header */}
-      <header className="sticky top-0 z-40 h-14 border-b border-[#1E2D36] bg-[#070B0E]/95 backdrop-blur-sm">
+      <header className="sticky top-0 z-40 h-14 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-2 sm:gap-3 px-4 sm:px-6">
           <div className="flex min-w-0 items-center gap-2 sm:gap-4">
             <Link
               href="/"
-              className="inline-flex min-h-[44px] sm:min-h-0 items-center gap-1.5 rounded-lg border border-[#1E2D36] bg-[#10171D] px-2.5 sm:px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-200 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] whitespace-nowrap min-w-0 max-w-[calc(100vw-7.5rem)] sm:max-w-none sm:shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+              className="inline-flex min-h-[44px] sm:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 sm:px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-700 shadow-xs transition-colors duration-150 hover:border-[#16a34a] hover:text-[#15803d] whitespace-nowrap min-w-0 max-w-[calc(100vw-7.5rem)] sm:max-w-none sm:shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16a34a]"
             >
               <ArrowLeft className="h-3.5 w-3.5 shrink-0" />
               <span className="truncate">{t('nav.allCalculators')}</span>
@@ -63,13 +63,13 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
 
             <nav
               aria-label="Breadcrumb"
-              className="hidden lg:flex min-w-0 items-center gap-1.5 text-xs text-slate-400"
+              className="hidden lg:flex min-w-0 items-center gap-1.5 text-xs text-slate-500"
             >
-              <Link href="/" className="hover:text-white transition-colors whitespace-nowrap">
+              <Link href="/" className="hover:text-slate-900 transition-colors whitespace-nowrap">
                 {t('nav.home')}
               </Link>
-              <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-600" />
-              <span className="truncate font-medium text-slate-200">{navLabel}</span>
+              <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+              <span className="truncate font-medium text-slate-800">{navLabel}</span>
             </nav>
           </div>
 
@@ -83,7 +83,7 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
         {/* Quick Cross-Navigation Between Company & Legal Pages */}
         <nav
           aria-label={t('footer.companyLegal')}
-          className="mb-6 flex flex-wrap items-center gap-2 rounded-xl border border-[#1E2D36] bg-[#10171D] p-1.5"
+          className="mb-6 flex flex-wrap items-center gap-2 rounded-xl border border-slate-200 bg-slate-100/80 p-1.5"
         >
           {INFO_NAV_ITEMS.map((item) => {
             const isActive = item.slug === slug;
@@ -93,8 +93,8 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
                 href={item.slug}
                 className={`inline-flex min-h-[44px] md:min-h-0 items-center rounded-lg px-3 py-2 md:py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   isActive
-                    ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                    : 'text-slate-300 hover:bg-[#1E2D36]/50 hover:text-white'
+                    ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                    : 'text-slate-700 hover:bg-white hover:text-slate-900'
                 }`}
               >
                 {t(item.key)}
@@ -104,15 +104,15 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
         </nav>
 
         <div className="mb-8">
-          <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
             <span>{t('footer.companyLegal')}</span>
             <span aria-hidden="true">·</span>
             <span>{t('info.lastUpdated')}</span>
           </div>
-          <h1 className="mt-2 font-display text-2xl sm:text-4xl font-bold tracking-tight text-white text-balance">
+          <h1 className="mt-2 font-display text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 text-balance">
             {page.h1}
           </h1>
-          <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300">
+          <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-600">
             {page.subtitle}
           </p>
         </div>
@@ -121,26 +121,26 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
         {page.showCreatorCard && (
           <section
             aria-label="Creator and Contact Information"
-            className="mb-6 rounded-xl border border-[#39FF14]/35 bg-[#10171D] p-4 sm:p-6"
+            className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50/50 p-4 sm:p-6 shadow-xs"
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-start gap-3.5 min-w-0">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#39FF14]/40 bg-[#070B0E] text-[#39FF14]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-emerald-200 bg-white text-[#15803d] shadow-xs">
                   <User className="h-5 w-5" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#39FF14]">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#15803d]">
                     Creator &amp; Maintainer
                   </p>
-                  <h2 className="mt-0.5 font-display text-lg font-bold text-white">
+                  <h2 className="mt-0.5 font-display text-lg font-bold text-slate-900">
                     Aman Gutpta
                   </h2>
-                  <p className="text-sm text-slate-300">
-                    Known as <span className="font-semibold text-white">&ldquo;Call me azmath&rdquo;</span>
+                  <p className="text-sm text-slate-700">
+                    Known as <span className="font-semibold text-slate-900">&ldquo;Call me azmath&rdquo;</span>
                   </p>
                   <a
                     href="mailto:amangu2814@gmail.com"
-                    className="mt-1.5 inline-flex items-center gap-1.5 font-mono text-sm text-[#39FF14] hover:underline break-all"
+                    className="mt-1.5 inline-flex items-center gap-1.5 font-mono text-sm font-medium text-[#15803d] hover:underline break-all"
                   >
                     <Mail className="h-3.5 w-3.5 shrink-0" />
                     <span>amangu2814@gmail.com</span>
@@ -152,7 +152,7 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
                 <div className="flex flex-wrap items-center gap-2.5 shrink-0">
                   <a
                     href="mailto:amangu2814@gmail.com?subject=Ultimatrix%20Calculator%20Inquiry"
-                    className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#39FF14] px-4 py-2 text-sm font-semibold text-[#070B0E] transition-colors hover:bg-[#39FF14]/90"
+                    className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#16a34a] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#15803d]"
                   >
                     <Mail className="h-4 w-4" />
                     <span>Email Us</span>
@@ -160,12 +160,12 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-[#39FF14]/60 hover:text-white"
+                    className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-xs transition-colors hover:border-[#16a34a] hover:text-[#15803d]"
                   >
                     {copiedEmail ? (
                       <>
-                        <Check className="h-4 w-4 text-[#39FF14]" />
-                        <span className="text-[#39FF14]">Copied</span>
+                        <Check className="h-4 w-4 text-[#15803d]" />
+                        <span className="text-[#15803d]">Copied</span>
                       </>
                     ) : (
                       <>
@@ -185,24 +185,24 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
           {page.sections.map((section) => (
             <section
               key={section.heading}
-              className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6"
+              className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs"
             >
-              <h2 className="flex items-center gap-2 font-display text-lg font-bold text-white">
-                <ShieldCheck className="h-4 w-4 shrink-0 text-[#39FF14]" />
+              <h2 className="flex items-center gap-2 font-display text-lg font-bold text-slate-900">
+                <ShieldCheck className="h-4 w-4 shrink-0 text-[#16a34a]" />
                 <span>{section.heading}</span>
               </h2>
-              <div className="mt-3 space-y-3 text-sm sm:text-base leading-relaxed text-slate-300">
+              <div className="mt-3 space-y-3 text-sm sm:text-base leading-relaxed text-slate-700">
                 {section.paragraphs.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
               </div>
               {section.bullets && section.bullets.length > 0 && (
-                <ul className="mt-4 space-y-2 border-t border-[#1E2D36] pt-4 text-sm text-slate-200">
+                <ul className="mt-4 space-y-2 border-t border-slate-200 pt-4 text-sm text-slate-700">
                   {section.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-2.5">
                       <span
                         aria-hidden="true"
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#39FF14]"
+                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#16a34a]"
                       />
                       <span className="break-words">{bullet}</span>
                     </li>
@@ -214,40 +214,40 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
         </div>
       </main>
 
-      <footer className="mt-12 border-t border-[#1E2D36] bg-[#070B0E] py-8">
-        <div className="mx-auto max-w-6xl space-y-5 px-4 text-xs text-slate-400 sm:px-6">
+      <footer className="mt-12 border-t border-slate-200 bg-slate-50/70 py-8">
+        <div className="mx-auto max-w-6xl space-y-5 px-4 text-xs text-slate-600 sm:px-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p>
+            <p className="text-slate-600">
               © {new Date().getFullYear()} {t('shell.footerNote')}
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <Link
                 href="/about"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-200 hover:text-[#39FF14] transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center font-medium text-slate-800 hover:text-[#15803d] transition-colors"
               >
                 {t('nav.about')}
               </Link>
               <Link
                 href="/privacy-policy"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-200 hover:text-[#39FF14] transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center font-medium text-slate-800 hover:text-[#15803d] transition-colors"
               >
                 {t('nav.privacy')}
               </Link>
               <Link
                 href="/terms-and-conditions"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-200 hover:text-[#39FF14] transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center font-medium text-slate-800 hover:text-[#15803d] transition-colors"
               >
                 {t('nav.terms')}
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-200 hover:text-[#39FF14] transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center font-medium text-slate-800 hover:text-[#15803d] transition-colors"
               >
                 {t('nav.contact')}
               </Link>
               <a
                 href="/sitemap.xml"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
               >
                 {t('nav.sitemap')}
               </a>
@@ -256,7 +256,7 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
 
           <nav
             aria-label={t('nav.language')}
-            className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#1E2D36]/70 pt-4"
+            className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-slate-200 pt-4"
           >
             {SUPPORTED_LANGS.map((code) => (
               <Link
@@ -265,7 +265,7 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
                 preserveLocale={false}
                 hrefLang={code}
                 className={`transition-colors whitespace-nowrap ${
-                  code === lang ? 'font-semibold text-[#39FF14]' : 'hover:text-white'
+                  code === lang ? 'font-semibold text-[#15803d]' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {languages[code]}

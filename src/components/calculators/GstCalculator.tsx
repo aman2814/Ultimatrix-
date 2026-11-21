@@ -46,17 +46,17 @@ export function GstCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
+            <div className="inline-flex max-w-full flex-wrap rounded-lg border border-slate-200 bg-slate-100/80 p-1">
               <button
                 type="button"
                 onClick={() => setMode('add')}
-                className={`rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   mode === 'add'
-                    ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                    : 'text-slate-300 hover:text-white'
+                    ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Add GST (Exclusive)
@@ -64,10 +64,10 @@ export function GstCalculator() {
               <button
                 type="button"
                 onClick={() => setMode('remove')}
-                className={`rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`min-h-[44px] md:min-h-0 rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   mode === 'remove'
-                    ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                    : 'text-slate-300 hover:text-white'
+                    ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Remove GST (Inclusive)
@@ -77,7 +77,7 @@ export function GstCalculator() {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+              className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Reset</span>
@@ -86,7 +86,7 @@ export function GstCalculator() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="gst-amount" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="gst-amount" className="block text-sm font-medium text-slate-700">
                 {mode === 'add' ? 'Net Base Amount (Excl. GST)' : 'Gross Total Amount (Incl. GST)'}
               </label>
               <input
@@ -96,12 +96,12 @@ export function GstCalculator() {
                 step="0.01"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="gst-rate" className="block text-sm font-medium text-slate-200">
+              <label htmlFor="gst-rate" className="block text-sm font-medium text-slate-700">
                 GST Slab Rate (%)
               </label>
               <input
@@ -112,13 +112,13 @@ export function GstCalculator() {
                 step="0.5"
                 value={rate}
                 onChange={(e) => setRate(e.target.value)}
-                className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
           </div>
 
           <div className="mt-4">
-            <span className="block text-xs font-medium text-slate-400">Standard Tax Slabs</span>
+            <span className="block text-xs font-medium text-slate-500">Standard Tax Slabs</span>
             <div className="mt-2 flex flex-wrap gap-2">
               {GST_SLABS.map((slab) => {
                 const active = parseFloat(rate) === slab;
@@ -127,10 +127,10 @@ export function GstCalculator() {
                     key={slab}
                     type="button"
                     onClick={() => setRate(String(slab))}
-                    className={`rounded-lg border px-4 py-2 font-mono text-sm font-semibold transition-colors ${
+                    className={`min-h-[44px] md:min-h-0 rounded-lg border px-4 py-2 font-mono text-sm font-semibold transition-colors ${
                       active
-                        ? 'border-[#39FF14] bg-[#39FF14]/15 text-[#39FF14]'
-                        : 'border-[#1E2D36] bg-[#070B0E] text-slate-300 hover:border-slate-500 hover:text-white'
+                        ? 'border-[#16a34a] bg-emerald-50 text-[#15803d]'
+                        : 'border-slate-200 bg-slate-50/70 text-slate-700 hover:border-slate-300 hover:bg-white hover:text-slate-900'
                     }`}
                   >
                     {slab}%
@@ -141,7 +141,7 @@ export function GstCalculator() {
           </div>
         </div>
 
-        <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs text-slate-400">
+        <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">
           Intra-state GST splits evenly: {isValid ? `${(r / 2).toFixed(2)}% CGST + ${(r / 2).toFixed(2)}% SGST` : '50% CGST + 50% SGST'}.
         </p>
       </div>

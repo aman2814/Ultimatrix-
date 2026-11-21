@@ -80,14 +80,14 @@ export function DogPregnancyCalculator() {
   return (
     <div className="space-y-6">
       <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-        <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6 lg:col-span-7 flex flex-col justify-between">
+        <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between gap-4">
-              <h2 className="font-display text-base font-bold text-white">Breeding &amp; Breed Size</h2>
+              <h2 className="font-display text-base font-bold text-slate-900">Breeding &amp; Breed Size</h2>
               <button
                 type="button"
                 onClick={handleReset}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>Reset</span>
@@ -96,7 +96,7 @@ export function DogPregnancyCalculator() {
 
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="dog-mating" className="block text-sm font-medium text-slate-200">
+                <label htmlFor="dog-mating" className="block text-sm font-medium text-slate-700">
                   Mating / Breeding Date
                 </label>
                 <input
@@ -104,12 +104,12 @@ export function DogPregnancyCalculator() {
                   type="date"
                   value={matingDate}
                   onChange={(e) => setMatingDate(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-base text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
               </div>
 
               <div>
-                <span className="block text-sm font-medium text-slate-200">Breed Size Category</span>
+                <span className="block text-sm font-medium text-slate-700">Breed Size Category</span>
                 <div className="mt-2 grid grid-cols-3 gap-1.5">
                   {[
                     { id: 'small', label: 'Small' },
@@ -122,8 +122,8 @@ export function DogPregnancyCalculator() {
                       onClick={() => setDogSize(b.id as DogSize)}
                       className={`min-h-[44px] md:min-h-0 rounded-lg border px-2.5 py-2.5 text-xs sm:text-sm font-medium transition-colors ${
                         dogSize === b.id
-                          ? 'border-[#39FF14] bg-[#39FF14]/15 text-[#39FF14]'
-                          : 'border-[#1E2D36] bg-[#070B0E] text-slate-300 hover:text-white'
+                          ? 'border-[#16a34a] bg-emerald-50 text-[#15803d] font-semibold'
+                          : 'border-slate-200 bg-slate-50/70 text-slate-700 hover:bg-white hover:text-slate-900'
                       }`}
                     >
                       {b.label}
@@ -133,23 +133,23 @@ export function DogPregnancyCalculator() {
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-[#1E2D36] pt-5 text-xs">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-200 pt-5 text-xs">
               <div>
-                <span className="text-slate-400">Vet Ultrasound Window (Day 25–28)</span>
-                <p className="mt-1 font-mono font-semibold text-white tabular-nums">
+                <span className="text-slate-500">Vet Ultrasound Window (Day 25–28)</span>
+                <p className="mt-1 font-mono font-semibold text-slate-900 tabular-nums">
                   {mating ? `${fmtDate(addDays(mating, 25))} – ${fmtDate(addDays(mating, 28))}` : '—'}
                 </p>
               </div>
               <div>
-                <span className="text-slate-400">Puppy Count X-Ray (Day 55+)</span>
-                <p className="mt-1 font-mono font-semibold text-white tabular-nums">
+                <span className="text-slate-500">Puppy Count X-Ray (Day 55+)</span>
+                <p className="mt-1 font-mono font-semibold text-slate-900 tabular-nums">
                   {mating ? fmtDate(addDays(mating, 55)) : '—'}
                 </p>
               </div>
             </div>
           </div>
 
-          <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs leading-relaxed text-slate-400">
+          <p className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
             {sizeNote}
           </p>
         </div>
@@ -174,15 +174,15 @@ export function DogPregnancyCalculator() {
             visualBar={
               isValid && elapsedDays >= 0 ? (
                 <div>
-                  <div className="flex justify-between text-xs text-slate-400 mb-1.5">
+                  <div className="flex justify-between text-xs text-slate-600 mb-1.5">
                     <span>Canine Gestation (63 Days)</span>
-                    <span className="font-mono text-[#39FF14] tabular-nums">
+                    <span className="font-mono font-semibold text-[#15803d] tabular-nums">
                       {progressPct.toFixed(0)}%
                     </span>
                   </div>
-                  <div className="h-2.5 w-full overflow-hidden rounded-full border border-[#1E2D36] bg-[#070B0E]">
+                  <div className="h-2.5 w-full overflow-hidden rounded-full border border-slate-200 bg-slate-100">
                     <div
-                      className="h-full bg-[#39FF14] transition-all duration-200"
+                      className="h-full bg-[#16a34a] transition-all duration-200"
                       style={{ width: `${progressPct}%` }}
                     />
                   </div>
@@ -209,21 +209,21 @@ export function DogPregnancyCalculator() {
       </div>
 
       {/* Week-by-Week Fetal Development & Vet Checkup Timeline */}
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6">
-        <h2 className="font-display text-base font-bold text-white">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs">
+        <h2 className="font-display text-base font-bold text-slate-900">
           Week-by-Week Canine Gestation &amp; Vet Checkup Timeline
         </h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {CANINE_TIMELINE.map((item) => (
             <div
               key={item.week}
-              className="rounded-lg border border-[#1E2D36] bg-[#070B0E] p-4"
+              className="rounded-lg border border-slate-200 bg-slate-50/70 p-4"
             >
               <div className="flex items-center justify-between text-xs font-mono">
-                <span className="font-semibold text-[#39FF14]">{item.week}</span>
-                <span className="text-slate-400">{item.days}</span>
+                <span className="font-semibold text-[#15803d]">{item.week}</span>
+                <span className="text-slate-500">{item.days}</span>
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-slate-300">{item.milestone}</p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-600">{item.milestone}</p>
             </div>
           ))}
         </div>

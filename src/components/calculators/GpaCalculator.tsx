@@ -98,15 +98,15 @@ export function GpaCalculator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-      <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-4 sm:p-6 lg:col-span-7 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 className="font-display text-base font-bold text-white">Semester Courses</h2>
+            <h2 className="font-display text-base font-bold text-slate-900">Semester Courses</h2>
             <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={addCourse}
-                className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg bg-[#39FF14] px-3 py-1.5 text-xs font-semibold text-[#070B0E] hover:bg-[#39FF14]/90 transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg bg-[#16a34a] px-3 py-1.5 text-xs font-semibold text-white shadow-xs hover:bg-[#15803d] transition-colors"
               >
                 <Plus className="h-3.5 w-3.5" />
                 <span>Add Course</span>
@@ -114,7 +114,7 @@ export function GpaCalculator() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-[#1E2D36] px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-colors"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>Reset</span>
@@ -123,7 +123,7 @@ export function GpaCalculator() {
           </div>
 
           <div className="mt-4 space-y-2.5">
-            <div className="hidden sm:grid sm:grid-cols-12 gap-2 px-1 text-xs font-medium text-slate-400">
+            <div className="hidden sm:grid sm:grid-cols-12 gap-2 px-1 text-xs font-medium text-slate-500">
               <span className="col-span-6">Course Name</span>
               <span className="col-span-2">Credits</span>
               <span className="col-span-3">Grade</span>
@@ -137,7 +137,7 @@ export function GpaCalculator() {
                   value={course.name}
                   placeholder={`Course ${idx + 1}`}
                   onChange={(e) => updateCourse(course.id, { name: e.target.value })}
-                  className="col-span-12 sm:col-span-6 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-2 text-base md:text-sm text-white focus:border-[#39FF14] focus:outline-none"
+                  className="col-span-12 sm:col-span-6 rounded-lg border border-slate-300 bg-slate-50/70 px-3 py-2 text-base md:text-sm text-slate-900 focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
                 <input
                   type="number"
@@ -148,13 +148,13 @@ export function GpaCalculator() {
                   step="0.5"
                   value={course.credits}
                   onChange={(e) => updateCourse(course.id, { credits: e.target.value })}
-                  className="col-span-5 sm:col-span-2 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-2 font-mono text-base md:text-sm text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                  className="col-span-5 sm:col-span-2 rounded-lg border border-slate-300 bg-slate-50/70 px-3 py-2 font-mono text-base md:text-sm text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 />
                 <select
                   aria-label={`Course ${idx + 1} grade`}
                   value={course.grade}
                   onChange={(e) => updateCourse(course.id, { grade: e.target.value })}
-                  className="col-span-5 sm:col-span-3 rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-2 font-mono text-base md:text-sm text-white focus:border-[#39FF14] focus:outline-none"
+                  className="col-span-5 sm:col-span-3 rounded-lg border border-slate-300 bg-slate-50/70 px-3 py-2 font-mono text-base md:text-sm text-slate-900 focus:border-[#16a34a] focus:bg-white focus:outline-none"
                 >
                   {Object.entries(GRADE_POINTS).map(([letter, pts]) => (
                     <option key={letter} value={letter}>
@@ -167,7 +167,7 @@ export function GpaCalculator() {
                   onClick={() => removeCourse(course.id)}
                   disabled={courses.length <= 1}
                   aria-label={`Remove ${course.name || `course ${idx + 1}`}`}
-                  className="col-span-2 sm:col-span-1 inline-flex min-h-[44px] md:min-h-0 md:h-9 items-center justify-center rounded-lg border border-[#1E2D36] text-slate-400 hover:border-rose-500/60 hover:text-rose-400 disabled:opacity-30"
+                  className="col-span-2 sm:col-span-1 inline-flex min-h-[44px] md:min-h-0 md:h-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:border-rose-300 hover:text-rose-700 disabled:opacity-30 transition-colors"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -177,13 +177,13 @@ export function GpaCalculator() {
         </div>
 
         {/* Optional Prior Standing */}
-        <div className="mt-6 border-t border-[#1E2D36] pt-5">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+        <div className="mt-6 border-t border-slate-200 pt-5">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">
             Optional Prior Standing (Cumulative Projection)
           </h3>
           <div className="mt-3 grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="prior-gpa" className="block text-xs text-slate-300">
+              <label htmlFor="prior-gpa" className="block text-xs font-medium text-slate-700">
                 Prior Cumulative GPA (0.0 – 4.0)
               </label>
               <input
@@ -196,11 +196,11 @@ export function GpaCalculator() {
                 placeholder="e.g. 3.55"
                 value={priorGpa}
                 onChange={(e) => setPriorGpa(e.target.value)}
-                className="mt-1.5 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-2 font-mono text-base md:text-sm text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-3 py-2 font-mono text-base md:text-sm text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
             <div>
-              <label htmlFor="prior-credits" className="block text-xs text-slate-300">
+              <label htmlFor="prior-credits" className="block text-xs font-medium text-slate-700">
                 Prior Completed Credits
               </label>
               <input
@@ -212,7 +212,7 @@ export function GpaCalculator() {
                 placeholder="e.g. 45"
                 value={priorCredits}
                 onChange={(e) => setPriorCredits(e.target.value)}
-                className="mt-1.5 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-3 py-2 font-mono text-base md:text-sm text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
+                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-slate-50/70 px-3 py-2 font-mono text-base md:text-sm text-slate-900 tabular-nums focus:border-[#16a34a] focus:bg-white focus:outline-none"
               />
             </div>
           </div>

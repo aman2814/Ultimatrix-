@@ -80,7 +80,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
           type="button"
           onClick={() => rotateBy(-1)}
           aria-label="Rotate dial left to previous category"
-          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#1E2D36] bg-[#10171D] text-slate-300 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition-colors duration-150 hover:border-[#16a34a] hover:text-[#15803d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16a34a]"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -92,21 +92,21 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
             className="h-full w-full overflow-visible"
             aria-hidden="true"
           >
-            {/* Outer chassis ring */}
+            {/* Outer metallic light chassis ring */}
             <circle
               cx="130"
               cy="130"
               r="122"
-              fill="#10171D"
-              stroke="#1E2D36"
+              fill="#f8fafc"
+              stroke="#cbd5e1"
               strokeWidth="2"
             />
             <circle
               cx="130"
               cy="130"
               r="106"
-              fill="#070B0E"
-              stroke="#1E2D36"
+              fill="#ffffff"
+              stroke="#e2e8f0"
               strokeWidth="1.5"
             />
 
@@ -125,14 +125,14 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
                   y1={y1}
                   x2={x2}
                   y2={y2}
-                  stroke={isSelected ? '#39FF14' : '#334155'}
-                  strokeWidth={isSelected ? '3.5' : '2'}
+                  stroke={isSelected ? '#16a34a' : '#94a3b8'}
+                  strokeWidth={isSelected ? '4' : '2'}
                   strokeLinecap="round"
                 />
               );
             })}
 
-            {/* Rotating Dial Bezel Lugs & Inner Ring */}
+            {/* Rotating Dial Bezel Lugs & Inner Core Socket */}
             <g
               style={{
                 transform: `rotate(${rotationDeg}deg)`,
@@ -148,7 +148,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
                     width="12"
                     height="14"
                     rx="2"
-                    fill={deg === 0 ? '#39FF14' : '#1E2D36'}
+                    fill={deg === 0 ? '#16a34a' : '#cbd5e1'}
                   />
                 </g>
               ))}
@@ -157,20 +157,20 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
                 cx="130"
                 cy="130"
                 r="86"
-                fill="#070B0E"
-                stroke="#1E2D36"
-                strokeWidth="2"
+                fill="#0f172a"
+                stroke="#16a34a"
+                strokeWidth="2.5"
               />
             </g>
           </svg>
 
-          {/* Subtle Radial Green Ambient Glow Behind Center Emblem */}
+          {/* Subtle Radial Green Aura Around Core Socket */}
           <div
             aria-hidden="true"
-            className={`pointer-events-none absolute inset-[18%] rounded-full bg-[#39FF14]/15 blur-xl transition-opacity duration-200 ${
+            className={`pointer-events-none absolute inset-[18%] rounded-full bg-emerald-500/20 blur-xl transition-opacity duration-200 ${
               selected !== 'All'
                 ? 'opacity-90 group-hover:opacity-100'
-                : 'opacity-55 group-hover:opacity-90'
+                : 'opacity-50 group-hover:opacity-85'
             }`}
           />
 
@@ -181,25 +181,24 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
               transition:
                 'transform 200ms cubic-bezier(0.16, 1, 0.3, 1), filter 200ms ease, box-shadow 200ms ease',
             }}
-            className={`pointer-events-none absolute inset-[19.5%] overflow-hidden rounded-full bg-[#070B0E] ring-1 transition-all duration-200 ${
+            className={`pointer-events-none absolute inset-[19.5%] overflow-hidden rounded-full bg-[#070B0E] ring-2 transition-all duration-200 ${
               selected !== 'All'
-                ? 'ring-[#39FF14]/55 drop-shadow-[0_0_18px_rgba(57,255,20,0.45)] group-hover:drop-shadow-[0_0_24px_rgba(57,255,20,0.6)]'
-                : 'ring-[#39FF14]/35 drop-shadow-[0_0_12px_rgba(57,255,20,0.28)] group-hover:ring-[#39FF14]/60 group-hover:drop-shadow-[0_0_22px_rgba(57,255,20,0.5)]'
+                ? 'ring-[#16a34a] shadow-[0_6px_22px_rgba(22,163,74,0.3)] group-hover:shadow-[0_8px_28px_rgba(22,163,74,0.42)]'
+                : 'ring-[#16a34a]/75 shadow-[0_4px_16px_rgba(22,163,74,0.2)] group-hover:ring-[#16a34a] group-hover:shadow-[0_8px_24px_rgba(22,163,74,0.35)]'
             }`}
           >
             <img
               src="/images/ultimatrix-core-logo.jpg"
               alt="Ultimatrix Calculator Core Emblem"
               draggable={false}
-              className="h-full w-full scale-[1.35] object-cover object-center mix-blend-lighten"
+              className="h-full w-full scale-[1.35] object-cover object-center"
             />
-            {/* Soft perimeter feather so outer rim blends cleanly into #070B0E */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 rounded-full"
               style={{
                 background:
-                  'radial-gradient(circle, transparent 62%, rgba(7, 11, 14, 0.55) 86%, #070B0E 100%)',
+                  'radial-gradient(circle, transparent 62%, rgba(15, 23, 42, 0.55) 86%, #0f172a 100%)',
               }}
             />
           </div>
@@ -209,7 +208,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
             type="button"
             onClick={() => rotateBy(1)}
             aria-label={`Active category: ${getOptionLabel(DIAL_OPTIONS[activeIndex].value)}`}
-            className="absolute inset-8 z-10 rounded-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#39FF14]"
+            className="absolute inset-8 z-10 rounded-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#16a34a]"
           />
         </div>
 
@@ -217,7 +216,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
           type="button"
           onClick={() => rotateBy(1)}
           aria-label="Rotate dial right to next category"
-          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#1E2D36] bg-[#10171D] text-slate-300 transition-colors duration-150 hover:border-[#39FF14]/60 hover:text-[#39FF14] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition-colors duration-150 hover:border-[#16a34a] hover:text-[#15803d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16a34a]"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
@@ -225,7 +224,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
 
       {/* Category Segmented Selector Buttons */}
       <div
-        className="flex flex-wrap items-center justify-center gap-2 rounded-xl border border-[#1E2D36] bg-[#10171D] p-1.5"
+        className="flex flex-wrap items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-100/80 p-1.5"
         role="tablist"
         aria-label="Calculator categories"
       >
@@ -238,16 +237,16 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
               role="tab"
               aria-selected={isActive}
               onClick={() => onSelect(opt.value)}
-              className={`inline-flex min-h-[44px] md:min-h-0 items-center gap-2 rounded-lg px-3.5 py-2 text-xs sm:text-sm font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14] ${
+              className={`inline-flex min-h-[44px] md:min-h-0 items-center gap-2 rounded-lg px-3.5 py-2 text-xs sm:text-sm font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16a34a] ${
                 isActive
-                  ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                  : 'text-slate-300 hover:bg-[#1E2D36]/60 hover:text-white'
+                  ? 'bg-[#16a34a] text-white font-semibold shadow-xs'
+                  : 'text-slate-700 hover:bg-white hover:text-slate-900'
               }`}
             >
               <span>{getOptionLabel(opt.value)}</span>
               <span
                 className={`font-mono text-xs tabular-nums ${
-                  isActive ? 'text-[#070B0E]/80' : 'text-slate-400'
+                  isActive ? 'text-white/90' : 'text-slate-500'
                 }`}
               >
                 {counts[opt.value]}

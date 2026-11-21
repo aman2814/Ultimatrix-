@@ -5,11 +5,11 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-obsidian: #070B0E;
-  --color-alloy: #10171D;
-  --color-alloy-hover: #141D25;
-  --color-gridline: #1E2D36;
-  --color-omnitrix: #39FF14;
+  --color-obsidian: #ffffff;
+  --color-alloy: #f8fafc;
+  --color-alloy-hover: #f1f5f9;
+  --color-gridline: #e2e8f0;
+  --color-omnitrix: #16a34a;
 }
 
 @layer base {
@@ -21,8 +21,8 @@
 
   html {
     font-family: var(--font-sans);
-    background-color: #070B0E;
-    color: #F1F5F9;
+    background-color: #ffffff;
+    color: #0f172a;
     scroll-behavior: smooth;
   }
 
@@ -36,13 +36,13 @@
 
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
-    opacity: 0.5;
+    opacity: 0.65;
   }
 
   input[type="date"]::-webkit-calendar-picker-indicator,
   input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.85) hue-rotate(85deg);
     cursor: pointer;
+    opacity: 0.75;
   }
 }
 

@@ -78,29 +78,29 @@ export function HomeHub() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070B0E] text-slate-100">
+    <div className="min-h-screen bg-white text-slate-900">
       <SeoSchema canonicalPath={pathname} />
 
       {/* Top Navigation Bar — Clean 3-Zone Contract */}
-      <header className="sticky top-0 z-40 h-14 border-b border-[#1E2D36] bg-[#070B0E]/95 backdrop-blur-sm">
+      <header className="sticky top-0 z-40 h-14 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-2 sm:gap-4 px-4 sm:px-6 lg:gap-8">
           <Link
             href="/"
-            className="font-display text-base sm:text-lg font-bold tracking-tight text-white whitespace-nowrap min-w-0 truncate sm:overflow-visible"
+            className="font-display text-base sm:text-lg font-bold tracking-tight text-slate-900 whitespace-nowrap min-w-0 truncate sm:overflow-visible"
           >
-            Ultimatrix <span className="text-[#39FF14]">Calculator</span>
+            Ultimatrix <span className="text-[#16a34a]">Calculator</span>
           </Link>
 
           <nav
             aria-label="Calculator categories"
-            className="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-300"
+            className="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-600"
           >
             {CALCULATOR_CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => handleQuickJump(cat)}
-                className="hover:text-[#39FF14] transition-colors whitespace-nowrap shrink-0"
+                className="hover:text-[#15803d] transition-colors whitespace-nowrap shrink-0"
               >
                 {t(`cat.${cat}`)}
               </button>
@@ -111,7 +111,7 @@ export function HomeHub() {
             <LanguageSwitcher />
             <Link
               href="/scientific-calculator"
-              className="inline-flex min-h-[44px] sm:min-h-0 items-center rounded-lg bg-[#39FF14] px-3 sm:px-3.5 py-2 text-xs sm:text-sm font-semibold text-[#070B0E] transition-colors hover:bg-[#39FF14]/90 whitespace-nowrap shrink-0 max-[400px]:max-w-[112px] max-[400px]:truncate focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+              className="inline-flex min-h-[44px] sm:min-h-0 items-center rounded-lg bg-[#16a34a] px-3 sm:px-3.5 py-2 text-xs sm:text-sm font-semibold text-white transition-colors hover:bg-[#15803d] whitespace-nowrap shrink-0 max-[400px]:max-w-[112px] max-[400px]:truncate focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16a34a]"
             >
               {t('nav.scientific')}
             </Link>
@@ -122,13 +122,13 @@ export function HomeHub() {
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
         {/* Hero Hub with Interactive Omnitrix Core Selector Dial */}
         <section aria-label="Omnitrix Core Selector" className="text-center">
-          <p className="text-xs font-medium tracking-wide text-slate-400">
+          <p className="text-xs font-medium tracking-wide text-slate-600">
             {localizedCalculators.length} · {t('hub.kicker')}
           </p>
-          <h1 className="mx-auto mt-2 max-w-2xl font-display text-3xl sm:text-5xl font-bold tracking-tight text-white text-balance">
+          <h1 className="mx-auto mt-2 max-w-2xl font-display text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 text-balance">
             {t('hub.title')}
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm sm:text-base text-slate-300">
+          <p className="mx-auto mt-3 max-w-xl text-sm sm:text-base text-slate-600">
             {t('hub.subtitle')}
           </p>
 
@@ -146,21 +146,21 @@ export function HomeHub() {
               {t('hub.searchPlaceholder')}
             </label>
             <div className="relative flex items-center">
-              <Search className="pointer-events-none absolute left-4 h-4 w-4 text-slate-400" />
+              <Search className="pointer-events-none absolute left-4 h-4 w-4 text-slate-500" />
               <input
                 id="hub-search"
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('hub.searchPlaceholder')}
-                className="w-full rounded-xl border border-[#1E2D36] bg-[#10171D] py-3 pl-11 pr-10 text-base md:text-sm text-white placeholder:text-slate-400 focus:border-[#39FF14] focus:outline-none"
+                className="w-full rounded-xl border border-slate-300 bg-slate-50/70 py-3 pl-11 pr-10 text-base md:text-sm text-slate-900 shadow-xs placeholder:text-slate-500 focus:border-[#16a34a] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16a34a]/15"
               />
               {query && (
                 <button
                   type="button"
                   onClick={() => setQuery('')}
                   aria-label={t('hub.clearSearch')}
-                  className="absolute right-3 rounded-md p-1 text-slate-400 hover:text-white"
+                  className="absolute right-3 rounded-md p-1 text-slate-500 hover:text-slate-900"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -172,8 +172,8 @@ export function HomeHub() {
         {/* Categorized Semantic Link Grid */}
         <section aria-label={t('nav.allCalculators')} className="mt-12 space-y-10">
           {groupedCategories.length === 0 ? (
-            <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-10 text-center">
-              <p className="text-base font-medium text-white">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-10 text-center">
+              <p className="text-base font-medium text-slate-900">
                 {t('hub.noResults')} (&ldquo;{query}&rdquo;)
               </p>
               <button
@@ -182,7 +182,7 @@ export function HomeHub() {
                   setQuery('');
                   setSelectedCategory('All');
                 }}
-                className="mt-4 rounded-lg bg-[#39FF14] px-4 py-2 text-sm font-semibold text-[#070B0E] hover:bg-[#39FF14]/90"
+                className="mt-4 rounded-lg bg-[#16a34a] px-4 py-2 text-sm font-semibold text-white hover:bg-[#15803d]"
               >
                 {t('hub.showAll')} ({localizedCalculators.length})
               </button>
@@ -192,11 +192,11 @@ export function HomeHub() {
               const sectionId = category.toLowerCase().replace(/[^a-z0-9]+/g, '-');
               return (
                 <div key={category} id={sectionId} className="scroll-mt-20">
-                  <div className="flex items-baseline justify-between border-b border-[#1E2D36] pb-3">
-                    <h2 className="font-display text-xl font-bold text-white">
+                  <div className="flex items-baseline justify-between border-b border-slate-200 pb-3">
+                    <h2 className="font-display text-xl font-bold text-slate-900">
                       {t(`cat.${category}`)}
                     </h2>
-                    <span className="font-mono text-xs text-slate-400 tabular-nums">
+                    <span className="font-mono text-xs text-slate-500 tabular-nums">
                       {items.length} {items.length === 1 ? t('hub.toolSingular') : t('hub.toolPlural')}
                     </span>
                   </div>
@@ -208,23 +208,23 @@ export function HomeHub() {
                         <Link
                           key={calc.slug}
                           href={calc.slug}
-                          className="group flex flex-col justify-between rounded-xl border border-[#1E2D36] bg-[#10171D] p-5 transition-colors duration-150 hover:border-[#39FF14]/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+                          className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-150 hover:border-[#16a34a] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16a34a]"
                         >
                           <div>
-                            <div className="text-xs text-slate-400">
+                            <div className="text-xs text-slate-500">
                               <span>{t(`cat.${calc.category}`)}</span>
                               <span aria-hidden="true"> · </span>
                               <span>{t('hub.cardMeta')}</span>
                             </div>
-                            <h3 className="mt-2 font-display text-lg font-bold text-white group-hover:text-[#39FF14] transition-colors">
+                            <h3 className="mt-2 font-display text-lg font-bold text-slate-900 group-hover:text-[#15803d] transition-colors">
                               {calc.name}
                             </h3>
-                            <p className="mt-1.5 text-sm leading-relaxed text-slate-300">
+                            <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
                               {calc.tagline}
                             </p>
                           </div>
 
-                          <div className="mt-4 flex items-center justify-between border-t border-[#1E2D36]/80 pt-3 text-xs font-medium text-slate-400 group-hover:text-[#39FF14] transition-colors">
+                          <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs font-medium text-slate-500 group-hover:text-[#15803d] transition-colors">
                             <span className="font-mono truncate">{localizedHref}</span>
                             <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-150 group-hover:translate-x-0.5" />
                           </div>
@@ -239,12 +239,12 @@ export function HomeHub() {
         </section>
       </main>
 
-      <footer className="mt-16 border-t border-[#1E2D36] bg-[#070B0E] py-8">
-        <div className="mx-auto max-w-6xl space-y-6 px-4 text-xs text-slate-400 sm:px-6">
+      <footer className="mt-16 border-t border-slate-200 bg-slate-50/70 py-8">
+        <div className="mx-auto max-w-6xl space-y-6 px-4 text-xs text-slate-600 sm:px-6">
           {/* Prominent Company & Legal Quick-Access Info Bar */}
-          <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] px-4 py-4 sm:px-6">
+          <div className="rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-xs sm:px-6">
             <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#39FF14]">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#15803d]">
                 {t('footer.companyLegal')}
               </span>
               <nav
@@ -253,25 +253,25 @@ export function HomeHub() {
               >
                 <Link
                   href="/about"
-                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-100 hover:text-[#39FF14] transition-colors whitespace-nowrap"
+                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-800 hover:text-[#15803d] transition-colors whitespace-nowrap"
                 >
                   {t('nav.about')}
                 </Link>
                 <Link
                   href="/privacy-policy"
-                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-100 hover:text-[#39FF14] transition-colors whitespace-nowrap"
+                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-800 hover:text-[#15803d] transition-colors whitespace-nowrap"
                 >
                   {t('nav.privacy')}
                 </Link>
                 <Link
                   href="/terms-and-conditions"
-                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-100 hover:text-[#39FF14] transition-colors whitespace-nowrap"
+                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-800 hover:text-[#15803d] transition-colors whitespace-nowrap"
                 >
                   {t('nav.terms')}
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-100 hover:text-[#39FF14] transition-colors whitespace-nowrap"
+                  className="inline-flex min-h-[44px] md:min-h-0 items-center text-slate-800 hover:text-[#15803d] transition-colors whitespace-nowrap"
                 >
                   {t('nav.contact')}
                 </Link>
@@ -280,43 +280,43 @@ export function HomeHub() {
           </div>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p>
+            <p className="text-slate-600">
               © {new Date().getFullYear()} {t('hub.footerNote')}
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
               <Link
                 href="/bmi-calculator"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
               >
                 BMI
               </Link>
               <Link
                 href="/emi-calculator"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
               >
                 EMI
               </Link>
               <Link
                 href="/sip-calculator"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
               >
                 SIP
               </Link>
               <Link
                 href="/gst-calculator"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
               >
                 GST
               </Link>
               <Link
                 href="/scientific-calculator"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
               >
                 {t('nav.scientific')}
               </Link>
               <a
                 href="/sitemap.xml"
-                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-white transition-colors"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
               >
                 {t('nav.sitemap')}
               </a>
@@ -325,7 +325,7 @@ export function HomeHub() {
 
           <nav
             aria-label={t('nav.language')}
-            className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#1E2D36]/70 pt-4"
+            className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-slate-200 pt-4"
           >
             {SUPPORTED_LANGS.map((code) => (
               <Link
@@ -334,7 +334,7 @@ export function HomeHub() {
                 preserveLocale={false}
                 hrefLang={code}
                 className={`inline-flex min-h-[44px] md:min-h-0 items-center transition-colors whitespace-nowrap ${
-                  code === lang ? 'font-semibold text-[#39FF14]' : 'hover:text-white'
+                  code === lang ? 'font-semibold text-[#15803d]' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {languages[code]}
