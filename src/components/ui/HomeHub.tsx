@@ -108,7 +108,7 @@ export function HomeHub() {
         {/* Hero Hub with Interactive Omnitrix Core Selector Dial */}
         <section aria-label="Omnitrix Core Selector" className="text-center">
           <p className="text-xs font-medium tracking-wide text-slate-400">
-            15 Precision Instruments · Real-Time Calculations · Formula &amp; Reference Guides
+            {CALCULATORS.length} Precision Instruments · Real-Time Calculations · Formula &amp; Reference Guides
           </p>
           <h1 className="mx-auto mt-2 max-w-2xl font-display text-3xl sm:text-5xl font-bold tracking-tight text-white text-balance">
             Ultimatrix Calculator
@@ -137,7 +137,7 @@ export function HomeHub() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search BMI, EMI, SIP, GST, CGPA, Age, Scientific..."
+                placeholder="Search BMI, Height, Child BMI, Dog Due Date, HDFC EMI, Casio, GPA..."
                 className="w-full rounded-xl border border-[#1E2D36] bg-[#10171D] py-3 pl-11 pr-10 text-sm text-white placeholder:text-slate-400 focus:border-[#39FF14] focus:outline-none"
               />
               {query && (
@@ -169,7 +169,7 @@ export function HomeHub() {
                 }}
                 className="mt-4 rounded-lg bg-[#39FF14] px-4 py-2 text-sm font-semibold text-[#070B0E] hover:bg-[#39FF14]/90"
               >
-                Show All 15 Calculators
+                Show All {CALCULATORS.length} Calculators
               </button>
             </div>
           ) : (

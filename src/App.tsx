@@ -15,6 +15,17 @@ import { ScientificCalculator } from './components/calculators/ScientificCalcula
 import { EmiCalculator } from './components/calculators/EmiCalculator';
 import { SipCalculator } from './components/calculators/SipCalculator';
 import { GstCalculator } from './components/calculators/GstCalculator';
+import { ChildBmiCalculator } from './components/calculators/ChildBmiCalculator';
+import { BmiByAgeCalculator } from './components/calculators/BmiByAgeCalculator';
+import { DogPregnancyCalculator } from './components/calculators/DogPregnancyCalculator';
+import { HdfcEmiCalculator } from './components/calculators/HdfcEmiCalculator';
+import { ChildAgeCalculator } from './components/calculators/ChildAgeCalculator';
+import { CasioFx115esCalculator } from './components/calculators/CasioFx115esCalculator';
+import { Sharp12DigitCalculator } from './components/calculators/Sharp12DigitCalculator';
+import { WeightLossPercentageCalculator } from './components/calculators/WeightLossPercentageCalculator';
+import { HighSchoolGpaCalculator } from './components/calculators/HighSchoolGpaCalculator';
+import { DiscountWithTaxCalculator } from './components/calculators/DiscountWithTaxCalculator';
+import { HeightCalculator } from './components/calculators/HeightCalculator';
 
 function renderCalculatorWidget(slug: string) {
   switch (slug) {
@@ -24,8 +35,18 @@ function renderCalculatorWidget(slug: string) {
       return <BmiCalculator variant="men" />;
     case '/bmi-calculator/women':
       return <BmiCalculator variant="women" />;
+    case '/child-bmi-calculator':
+      return <ChildBmiCalculator />;
+    case '/bmi-calculator-by-age':
+      return <BmiByAgeCalculator />;
+    case '/height-calculator':
+      return <HeightCalculator />;
+    case '/dog-pregnancy-due-date-calculator':
+      return <DogPregnancyCalculator />;
     case '/age-calculator':
       return <AgeCalculator />;
+    case '/child-age-calculator':
+      return <ChildAgeCalculator />;
     case '/date-calculator':
       return <DateCalculator />;
     case '/time-duration-calculator':
@@ -38,12 +59,24 @@ function renderCalculatorWidget(slug: string) {
       return <CgpaToPercentageCalculator />;
     case '/gpa-calculator':
       return <GpaCalculator />;
+    case '/high-school-gpa-calculator':
+      return <HighSchoolGpaCalculator />;
+    case '/weight-loss-percentage-calculator':
+      return <WeightLossPercentageCalculator />;
     case '/discount-calculator':
       return <DiscountCalculator />;
+    case '/discount-calculator-with-tax':
+      return <DiscountWithTaxCalculator />;
     case '/scientific-calculator':
       return <ScientificCalculator />;
+    case '/casio-fx-115es-scientific-calculator':
+      return <CasioFx115esCalculator />;
+    case '/sharp-12-digit-scientific-calculator':
+      return <Sharp12DigitCalculator />;
     case '/emi-calculator':
       return <EmiCalculator />;
+    case '/hdfc-emi-calculator':
+      return <HdfcEmiCalculator />;
     case '/sip-calculator':
       return <SipCalculator />;
     case '/gst-calculator':

@@ -1,0 +1,363 @@
+Update the SEO configuration (`data/calculators.ts`), page metadata (`generateMetadata`), below-the-fold Knowledge Core sections, and JSON-LD structured data (`WebApplication`, `FAQPage`, `BreadcrumbList`) across all calculator routes in "Ultimatrix Calculator".
+
+CRITICAL ARCHITECTURE RULE:
+Ultimatrix Calculator is a multi-micro-tool web software where each specific calculator route must rank independently in Google Search for its own Primary Keyword and Supporting Keywords. Do NOT use generic template copy across pages. Every route below must render its exact Meta Title, Meta Description, H1, natural keyword-integrated Direct Answer & Formula guide, Reference Table, and the exact 4 FAQs listed below (both visibly in an accessible FAQ accordion and inside `FAQPage` JSON-LD schema).
+
+---
+
+### PART 1: TOOLS FROM MY KEYWORD SPECIFICATION
+
+#### 1. `/bmi-calculator` — General Online BMI Calculator
+- **Primary Keyword:** `bmi calculator`
+- **Supporting Keywords:** `bmi calculator online`, `bmi calculator kg`, `bmi calculator with age`, `bmi calculator kg with age`, `bmi calculator age`, `bmi calculator men`, `bmi calculator women`, `bmi calculator male`, `bmi calculator female`
+- **Meta Title:** `BMI Calculator Online (kg & cm) – Check Body Mass Index with Age | Ultimatrix`
+- **Meta Description:** `Free online BMI calculator in kg, cm, lbs, and feet. Instantly calculate your Body Mass Index with age and gender context, healthy weight range, and WHO BMI chart.`
+- **H1:** `Online BMI Calculator (kg & cm) – Body Mass Index with Age`
+- **FAQs:**
+  1. **Q: How is BMI calculated in kg and cm?**
+     **A:** Divide your weight in kilograms by your height in meters squared: `BMI = weight (kg) ÷ [height (m)]²`. For example, if you weigh 70 kg and are 175 cm (1.75 m) tall, your BMI is `70 ÷ (1.75 × 1.75) = 22.86`, which falls in the healthy weight range.
+  2. **Q: What is a normal healthy BMI range for adults?**
+     **A:** According to the World Health Organization (WHO), a normal healthy BMI for adults aged 20 and older is **18.5 to 24.9 kg/m²**. Below 18.5 is underweight, 25.0 to 29.9 is overweight, and 30.0 or higher is classified as obesity.
+  3. **Q: Does BMI change with age and gender?**
+     **A:** The mathematical BMI formula is identical for adult men and women aged 20+, though older adults naturally carry slightly more body fat at the same BMI. For children and teens aged 2 to 19, BMI is interpreted using age- and sex-specific growth percentiles rather than fixed adult cutoffs.
+  4. **Q: What are the main limitations of a BMI calculator?**
+     **A:** BMI is a screening tool rather than a direct measure of body fat. Because muscle weighs more than fat, muscular athletes may register a high BMI despite having low body fat, while older adults with low muscle mass may have excess visceral fat even at a normal BMI.
+
+#### 2. `/bmi-calculator/men` — BMI Calculator for Men
+- **Primary Keyword:** `BMI Calculator for Men`
+- **Supporting Keywords:** `male bmi calculator`, `bmi calculator for men`
+- **Meta Title:** `BMI Calculator for Men – Check Male Body Mass Index & Healthy Weight | Ultimatrix`
+- **Meta Description:** `Calculate BMI for men in kg or lbs. Check male healthy weight ranges, understand how muscle mass impacts male BMI scores, and view the adult men's BMI chart.`
+- **H1:** `BMI Calculator for Men – Male Body Mass Index & Healthy Weight`
+- **FAQs:**
+  1. **Q: What is the ideal BMI for an adult man?**
+     **A:** For adult men aged 20 and older, a healthy BMI falls between **18.5 and 24.9**. However, men with higher lean muscle mass or athletic builds may sit between 25.0 and 27.0 while still maintaining healthy body fat levels.
+  2. **Q: Is the BMI formula different for men than for women?**
+     **A:** No, the calculation (`weight in kg ÷ height in meters²`) is the same for both sexes. The difference lies in body composition: adult men typically carry more skeletal muscle and bone density and less essential fat than women at an identical BMI.
+  3. **Q: Why do muscular men often get an "overweight" BMI result?**
+     **A:** The BMI formula cannot distinguish between lean muscle tissue and adipose (fat) tissue. Because muscle is denser than fat, strength-trained men often exceed a BMI of 25.0 despite having low body fat and healthy metabolic markers.
+  4. **Q: What waist size should men aim for alongside a healthy BMI?**
+     **A:** Health guidelines recommend that adult men keep their waist circumference below **40 inches (102 cm)**—or below **35.5 inches (90 cm)** for South Asian men—to reduce risks linked to visceral abdominal fat.
+
+#### 3. `/bmi-calculator/women` — BMI Calculator for Women
+- **Primary Keyword:** `bmi calculator women`
+- **Supporting Keywords:** `bmi calculator female`, `bmi calculator for women`, `female bmi calculator`
+- **Meta Title:** `BMI Calculator for Women – Female Body Mass Index & Ideal Weight | Ultimatrix`
+- **Meta Description:** `Free female BMI calculator in kg, cm, and feet. Find your healthy BMI range for women, compare female body fat norms, and check ideal weight by height.`
+- **H1:** `BMI Calculator for Women – Female Body Mass Index & Ideal Weight`
+- **FAQs:**
+  1. **Q: What is a healthy BMI range for women?**
+     **A:** A healthy BMI for non-pregnant adult women aged 20+ is **18.5 to 24.9 kg/m²**. Within this band, women naturally carry higher essential body fat (typically 21%–32%) than men at the exact same BMI score.
+  2. **Q: Should pregnant or breastfeeding women use a standard BMI calculator?**
+     **A:** No. Standard BMI cutoffs do not apply during pregnancy because weight gain includes the baby, placenta, amniotic fluid, and increased blood volume. Healthcare providers use pre-pregnancy BMI to guide healthy pregnancy weight gain targets.
+  3. **Q: How does menopause affect a woman's BMI and body composition?**
+     **A:** Hormonal shifts during perimenopause and menopause can reduce lean muscle mass and redistribute fat toward the abdomen, meaning a woman's body fat percentage can rise even if her scale weight and BMI stay unchanged.
+  4. **Q: What is a healthy waist measurement for women alongside BMI?**
+     **A:** For non-pregnant adult women, a waist circumference below **35 inches (88 cm)**—or below **31.5 inches (80 cm)** for South Asian women—is associated with lower cardiometabolic risk.
+
+#### 4. `/child-bmi-calculator` — Child & Teen BMI Calculator (Ages 2 to 19)
+- **Primary Keyword:** `child bmi calculator`
+- **Supporting Keywords:** `bmi calculator kg with age`, `bmi calculator kids`
+- **Meta Title:** `Child BMI Calculator (Ages 2–19) – Kids & Teen BMI Percentile in kg | Ultimatrix`
+- **Meta Description:** `Calculate child and teen BMI (ages 2 to 19) in kg/cm or lbs/ft. Get accurate CDC/WHO sex-specific BMI-for-age percentiles for boys and girls.`
+- **H1:** `Child & Teen BMI Calculator (Ages 2 to 19) – Kids BMI Percentile`
+- **FAQs:**
+  1. **Q: How is a child's BMI calculated differently from an adult's?**
+     **A:** While the raw number uses `weight (kg) ÷ height (m)²`, children and teens (ages 2–19) are actively growing at different rates by age and sex. Instead of fixed adult cutoffs, pediatric BMI is plotted on CDC/WHO growth charts to determine a **BMI-for-age percentile**.
+  2. **Q: What is a healthy BMI percentile for kids and teenagers?**
+     **A:** A BMI between the **5th percentile and less than the 85th percentile** for a child's exact age and sex is considered a healthy weight. Below the 5th percentile is underweight, 85th to <95th is overweight, and the 95th percentile or above is obesity.
+  3. **Q: Why does a child need exact age in months and biological sex for BMI?**
+     **A:** Body fat levels change rapidly during childhood growth spurts and puberty, and boys and girls follow distinct growth trajectories. Entering exact age and sex ensures the BMI number is compared against the right peer reference group.
+  4. **Q: Can this child BMI calculator be used for babies under 2 years old?**
+     **A:** No. Pediatricians do not use BMI for infants and toddlers under age 2; instead, they track weight-for-length percentiles and head circumference on WHO infant growth charts.
+
+#### 5. `/bmi-calculator-by-age` — BMI Calculator by Age & Gender
+- **Primary Keyword:** `bmi calculator by age`
+- **Supporting Keywords:** `bmi calculator women age`, `bmi calculator for women`, `bmi calculator kids`, `child bmi calculator`, `bmi calculator online`, `adult bmi calculator`, `bmi calculator for female`, `womens bmi calculator`, `female bmi calculator`, `male bmi calculator`, `bmi calculator kg`, `bmi calculator for men`, `bmi calculator with age`
+- **Meta Title:** `BMI Calculator by Age & Gender – Kids, Adult Men & Women Chart | Ultimatrix`
+- **Meta Description:** `Calculate your BMI by age and gender online in kg or lbs. Automatically switches between kids/teen percentiles (2–19) and adult male/female age benchmarks (20–80+).`
+- **H1:** `BMI Calculator by Age & Gender – Kids, Men & Women`
+- **FAQs:**
+  1. **Q: Does ideal BMI increase as you get older?**
+     **A:** Official WHO adult categories remain **18.5 to 24.9** for all adults over 20. However, clinical research suggests that for adults aged 65 and older, a slightly higher BMI between **23.0 and 27.0** is often protective against frailty and muscle loss.
+  2. **Q: How does this BMI calculator by age work for both kids and adults?**
+     **A:** When you enter an age between 2 and 19, the calculator evaluates sex-specific pediatric BMI-for-age percentiles. When you enter age 20 or older, it applies adult BMI classifications alongside age-decade body composition context.
+  3. **Q: Why do two people of the same age, height, and weight have different health risks?**
+     **A:** BMI does not measure fat distribution, bone density, or muscle mass. Two 40-year-olds with a BMI of 26 can have very different health profiles depending on waist size, visceral fat, fitness level, and ethnicity.
+  4. **Q: Is the BMI cutoff lower for Asian and Indian adults?**
+     **A:** Yes. Because South and East Asian populations tend to carry higher visceral fat at lower body weights, many health authorities define **18.5 to 22.9** as normal BMI and **23.0 or higher** as overweight for Asian adults.
+
+#### 6. `/pregnancy-due-date-calculator` — IVF & Pregnancy Due Date Calculator
+- **Primary Keyword:** `ivf pregnancy due date calculator`
+- **Supporting Keywords:** `pregnancy due date calculator`, `pregnancy due date calculator from conception`
+- **Meta Title:** `IVF & Pregnancy Due Date Calculator – From Transfer, Conception or LMP | Ultimatrix`
+- **Meta Description:** `Calculate your exact due date from IVF embryo transfer (Day 3 or Day 5 blastocyst), conception date, or last menstrual period (LMP) with trimester milestones.`
+- **H1:** `IVF & Pregnancy Due Date Calculator – Transfer, Conception & LMP`
+- **FAQs:**
+  1. **Q: How does an IVF pregnancy due date calculator work?**
+     **A:** Because the exact embryo transfer date and embryo age are known, IVF due dates are more precise than natural cycle estimates. For a **Day 5 blastocyst transfer**, add **261 days** (`266 - 5`) to the transfer date; for a **Day 3 embryo transfer**, add **263 days** (`266 - 3`).
+  2. **Q: How is a due date calculated from conception date vs. LMP?**
+     **A:** From a known **conception or ovulation date**, add **266 days (38 weeks)**. From the first day of your **Last Menstrual Period (LMP)**, Naegele's rule adds **280 days (40 weeks)** assuming a standard 28-day menstrual cycle.
+  3. **Q: Does an IVF frozen embryo transfer (FET) use the same formula?**
+     **A:** Yes. Whether you had a fresh transfer or a Frozen Embryo Transfer (FET), the due date depends strictly on the transfer date and the developmental age of the embryo (Day 3, Day 5, or Day 6) on the day it was placed in the uterus.
+  4. **Q: How accurate is a calculated pregnancy due date?**
+     **A:** Only about 4% to 5% of babies arrive on their exact estimated due date, though most births occur within two weeks before or after that date. A first-trimester dating ultrasound provides the most reliable clinical confirmation.
+
+#### 7. `/dog-pregnancy-due-date-calculator` — Dog Pregnancy Due Date & Whelping Calculator
+- **Primary Keyword:** `Dog Pregnancy Due Date & Whelping Calculator`
+- **Supporting Keywords:** `dog pregnancy due date calculator`, `dog whelping calculator`, `canine gestation calculator`
+- **Meta Title:** `Dog Pregnancy Due Date & Whelping Calculator – 63-Day Gestation | Ultimatrix`
+- **Meta Description:** `Estimate your dog's whelping due date from mating, ovulation, or LH surge date. Includes the 58–68 day delivery window and week-by-week puppy development guide.`
+- **H1:** `Dog Pregnancy Due Date & Whelping Calculator`
+- **FAQs:**
+  1. **Q: How long is a dog pregnant?**
+     **A:** Canine gestation averages **63 days** from ovulation. When counted from a breeding or mating date without hormone testing, normal delivery typically falls within a **58- to 68-day** whelping window because sperm can survive several days before fertilization.
+  2. **Q: Which date gives the most accurate dog due date?**
+     **A:** A progesterone-confirmed **ovulation date** (`+63 days`) is the most accurate. If hormone timing is unavailable, use the **LH surge date** (`+65 days`) or the **first/most fertile mating date** (`+63 days`) as a planning range.
+  3. **Q: When can a vet confirm dog pregnancy and count puppies?**
+     **A:** Veterinarians typically confirm pregnancy via abdominal **ultrasound around Day 25 to 30** after breeding, and use an **X-ray after Day 55**—once puppy skeletons mineralize—for an accurate litter count before whelping.
+  4. **Q: What are the signs that a dog is about to go into labor?**
+     **A:** Within 12 to 24 hours before stage-one labor begins, a pregnant dog's rectal temperature usually drops below **99°F (37.2°C)**, accompanied by nesting behavior, restlessness, panting, and refusal of food.
+
+#### 8. `/emi-calculator` — Loan EMI Calculator
+- **Primary Keyword:** `emi calculator`
+- **Supporting Keywords:** `home loan emi calculator`, `loan emi calculator`, `car emi calculator`, `emi calculator usa`
+- **Meta Title:** `EMI Calculator – Home Loan, Car Loan & Personal Loan Monthly EMI | Ultimatrix`
+- **Meta Description:** `Free online EMI calculator for home loans, car loans, and personal loans in INR ($) or USD ($). Compute monthly EMI, total interest, and principal breakdown instantly.`
+- **H1:** `Loan EMI Calculator – Home, Car & Personal Loan Monthly Payments`
+- **FAQs:**
+  1. **Q: What is the formula to calculate loan EMI?**
+     **A:** Equated Monthly Installment (EMI) uses the standard reducing-balance formula: `EMI = [P × R × (1+R)^N] ÷ [(1+R)^N - 1]`, where `P` is the principal loan amount, `R` is the monthly interest rate (`annual rate ÷ 12 ÷ 100`), and `N` is the loan tenure in months.
+  2. **Q: How does loan tenure affect monthly EMI and total interest?**
+     **A:** Choosing a longer tenure lowers your monthly EMI payment, making monthly cash flow easier, but significantly increases the total interest you pay over the life of the loan. A shorter tenure raises the monthly EMI while saving substantial interest.
+  3. **Q: What is the difference between a reducing-balance EMI and a flat-rate loan?**
+     **A:** In a reducing-balance loan (used for almost all home and auto loans), interest is charged only on the remaining unpaid principal each month. In a flat-rate loan, interest is calculated on the original full principal for the entire tenure, making the effective cost much higher.
+  4. **Q: How can I reduce my EMI burden after taking a loan?**
+     **A:** You can lower your total interest and remaining tenure by making periodic lump-sum **part-prepayments** directly toward your principal, refinancing to a lower interest rate, or increasing your EMI annually as your income grows.
+
+#### 9. `/hdfc-emi-calculator` — HDFC Loan EMI Calculator
+- **Primary Keyword:** `hdfc emi calculator`
+- **Supporting Keywords:** `hdfc home loan emi calculator`, `emi calculator for home loan`, `home loan emi calculator formula india`, `mortgage emi calculator`, `mortgage loan emi calculator`, `housing loan emi calculator`, `auto emi calculator`, `car emi calculator india`
+- **Meta Title:** `HDFC EMI Calculator – Home Loan, Car Loan & Mortgage EMI India | Ultimatrix`
+- **Meta Description:** `Calculate HDFC home loan, car loan, and personal loan EMI online in India. Check monthly installments, total interest payable, and year-by-year amortization schedule.`
+- **H1:** `HDFC Loan EMI Calculator – Home, Car & Mortgage EMI India`
+- **FAQs:**
+  1. **Q: How is HDFC home loan EMI calculated in India?**
+     **A:** HDFC home and auto loans use the monthly reducing-balance formula `EMI = P × R × (1+R)^N ÷ [(1+R)^N - 1]`. For example, a ₹25 lakh housing loan at 8.60% p.a. for 20 years (240 months) yields an estimated monthly EMI of ₹21,854.
+  2. **Q: What is the maximum loan tenure for an HDFC housing loan?**
+     **A:** Home loan tenures in India typically extend up to **30 years**, subject to the borrower's retirement age and repayment capacity. Auto and personal loans generally carry shorter tenures ranging from 1 to 7 years.
+  3. **Q: Are there prepayment charges on floating-rate home loans in India?**
+     **A:** Under RBI guidelines, banks and housing finance companies cannot levy prepayment or foreclosure penalties on individual borrowers repaying floating-rate home loans from their own funds. Fixed-rate loans and business loans may carry nominal charges.
+  4. **Q: Does checking my EMI on an online calculator affect my CIBIL score?**
+     **A:** No. Using an online EMI calculator is completely private and does not trigger a credit bureau inquiry. Your CIBIL score is only checked when you formally submit a loan application to a lender.
+
+#### 10. `/sip-calculator` — Mutual Fund & Step-Up SIP Calculator
+- **Primary Keyword:** `sip calculator`
+- **Supporting Keywords:** `mutual fund sip calculator`, `sip calculator india`, `step up sip calculator`, `groww sip calculator`, `sbi sip calculator`, `hdfc sip calculator`
+- **Meta Title:** `SIP Calculator India – Mutual Fund & Step-Up SIP Return Estimator | Ultimatrix`
+- **Meta Description:** `Free online mutual fund SIP calculator for India. Estimate future wealth, total invested amount, and compound returns for regular or step-up SIP investments.`
+- **H1:** `Mutual Fund SIP Calculator India – Regular & Step-Up Returns`
+- **FAQs:**
+  1. **Q: How does a mutual fund SIP calculator estimate returns?**
+     **A:** It uses the future value of an annuity-due compound formula: `FV = P × [((1 + i)^n - 1) ÷ i] × (1 + i)`, where `P` is your monthly SIP amount, `i` is the expected monthly rate of return (`annual return ÷ 12`), and `n` is the total number of monthly installments.
+  2. **Q: What is a Step-Up SIP and how does it grow wealth faster?**
+     **A:** A Step-Up (or Top-Up) SIP automatically increases your monthly investment by a fixed percentage (such as 10%) every year in line with your salary increments, dramatically boosting long-term compounding compared to a flat SIP.
+  3. **Q: Are mutual fund SIP returns guaranteed?**
+     **A:** No. Because equity and hybrid mutual funds are market-linked, actual returns fluctuate with market cycles. A SIP calculator projects wealth based on an assumed annualized return rate (CAGR) for financial planning.
+  4. **Q: What happens if I miss a monthly SIP installment?**
+     **A:** Mutual fund houses do not penalize you for missing a SIP installment due to insufficient balance (though your bank may charge a standard NACH bounce fee). Your existing invested units continue compounding normally, and your SIP resumes the next month.
+
+#### 11. `/gst-calculator` — Online Indian GST Calculator
+- **Primary Keyword:** `gst calculator`
+- **Supporting Keywords:** `gst calculator india`, `gst calculator online`, `free gst calculator`, `indian gst calculator`, `gst calculator formula`, `gst calculator rapid`
+- **Meta Title:** `GST Calculator India Online – Add or Remove GST (CGST & SGST) | Ultimatrix`
+- **Meta Description:** `Fast, free Indian GST calculator online. Instantly add GST (exclusive) or remove GST (inclusive) across 5%, 12%, 18%, and 28% slabs with CGST/SGST breakdown.`
+- **H1:** `GST Calculator India Online – Add or Remove GST (5%, 12%, 18%, 28%)`
+- **FAQs:**
+  1. **Q: What is the formula to add GST vs. remove (reverse) GST?**
+     **A:** To **add GST** to a base price: `GST Amount = (Original Price × GST%) ÷ 100`, and `Net Price = Original Price + GST Amount`. To **remove GST** from a tax-inclusive price: `Original Price = Inclusive Price ÷ (1 + GST%/100)`.
+  2. **Q: How are CGST, SGST, and IGST split on an invoice?**
+     **A:** For **intra-state sales** (within the same Indian state), the GST rate is split equally between Central GST (**CGST**) and State GST (**SGST**)—for example, an 18% GST rate splits into 9% CGST + 9% SGST. For **inter-state sales**, the full 18% is charged as Integrated GST (**IGST**).
+  3. **Q: What are the standard GST tax slabs in India?**
+     **A:** India's primary Goods and Services Tax rate slabs are **5%** (essential goods and transport), **12%** (processed foods and standard electronics/apparel), **18%** (most services, IT, software, and industrial goods), and **28%** (luxury items and automobiles).
+  4. **Q: Why is reverse GST not calculated by simply subtracting 18% from the total?**
+     **A:** Because the 18% tax was originally added onto the smaller base price, not the final total. Subtracting 18% directly from an inclusive price overstates the tax; dividing by `1.18` extracts the exact pre-tax base amount.
+
+#### 12. `/age-calculator` — Chronological Age Calculator
+- **Primary Keyword:** `chronological age calculator`
+- **Supporting Keywords:** `age calculator`, `age calculator on birthday`, `age calculator of child`, `dog age calculator`
+- **Meta Title:** `Chronological Age Calculator – Exact Age in Years, Months & Days | Ultimatrix`
+- **Meta Description:** `Free chronological age calculator. Find your exact age in years, months, weeks, and days from your date of birth to any target date, plus next birthday countdown.`
+- **H1:** `Chronological Age Calculator – Exact Years, Months & Days`
+- **FAQs:**
+  1. **Q: What is chronological age and how is it calculated?**
+     **A:** Chronological age is the exact amount of time elapsed from your date of birth to a specific target date, expressed in **years, months, and days**. It is widely used for school admissions, developmental assessments, and government exam cutoffs.
+  2. **Q: How does the age calculator handle leap years and 30- vs. 31-day months?**
+     **A:** The calculator counts full calendar years and completed calendar months first, then calculates the exact remaining days based on the actual calendar length (28, 29, 30, or 31 days) of the preceding month.
+  3. **Q: How is chronological age calculated if someone was born on February 29?**
+     **A:** In non-leap years, individuals born on February 29 celebrate their legal age milestone on either February 28 or March 1 depending on jurisdiction, while total days lived are counted accurately across every 366-day leap year.
+  4. **Q: Can I calculate my age as of a future or past exam cutoff date?**
+     **A:** Yes. Simply change the "Target / As-Of Date" field from today's date to your exam eligibility cutoff date (such as UPSC, SSC, or school admission dates) to see your exact age on that day.
+
+#### 13. `/discount-calculator` — Discount & Sale Price Calculator
+- **Primary Keyword:** `discount calculator`
+- **Supporting Keywords:** `percentage discount calculator`, `percent discount calculator`, `discount calculator online`, `discount calculator with tax`
+- **Meta Title:** `Discount Calculator Online – Percentage Off, Stacked Deals & Tax | Ultimatrix`
+- **Meta Description:** `Free online percentage discount calculator. Calculate final sale price, total money saved, double/stacked discounts, and final price after sales tax or GST.`
+- **H1:** `Discount Calculator Online – Percentage Off & Final Sale Price`
+- **FAQs:**
+  1. **Q: How do you calculate a percentage discount manually?**
+     **A:** Multiply the original price by the discount percentage divided by 100 to get your savings (`Savings = Original Price × Discount% ÷ 100`), then subtract those savings from the original price (`Final Price = Original Price - Savings`).
+  2. **Q: How do double or stacked discounts (like 20% off + extra 10% off) work?**
+     **A:** Stacked discounts are applied sequentially, not added together. On a $100 item, 20% off brings the price to $80, and an extra 10% off takes $8 off $80 for a final price of **$72** (an effective 28% discount, not 30%).
+  3. **Q: Is sales tax or GST calculated before or after a store discount?**
+     **A:** In almost all retail transactions, sales tax or GST is calculated on the **discounted net price** (after subtracting the store discount), except for manufacturer coupons in certain jurisdictions where tax applies to the pre-coupon price.
+  4. **Q: How do I find the discount percentage if I only know the original and sale prices?**
+     **A:** Subtract the sale price from the original price to find the dollar savings, divide that savings by the original price, and multiply by 100: `Discount % = [(Original Price - Sale Price) ÷ Original Price] × 100`.
+
+---
+
+### PART 2: COMPLETE SEO & FAQS FOR ALL REMAINING TOOLS IN OUR APP
+
+#### 14. `/child-age-calculator` — Child & Baby Age Calculator
+- **Primary Keyword:** `age calculator of child`
+- **Supporting Keywords:** `baby age calculator in months`, `child age calculator in weeks and days`, `infant age calculator`
+- **Meta Title:** `Child & Baby Age Calculator – Exact Months, Weeks & Days | Ultimatrix`
+- **Meta Description:** `Calculate your baby or child's exact age in months, weeks, and days for pediatric checkups, vaccination schedules, and developmental milestones.`
+- **H1:** `Child & Baby Age Calculator – Exact Months, Weeks & Days`
+- **FAQs:**
+  1. **Q: Why do pediatricians track a baby's age in months and weeks instead of years?**
+     **A:** During the first 24 to 36 months, growth spurts, motor skills, and immunization windows change every few weeks, making total months and weeks far more useful than rounded years.
+  2. **Q: How do you calculate a baby's age in weeks?**
+     **A:** Count the total number of calendar days between the baby's birth date and today, then divide by 7 (`Total Days ÷ 7`) to get completed weeks plus remaining days.
+  3. **Q: What is "adjusted age" vs. chronological age for premature babies?**
+     **A:** Chronological age is counted from the actual birth date, whereas adjusted (corrected) age subtracts the number of weeks the baby was born early (before 40 weeks gestation) to evaluate developmental milestones fairly.
+  4. **Q: How does this calculator count months when a baby is born on the 31st?**
+     **A:** When the target month has fewer than 31 days (such as February or April), a completed month is reached on the last calendar day of that month.
+
+#### 15. `/date-calculator` — Date Duration & Add/Subtract Days Calculator
+- **Primary Keyword:** `date calculator`
+- **Supporting Keywords:** `days between two dates calculator`, `add days to date calculator`, `date duration calculator`
+- **Meta Title:** `Date Calculator – Days Between Dates & Add/Subtract Days | Ultimatrix`
+- **Meta Description:** `Free online date calculator. Count exact days, weeks, and months between two dates or add and subtract days from any calendar date instantly.`
+- **H1:** `Date Calculator – Days Between Dates & Add/Subtract Days`
+- **FAQs:**
+  1. **Q: How does the date calculator count days between two dates?**
+     **A:** It computes the exact calendar difference between your start date and end date, automatically accounting for 30-day months, 31-day months, and February 29 in leap years.
+  2. **Q: Does "days between dates" include the end date?**
+     **A:** By standard convention, date subtraction counts elapsed nights/days between dates (e.g., Jan 1 to Jan 2 is 1 day), with an optional toggle to include the end date (`+1 day`) for event or leave counting.
+  3. **Q: How do I find the exact date 90 days or 6 months from today?**
+     **A:** Switch to the "Add / Subtract Time" tab, select your starting date, enter `90` days (or `6` months), and the tool immediately displays the resulting weekday and calendar date.
+  4. **Q: How are leap years factored into multi-year date ranges?**
+     **A:** Any year divisible by 4 (and divisible by 400 for century years like 2000) adds an extra day on February 29, which is automatically included in your total day count.
+
+#### 16. `/time-duration-calculator` — Time Duration & Hours Calculator
+- **Primary Keyword:** `time duration calculator`
+- **Supporting Keywords:** `hours calculator`, `elapsed time calculator`, `time card calculator`
+- **Meta Title:** `Time Duration Calculator – Elapsed Hours, Minutes & Seconds | Ultimatrix`
+- **Meta Description:** `Calculate exact elapsed time in hours, minutes, and seconds between two timestamps, or add and subtract time blocks for work shifts and study logs.`
+- **H1:** `Time Duration Calculator – Elapsed Hours, Minutes & Seconds`
+- **FAQs:**
+  1. **Q: How do I calculate elapsed time across midnight (overnight shifts)?**
+     **A:** Enter your start time (e.g., 10:30 PM) and end time (e.g., 6:15 AM); if the end time is earlier than the start time, the calculator automatically treats it as the next morning (`7 hours 45 minutes`).
+  2. **Q: How do you convert hours and minutes into decimal hours for payroll?**
+     **A:** Divide the minutes by 60 and add them to the whole hours—for example, `7 hours 45 minutes` equals `7 + (45 ÷ 60) = 7.75 decimal hours`.
+  3. **Q: Can I add multiple time durations together?**
+     **A:** Yes. Use the "Add / Subtract Time" mode to sum hours, minutes, and seconds without manually carrying over every 60 seconds or 60 minutes.
+  4. **Q: Does this calculator support both 12-hour (AM/PM) and 24-hour military time?**
+     **A:** Yes, you can enter times in standard 12-hour AM/PM format or 24-hour format and view outputs in `HH:MM:SS`, total minutes, and decimal hours simultaneously.
+
+#### 17. `/percentage-calculator` — Online Percentage Calculator
+- **Primary Keyword:** `percentage calculator`
+- **Supporting Keywords:** `marks percentage calculator`, `percentage increase calculator`, `how to calculate percentage`
+- **Meta Title:** `Percentage Calculator Online – Find %, Marks % & % Change | Ultimatrix`
+- **Meta Description:** `Free all-in-one percentage calculator online. Calculate X% of Y, exam marks percentage, and percentage increase or decrease with step-by-step math.`
+- **H1:** `Percentage Calculator Online – Marks, % Of & Percentage Change`
+- **FAQs:**
+  1. **Q: How do I calculate the percentage of exam marks?**
+     **A:** Divide your obtained marks by the total maximum marks and multiply by 100: `Percentage = (Obtained Marks ÷ Total Marks) × 100`. For example, `435 ÷ 500 × 100 = 87%`.
+  2. **Q: What is the formula for percentage increase or decrease?**
+     **A:** Subtract the old value from the new value, divide by the original old value, and multiply by 100: `[(New Value - Old Value) ÷ Old Value] × 100`.
+  3. **Q: How do I find X percent of a number quickly?**
+     **A:** Convert the percentage to a decimal by dividing by 100, then multiply by the number—for instance, `15% of 240` is `0.15 × 240 = 36`.
+  4. **Q: Why is a 20% increase followed by a 20% decrease not equal to the original number?**
+     **A:** Because the 20% decrease applies to the larger post-increase total. Increasing 100 by 20% gives 120, and decreasing 120 by 20% subtracts 24, leaving **96**.
+
+#### 18. `/cgpa-to-percentage-calculator` — CGPA to Percentage Converter
+- **Primary Keyword:** `cgpa to percentage calculator`
+- **Supporting Keywords:** `cbse cgpa to percentage`, `10 point cgpa to percentage`, `sgpa to percentage calculator`
+- **Meta Title:** `CGPA to Percentage Calculator – CBSE (9.5x) & University Scales | Ultimatrix`
+- **Meta Description:** `Convert CGPA or SGPA to percentage instantly using CBSE (×9.5), VTU, AKTU, Mumbai University, or custom 10-point and 4-point grading formulas.`
+- **H1:** `CGPA to Percentage Calculator – 10-Point & 4-Point Scales`
+- **FAQs:**
+  1. **Q: How do you convert CGPA to percentage in CBSE?**
+     **A:** Multiply your 10-point CGPA by **9.5** (`Percentage = CGPA × 9.5`). For example, an 8.4 CGPA converts to `8.4 × 9.5 = 79.8%`.
+  2. **Q: Why do different universities use different CGPA conversion formulas?**
+     **A:** Each university calibrates its grade points differently—while CBSE and many universities use `CGPA × 9.5`, others like VTU/Anna University use `(CGPA - 0.75) × 10`, and some use `CGPA × 10`. Always check your official marksheet rules.
+  3. **Q: How do I calculate overall CGPA from semester SGPAs?**
+     **A:** If all semesters have equal credits, add your semester SGPAs and divide by the number of semesters. If credits differ, multiply each SGPA by its semester credits, sum them, and divide by total credits.
+  4. **Q: How do I convert percentage back into CGPA?**
+     **A:** Divide your percentage by your board's multiplier—under the standard CBSE rule, `CGPA = Percentage ÷ 9.5` (e.g., `76% ÷ 9.5 = 8.0 CGPA`).
+
+#### 19. `/gpa-calculator` & `/high-school-gpa-calculator` — College & High School GPA Calculators
+- **Primary Keyword:** `high school gpa calculator` (and `gpa calculator` on `/gpa-calculator`)
+- **Supporting Keywords:** `weighted gpa calculator`, `unweighted gpa calculator 4.0 scale`, `cumulative gpa calculator`
+- **Meta Title:** `High School GPA Calculator – Weighted (5.0) & Unweighted (4.0) | Ultimatrix`
+- **Meta Description:** `Calculate your weighted and unweighted high school or college GPA on a 4.0 scale. Add regular, Honors (+0.5), and AP/IB (+1.0) courses with credit hours.`
+- **H1:** `High School & College GPA Calculator (Weighted & Unweighted)`
+- **FAQs:**
+  1. **Q: What is the difference between weighted and unweighted GPA?**
+     **A:** An **unweighted GPA** grades all classes on a standard **0.0 to 4.0 scale** regardless of difficulty. A **weighted GPA** adds extra points (typically `+0.5` for Honors and `+1.0` for AP/IB courses) on a **5.0 scale** to reward rigorous coursework.
+  2. **Q: How is semester GPA calculated with course credits?**
+     **A:** Multiply each course's grade point value (e.g., A = 4.0, B = 3.0) by its credit hours to get quality points, add all quality points together, and divide by total attempted credits.
+  3. **Q: How do I calculate my cumulative GPA across multiple years?**
+     **A:** Multiply your existing cumulative GPA by your prior earned credits, add the quality points from your current semester, and divide by the combined total credits.
+  4. **Q: Do Pass/Fail classes affect my GPA?**
+     **A:** Usually no. Passing a Pass/Fail course earns graduation credits without adding grade points to the GPA numerator or denominator, though failing may count as a 0.0 at some schools.
+
+#### 20. `/scientific-calculator`, `/casio-fx-115es-scientific-calculator`, & `/sharp-12-digit-scientific-calculator`
+- **Primary Keywords:** `scientific calculator`, `casio advanced scientific calculator fx-115es`, `sharp 12-digit scientific calculator`
+- **Meta Titles & H1s:** Distinct per route matching each model/tool name.
+- **FAQs (Tailored per scientific calculator page):**
+  1. **Q: How do I switch between Degrees (DEG) and Radians (RAD) for trigonometry?**
+     **A:** Click the `DEG / RAD` mode toggle at the top of the calculator display before running `sin`, `cos`, or `tan`. Use `DEG` for standard geometry angles (e.g., `sin(30°) = 0.5`) and `RAD` for calculus and physics.
+  2. **Q: What is the difference between `log` and `ln` on a scientific calculator?**
+     **A:** `log` computes the base-10 common logarithm ($\log_{10}$), while `ln` computes the natural logarithm using Euler's number $e \approx 2.71828$ ($\log_e$).
+  3. **Q: How does order of operations (PEMDAS/BODMAS) work in this calculator?**
+     **A:** The expression parser automatically evaluates parentheses first, followed by exponents/roots, multiplication/division from left to right, and addition/subtraction last.
+  4. **Q: How do I use the `Ans` or memory keys (`M+`, `M-`, `RCL`)?**
+     **A:** `Ans` automatically recalls your previous calculation result into a new formula, while `M+` and `M-` add or subtract the displayed value to stored memory for multi-step calculations.
+
+#### 21. `/weight-loss-percentage-calculator` — Weight Loss Percentage Calculator
+- **Primary Keyword:** `weight loss percentage calculator`
+- **Supporting Keywords:** `percentage weight loss calculator`, `body weight loss percentage formula`
+- **Meta Title:** `Weight Loss Percentage Calculator – Track % Body Weight Lost (kg/lbs) | Ultimatrix`
+- **Meta Description:** `Calculate your exact weight loss percentage in kg or lbs. Track total weight lost, progress toward your goal weight, and clinically meaningful milestones.`
+- **H1:** `Weight Loss Percentage Calculator (kg & lbs)`
+- **FAQs:**
+  1. **Q: What is the formula for weight loss percentage?**
+     **A:** Subtract your current weight from your starting weight, divide by your starting weight, and multiply by 100: `Weight Loss % = [(Starting Weight - Current Weight) ÷ Starting Weight] × 100`.
+  2. **Q: Why is percentage weight loss better than tracking pounds or kilos alone?**
+     **A:** Losing 5 kg means something very different for a 60 kg person (8.3% loss) than for a 100 kg person (5.0% loss). Tracking percentage normalizes progress regardless of starting size.
+  3. **Q: How much weight loss percentage improves health markers?**
+     **A:** Clinical health guidelines note that losing even **5% to 10%** of initial body weight can meaningfully improve blood pressure, blood sugar control, and cholesterol levels.
+  4. **Q: What is a healthy weekly rate of weight loss?**
+     **A:** Sustainable weight management typically targets **0.5% to 1.0% of total body weight per week** (roughly 0.5 to 1 kg per week for most adults), helping preserve lean muscle mass.
+
+#### 22. `/height-calculator` — Height Converter & Predictor
+- **Primary Keyword:** `height calculator`
+- **Supporting Keywords:** `height converter feet to cm`, `cm to feet and inches calculator`, `child height predictor`
+- **Meta Title:** `Height Calculator & Converter – Feet/Inches to cm & Growth Estimate | Ultimatrix`
+- **Meta Description:** `Convert height between feet, inches, centimeters, and meters instantly, or estimate a child's adult height using the mid-parental height formula.`
+- **H1:** `Height Calculator & Converter – Feet, Inches & cm`
+- **FAQs:**
+  1. **Q: How do you convert height in feet and inches to centimeters?**
+     **A:** Multiply the feet by `30.48`, multiply the remaining inches by `2.54`, and add the two numbers together (`1 foot = 30.48 cm`, `1 inch = 2.54 cm`). For example, `5'8"` is `(5 × 30.48) + (8 × 2.54) = 172.72 cm`.
+  2. **Q: How do you convert centimeters to feet and inches?**
+     **A:** Divide centimeters by `2.54` to get total inches, then divide by `12`—the whole number is feet and the remainder is inches (e.g., `165 cm ÷ 2.54 = 64.96 inches ≈ 5 feet 5 inches`).
+  3. **Q: How does the mid-parental child height predictor formula work?**
+     **A:** Add both parents' heights in centimeters: for boys, add `13 cm` and divide by `2`; for girls, subtract `13 cm` and divide by `2` (`± 8.5 cm` genetic margin).
+  4. **Q: Why is accurate height important for BMI and calorie calculators?**
+     **A:** Because height is squared in the BMI formula (`kg ÷ m²`), even a 2 cm (nearly 1 inch) measurement error can shift your calculated BMI by 0.5 to 0.8 points.
+
+Ensure all 22 routes are registered in `app/sitemap.ts`, cross-linked cleanly within their category hubs, and render valid `FAQPage` JSON-LD matching these exact questions and answers.

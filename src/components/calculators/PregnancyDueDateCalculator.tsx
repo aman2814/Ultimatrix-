@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { RotateCcw } from 'lucide-react';
 import { CalculatorResultCard } from '../ui/CalculatorResultCard';
 
+type DueDateMethod = 'ivf' | 'conception' | 'lmp';
+type EmbryoAge = 'day3' | 'day5' | 'day6';
+
 function getOffsetIso(daysAgo: number): string {
   const d = new Date();
   d.setDate(d.getDate() - daysAgo);
@@ -36,13 +39,15 @@ function formatDate(dt: Date): string {
 }
 
 export function PregnancyDueDateCalculator() {
-  const [method, setMethod] = useState<'lmp' | 'conception'>('lmp');
-  const [inputDate, setInputDate] = useState(() => getOffsetIso(70));
+  const [method, setMethod] = useState<DueDateMethod>('ivf');
+  const [inputDate, setInputDate] = useState(() => getOffsetIso(56));
+  const [embryoAge, setEmbryoAge] = useState<EmbryoAge>('day5');
   const [cycleLength, setCycleLength] = useState('28');
 
   const handleReset = () => {
-    setMethod('lmp');
-    setInputDate(getOffsetIso(70));
+    setMethod('ivf');
+    setInputDate(getOffsetIso(56));
+    setEmbryoAge('day5');
     setCycleLength('28');
   };
 
@@ -54,13 +59,18 @@ export function PregnancyDueDateCalculator() {
   let lmpAnchor: Date | null = null;
 
   if (parsedInput) {
-    if (method === 'lmp') {
+    if (method === 'ivf') {
+      const embryoDays = embryoAge === 'day3' ? 3 : embryoAge === 'day6' ? 6 : 5;
+      // Conception equivalent is (transferDate - embryoDays); EDD = conception + 266 = transfer + (266 - embryoDays)
+      edd = addDays(parsedInput, 266 - embryoDays);
+      lmpAnchor = addDays(parsedInput, -(14 + embryoDays));
+    } else if (method === 'conception') {
+      edd = addDays(parsedInput, 266);
+      lmpAnchor = addDays(parsedInput, -14);
+    } else {
       const cycleOffset = cycle - 28;
       edd = addDays(parsedInput, 280 + cycleOffset);
       lmpAnchor = addDays(parsedInput, cycleOffset);
-    } else {
-      edd = addDays(parsedInput, 266);
-      lmpAnchor = addDays(parsedInput, -14);
     }
   }
 
@@ -110,30 +120,27 @@ export function PregnancyDueDateCalculator() {
       <div className="rounded-xl border border-[#1E2D36] bg-[#10171D] p-6 lg:col-span-7 flex flex-col justify-between">
         <div>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1">
-              <button
-                type="button"
-                onClick={() => setMethod('lmp')}
-                className={`rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-                  method === 'lmp'
-                    ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                    : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                Last Period (LMP)
-              </button>
-              <button
-                type="button"
-                onClick={() => setMethod('conception')}
-                className={`rounded-md px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-                  method === 'conception'
-                    ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
-                    : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                Conception Date
-              </button>
+            <div className="inline-flex flex-wrap rounded-lg border border-[#1E2D36] bg-[#070B0E] p-1 gap-1">
+              {[
+                { id: 'ivf', label: 'IVF Transfer' },
+                { id: 'conception', label: 'Conception' },
+                { id: 'lmp', label: 'Last Period (LMP)' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setMethod(tab.id as DueDateMethod)}
+                  className={`rounded-md px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                    method === tab.id
+                      ? 'bg-[#39FF14] text-[#070B0E] font-semibold'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
+
             <button
               type="button"
               onClick={handleReset}
@@ -147,7 +154,11 @@ export function PregnancyDueDateCalculator() {
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="preg-date" className="block text-sm font-medium text-slate-200">
-                {method === 'lmp' ? 'First Day of Last Period' : 'Conception Date'}
+                {method === 'ivf'
+                  ? 'Embryo Transfer Date'
+                  : method === 'conception'
+                  ? 'Conception / Ovulation Date'
+                  : 'First Day of Last Period'}
               </label>
               <input
                 id="preg-date"
@@ -157,6 +168,34 @@ export function PregnancyDueDateCalculator() {
                 className="mt-2 w-full rounded-lg border border-[#1E2D36] bg-[#070B0E] px-4 py-2.5 font-mono text-base text-white tabular-nums focus:border-[#39FF14] focus:outline-none"
               />
             </div>
+
+            {method === 'ivf' && (
+              <div>
+                <span className="block text-sm font-medium text-slate-200">
+                  Embryo Age at Transfer (Fresh or FET)
+                </span>
+                <div className="mt-2 grid grid-cols-3 gap-1.5">
+                  {[
+                    { id: 'day3', label: 'Day 3' },
+                    { id: 'day5', label: 'Day 5' },
+                    { id: 'day6', label: 'Day 6' },
+                  ].map((opt) => (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => setEmbryoAge(opt.id as EmbryoAge)}
+                      className={`rounded-lg border px-3 py-2.5 font-mono text-xs sm:text-sm font-semibold transition-colors ${
+                        embryoAge === opt.id
+                          ? 'border-[#39FF14] bg-[#39FF14]/15 text-[#39FF14]'
+                          : 'border-[#1E2D36] bg-[#070B0E] text-slate-300 hover:text-white'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {method === 'lmp' && (
               <div>
@@ -176,14 +215,13 @@ export function PregnancyDueDateCalculator() {
             )}
           </div>
 
-          {/* Trimester Milestone Timeline */}
           <div className="mt-6 grid grid-cols-3 gap-3 border-t border-[#1E2D36] pt-5 text-xs">
             <div>
               <span className="text-slate-400">End of 1st Trimester</span>
               <p className="mt-1 font-mono font-semibold text-white tabular-nums">{endTri1}</p>
             </div>
             <div>
-              <span className="text-slate-400">20-Week Milestone</span>
+              <span className="text-slate-400">20-Week Scan</span>
               <p className="mt-1 font-mono font-semibold text-white tabular-nums">{anatomyWindow}</p>
             </div>
             <div>
@@ -194,7 +232,7 @@ export function PregnancyDueDateCalculator() {
         </div>
 
         <p className="mt-6 border-t border-[#1E2D36] pt-4 text-xs leading-relaxed text-amber-300/90">
-          Informational Estimate Only: Only ~4% of babies arrive on the exact due date. Always confirm gestational dating and prenatal care with a qualified healthcare provider.
+          Informational Estimate Only: Fresh and frozen IVF transfers (FET) use transfer date + (266 − embryo age). Always confirm dating with your OB/GYN or fertility clinic.
         </p>
       </div>
 
