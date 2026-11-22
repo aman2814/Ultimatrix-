@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Check, ChevronDown, Globe } from 'lucide-react';
 import { Lang, languageCodes, languages, SUPPORTED_LANGS } from '../../i18n/ui';
-import { useTranslations } from '../../i18n/utils';
+import { getHreflang, useTranslations } from '../../i18n/utils';
 import { Link, useRoute } from './Router';
 
 export function LanguageSwitcher() {
@@ -53,7 +53,7 @@ export function LanguageSwitcher() {
         <div
           role="menu"
           aria-label={t('nav.language')}
-          className="absolute right-0 mt-2 w-44 max-w-[calc(100vw-2rem)] rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg z-50"
+          className="absolute right-0 mt-2 w-48 max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto no-scrollbar rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg z-50"
         >
           {SUPPORTED_LANGS.map((code: Lang) => {
             const isActive = code === lang;
@@ -63,7 +63,7 @@ export function LanguageSwitcher() {
                 key={code}
                 href={targetHref}
                 preserveLocale={false}
-                hrefLang={code}
+                hrefLang={getHreflang(code)}
                 role="menuitem"
                 onClick={() => setOpen(false)}
                 className={`flex min-h-[44px] sm:min-h-0 items-center justify-between rounded-lg px-2.5 py-2 text-xs transition-colors duration-150 ${

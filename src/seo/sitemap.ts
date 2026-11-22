@@ -1,5 +1,6 @@
 import { CALCULATORS } from '../data/calculators';
 import { defaultLang, Lang, showDefaultLang, SUPPORTED_LANGS } from '../i18n/ui';
+import { getHreflang } from '../i18n/utils';
 import { getCanonicalUrl, getSiteBaseUrl, SITE_LAST_MODIFIED } from './siteUrl';
 
 export interface SitemapAlternate {
@@ -33,7 +34,7 @@ function localizedSlug(baseSlug: string, lang: Lang): string {
 
 function buildAlternates(baseSlug: string, baseUrl: string): SitemapAlternate[] {
   const alts: SitemapAlternate[] = SUPPORTED_LANGS.map((lang) => ({
-    hreflang: lang,
+    hreflang: getHreflang(lang),
     href: getCanonicalUrl(localizedSlug(baseSlug, lang), baseUrl),
   }));
   alts.push({

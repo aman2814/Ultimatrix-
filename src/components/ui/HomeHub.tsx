@@ -8,7 +8,7 @@ import {
 } from '../../data/calculators';
 import { getLocalizedCalculator } from '../../i18n/calculators';
 import { languages, SUPPORTED_LANGS } from '../../i18n/ui';
-import { useTranslations } from '../../i18n/utils';
+import { getHreflang, useTranslations } from '../../i18n/utils';
 import { SeoSchema } from '../seo/SeoSchema';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { DialCategory, OmnitrixDial } from './OmnitrixDial';
@@ -332,7 +332,7 @@ export function HomeHub() {
                 key={code}
                 href={translatePath('/', code)}
                 preserveLocale={false}
-                hrefLang={code}
+                hrefLang={getHreflang(code)}
                 className={`inline-flex min-h-[44px] md:min-h-0 items-center transition-colors whitespace-nowrap ${
                   code === lang ? 'font-semibold text-[#15803d]' : 'text-slate-600 hover:text-slate-900'
                 }`}

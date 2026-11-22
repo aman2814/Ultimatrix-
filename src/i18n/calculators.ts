@@ -9,6 +9,7 @@ export interface LocalizedCalculatorCopy {
   tagline: string;
   keywords: string[];
   directAnswer?: string;
+  faqQuestion?: string;
 }
 
 type NonEnglishLang = Exclude<Lang, 'en'>;
@@ -1666,6 +1667,1578 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       keywords: ['calcolatore iva', 'scorporo iva online', 'calcolatore gst'],
     },
   },
+  id: {
+    '/bmi-calculator': {
+      name: 'Kalkulator BMI Online',
+      h1: 'Kalkulator BMI Online (Kg, Cm, Lbs & Kaki)',
+      metaTitle: 'Kalkulator BMI Online Gratis – Cek Berat Badan Ideal WHO | Ultimatrix',
+      metaDescription:
+        'Hitung Indeks Massa Tubuh (BMI) secara instan dalam kg/cm atau lbs dan ketahui kategori berat badan ideal WHO Anda.',
+      tagline: 'Hitung Indeks Massa Tubuh dalam kg, cm, atau pon dengan rentang berat badan sehat.',
+      keywords: ['kalkulator bmi', 'hitung bmi online', 'indeks massa tubuh', 'berat badan ideal'],
+      faqQuestion: 'Bagaimana cara menghitung dan membaca hasil Kalkulator BMI ini?',
+    },
+    '/bmi-calculator/men': {
+      name: 'Kalkulator BMI Pria',
+      h1: 'Kalkulator BMI Pria Menurut Tinggi & Massa Otot',
+      metaTitle: 'Kalkulator BMI Pria – Berat Ideal & Lemak Tubuh | Ultimatrix',
+      metaDescription:
+        'Hitung BMI khusus pria beserta rentang berat badan sehat dan panduan persentase lemak tubuh serta massa otot.',
+      tagline: 'Evaluasi BMI pria dengan konteks massa otot dan persentase lemak tubuh.',
+      keywords: ['kalkulator bmi pria', 'bmi laki laki', 'berat badan ideal pria'],
+      faqQuestion: 'Bagaimana cara kerja Kalkulator BMI Pria dan apa perbedaan interpretasinya?',
+    },
+    '/bmi-calculator/women': {
+      name: 'Kalkulator BMI Wanita',
+      h1: 'Kalkulator BMI Wanita Menurut Usia & Tinggi Badan',
+      metaTitle: 'Kalkulator BMI Wanita – Berat Badan Ideal & Lemak Tubuh | Ultimatrix',
+      metaDescription:
+        'Hitung BMI wanita dengan panduan rentang lemak tubuh sehat berdasarkan kelompok usia.',
+      tagline: 'Penilaian BMI wanita dilengkapi referensi lemak tubuh sesuai usia.',
+      keywords: ['kalkulator bmi wanita', 'bmi perempuan', 'berat badan ideal wanita'],
+      faqQuestion: 'Bagaimana cara menggunakan Kalkulator BMI Wanita untuk menilai berat sehat?',
+    },
+    '/child-bmi-calculator': {
+      name: 'Kalkulator BMI Anak & Remaja',
+      h1: 'Kalkulator BMI Anak & Remaja (Usia 2–19 Tahun)',
+      metaTitle: 'Kalkulator BMI Anak – Persentil CDC & WHO Usia 2–19 Tahun | Ultimatrix',
+      metaDescription:
+        'Hitung BMI anak dan remaja usia 2 hingga 19 tahun lengkap dengan kategori persentil CDC/WHO berdasarkan jenis kelamin.',
+      tagline: 'Persentil BMI pediatrik CDC berdasarkan usia tahun, bulan, dan jenis kelamin.',
+      keywords: ['kalkulator bmi anak', 'bmi remaja', 'persentil bmi anak'],
+      faqQuestion: 'Mengapa BMI anak usia 2–19 tahun dinilai menggunakan persentil, bukan angka dewasa?',
+    },
+    '/bmi-calculator-by-age': {
+      name: 'Kalkulator BMI Menurut Usia & Gender',
+      h1: 'Kalkulator BMI Menurut Usia & Jenis Kelamin',
+      metaTitle: 'Kalkulator BMI Berdasarkan Usia & Gender – Anak hingga Lansia | Ultimatrix',
+      metaDescription:
+        'Hitung BMI dari usia 2 hingga 100+ tahun dengan peralihan otomatis antara persentil anak dan rentang dewasa per dekade.',
+      tagline: 'Beralih otomatis antara persentil anak dan rentang BMI dewasa sesuai usia.',
+      keywords: ['bmi menurut usia', 'kalkulator bmi usia gender', 'tabel bmi usia'],
+      faqQuestion: 'Apakah rentang BMI yang sehat berubah seiring bertambahnya usia?',
+    },
+    '/height-calculator': {
+      name: 'Kalkulator & Konverter Tinggi Badan',
+      h1: 'Kalkulator Tinggi Badan: Kaki/Inci ke Cm & Prediksi Anak',
+      metaTitle: 'Konverter Tinggi Badan Kaki ke Cm & Prediksi Tinggi Anak | Ultimatrix',
+      metaDescription:
+        'Konversi tinggi kaki & inci ke sentimeter secara instan dan prediksi tinggi dewasa anak dari tinggi kedua orang tua.',
+      tagline: 'Ubah kaki/inci ke cm dan perkirakan tinggi badan dewasa anak.',
+      keywords: ['kalkulator tinggi badan', 'konversi kaki ke cm', 'prediksi tinggi badan anak'],
+      faqQuestion: 'Bagaimana cara mengonversi kaki dan inci ke cm serta memprediksi tinggi anak?',
+    },
+    '/pregnancy-due-date-calculator': {
+      name: 'Kalkulator Hari Perkiraan Lahir (HPL)',
+      h1: 'Kalkulator Kehamilan & HPL (HPHT, Konsepsi & Bayi Tabung)',
+      metaTitle: 'Kalkulator Kehamilan & HPL – Hitung Usia Kehamilan Akurat | Ultimatrix',
+      metaDescription:
+        'Hitung Hari Perkiraan Lahir (HPL), usia minggu kehamilan, dan trimester dari HPHT, tanggal pembuahan, atau transfer IVF.',
+      tagline: 'Perkirakan HPL dan usia janin berdasarkan HPHT, konsepsi, atau transfer IVF.',
+      keywords: ['kalkulator hpl', 'hitung usia kehamilan', 'hari perkiraan lahir'],
+      faqQuestion: 'Bagaimana cara menghitung Hari Perkiraan Lahir (HPL) secara akurat?',
+    },
+    '/dog-pregnancy-due-date-calculator': {
+      name: 'Kalkulator Kehamilan Anjing',
+      h1: 'Kalkulator Masa Hamil & Perkiraan Lahir Anjing (63 Hari)',
+      metaTitle: 'Kalkulator Kehamilan Anjing – Hitung Tanggal Melahirkan | Ultimatrix',
+      metaDescription:
+        'Hitung tanggal perkiraan melahirkan anjing betina berdasarkan aturan 63 hari, rentang lahir normal, dan minggu kehamilan.',
+      tagline: 'Perkiraan tanggal lahir anjing, jendela persalinan, dan panduan mingguan.',
+      keywords: ['kalkulator kehamilan anjing', 'lama anjing hamil', 'tanggal lahir anak anjing'],
+      faqQuestion: 'Berapa lama masa kehamilan anjing dan bagaimana cara menghitung tanggal lahirnya?',
+    },
+    '/age-calculator': {
+      name: 'Kalkulator Umur Akurat',
+      h1: 'Kalkulator Umur Kronologis Menurut Tanggal Lahir',
+      metaTitle: 'Kalkulator Umur Online – Tahun, Bulan, Minggu & Hari | Ultimatrix',
+      metaDescription:
+        'Hitung umur tepat dalam tahun, bulan, minggu, dan total hari sejak tanggal lahir beserta hitung mundur ulang tahun berikutnya.',
+      tagline: 'Umur pasti dalam tahun, bulan, hari, serta hitung mundur ulang tahun.',
+      keywords: ['kalkulator umur', 'hitung umur tanggal lahir', 'cek usia tepat'],
+      faqQuestion: 'Bagaimana Kalkulator Umur menghitung usia tepat dalam tahun, bulan, dan hari?',
+    },
+    '/child-age-calculator': {
+      name: 'Kalkulator Usia Bayi & Anak',
+      h1: 'Kalkulator Usia Bayi dalam Bulan, Minggu & Hari',
+      metaTitle: 'Kalkulator Usia Bayi – Hitung Bulan & Minggu Tepat | Ultimatrix',
+      metaDescription:
+        'Hitung usia bayi dan balita secara akurat dalam bulan, minggu, dan hari untuk jadwal imunisasi dan kontrol tumbuh kembang.',
+      tagline: 'Usia bayi tepat dalam bulan dan minggu untuk posyandu dan dokter anak.',
+      keywords: ['kalkulator usia bayi', 'umur bayi dalam bulan', 'usia balita minggu'],
+      faqQuestion: 'Mengapa usia bayi diukur dalam bulan dan minggu pada dua tahun pertama?',
+    },
+    '/date-calculator': {
+      name: 'Kalkulator Tanggal & Selisih Hari',
+      h1: 'Kalkulator Jumlah Hari Antara Dua Tanggal',
+      metaTitle: 'Kalkulator Tanggal – Hitung Selisih Hari & Tambah/Kurang Hari | Ultimatrix',
+      metaDescription:
+        'Hitung jumlah hari, minggu, dan bulan di antara dua tanggal kalender atau tambah dan kurangi hari dari tanggal tertentu.',
+      tagline: 'Hitung selisih hari antar tanggal serta tambah atau kurangi hari/bulan.',
+      keywords: ['kalkulator tanggal', 'hitung selisih hari', 'jumlah hari antara dua tanggal'],
+      faqQuestion: 'Bagaimana cara menghitung jumlah hari tepat di antara dua tanggal?',
+    },
+    '/time-duration-calculator': {
+      name: 'Kalkulator Durasi Waktu',
+      h1: 'Kalkulator Selisih Jam, Menit & Detik',
+      metaTitle: 'Kalkulator Jam & Durasi Waktu Online | Ultimatrix',
+      metaDescription:
+        'Hitung lama waktu antara dua jam dalam jam, menit, dan detik atau jumlahkan serta kurangkan durasi waktu kerja.',
+      tagline: 'Hitung durasi jam kerja, selisih waktu, dan penjumlahan jam-menit-detik.',
+      keywords: ['kalkulator waktu', 'hitung selisih jam', 'kalkulator jam kerja'],
+      faqQuestion: 'Bagaimana cara menghitung total durasi antara waktu mulai dan selesai?',
+    },
+    '/percentage-calculator': {
+      name: 'Kalkulator Persentase Online',
+      h1: 'Kalkulator Persentase (3 Mode Lengkap)',
+      metaTitle: 'Kalkulator Persen Online – Hitung Persentase Kenaikan & Diskon | Ultimatrix',
+      metaDescription:
+        'Hitung X% dari Y, berapa persen X dari Y, serta persentase kenaikan atau penurunan secara instan dan akurat.',
+      tagline: 'Hitung nilai persen, rasio persentase, dan persentase perubahan.',
+      keywords: ['kalkulator persentase', 'cara menghitung persen', 'persentase kenaikan'],
+      faqQuestion: 'Rumus apa yang digunakan untuk menghitung persentase dan perubahan persen?',
+    },
+    '/cgpa-to-percentage-calculator': {
+      name: 'Konverter CGPA ke Persentase',
+      h1: 'Kalkulator CGPA ke Persentase (Skala 10, 5 & 4)',
+      metaTitle: 'Konversi CGPA ke Persentase – Skala 10, 5 & 4 | Ultimatrix',
+      metaDescription:
+        'Konversikan nilai CGPA atau IPK Anda ke persentase menggunakan rumus standar CBSE dan universitas skala 10, 5, atau 4.',
+      tagline: 'Konversi skor CGPA menjadi nilai persentase untuk pendaftaran kuliah dan kerja.',
+      keywords: ['cgpa ke persentase', 'konversi ipk ke persen', 'kalkulator cgpa'],
+      faqQuestion: 'Bagaimana cara mengonversi CGPA ke persentase pada skala 10, 5, atau 4?',
+    },
+    '/gpa-calculator': {
+      name: 'Kalkulator GPA / IPK Kuliah',
+      h1: 'Kalkulator IPK / GPA Berbobot SKS (Skala 4.0)',
+      metaTitle: 'Kalkulator IPK / GPA Kuliah – Hitung Nilai Semester & Kumulatif | Ultimatrix',
+      metaDescription:
+        'Hitung GPA / IPK semester dan kumulatif Anda dengan memasukkan mata kuliah, nilai huruf, dan jumlah SKS.',
+      tagline: 'Hitung IPK berbobot SKS untuk nilai semester maupun kumulatif.',
+      keywords: ['kalkulator gpa', 'kalkulator ipk kuliah', 'hitung ipk skala 4'],
+      faqQuestion: 'Bagaimana cara menghitung GPA atau IPK berdasarkan SKS mata kuliah?',
+    },
+    '/high-school-gpa-calculator': {
+      name: 'Kalkulator GPA SMA',
+      h1: 'Kalkulator GPA SMA (Reguler, Honors & AP/IB)',
+      metaTitle: 'Kalkulator GPA SMA – Nilai Tanpa Bobot & Berbobot AP/IB | Ultimatrix',
+      metaDescription:
+        'Hitung GPA SMA unweighted maupun weighted dengan bobot tambahan untuk kelas Honors dan AP/IB.',
+      tagline: 'GPA SMA standar dan berbobot untuk persiapan pendaftaran universitas.',
+      keywords: ['kalkulator gpa sma', 'gpa berbobot ap', 'hitung nilai rapor sma'],
+      faqQuestion: 'Apa perbedaan antara GPA SMA tanpa bobot dan GPA berbobot (Weighted)?',
+    },
+    '/weight-loss-percentage-calculator': {
+      name: 'Kalkulator Persentase Penurunan Berat Badan',
+      h1: 'Kalkulator Persentase Penurunan Berat Badan (Kg / Lbs)',
+      metaTitle: 'Kalkulator Persentase Turun Berat Badan | Ultimatrix',
+      metaDescription:
+        'Hitung berapa persen berat badan yang berhasil Anda turunkan dari berat awal ke berat saat ini.',
+      tagline: 'Pantau progres diet dengan persentase penurunan berat badan dalam kg atau lbs.',
+      keywords: ['persentase penurunan berat badan', 'hitung persen turun berat', 'kalkulator diet'],
+      faqQuestion: 'Bagaimana cara menghitung persentase penurunan berat badan?',
+    },
+    '/scientific-calculator': {
+      name: 'Kalkulator Ilmiah Online',
+      h1: 'Kalkulator Ilmiah Online (Trigonometri & Logaritma)',
+      metaTitle: 'Kalkulator Ilmiah Online Gratis – Sin, Cos, Tan, Log & Radian | Ultimatrix',
+      metaDescription:
+        'Kalkulator saintifik lengkap dengan sin, cos, tan, log, ln, pangkat, akar, faktorial, mode DEG/RAD, dan dukungan keyboard.',
+      tagline: 'Trigonometri, logaritma, eksponen, memori Ans, dan pintasan keyboard.',
+      keywords: ['kalkulator ilmiah online', 'kalkulator saintifik', 'kalkulator trigonometri'],
+      faqQuestion: 'Fungsi apa saja yang tersedia di Kalkulator Ilmiah Online ini?',
+    },
+    '/casio-fx-115es-scientific-calculator': {
+      name: 'Kalkulator Ilmiah Gaya Casio fx-115ES',
+      h1: 'Kalkulator Ilmiah Gaya Casio fx-115ES Plus Online',
+      metaTitle: 'Kalkulator Ilmiah Casio fx-115ES Online – Pecahan & nPr/nCr | Ultimatrix',
+      metaDescription:
+        'Kalkulator web bergaya Casio fx-115ES Plus dengan pecahan, permutasi nPr, kombinasi nCr, dan mode sudut DEG/RAD/GRAD.',
+      tagline: 'Tata letak teknis Casio dengan pecahan, kombinatorik, dan konversi sudut.',
+      keywords: ['kalkulator casio online', 'casio fx 115es online', 'kalkulator pecahan'],
+      faqQuestion: 'Fitur apa yang membuat kalkulator gaya Casio fx-115ES ini cocok untuk kuliah dan ujian?',
+    },
+    '/sharp-12-digit-scientific-calculator': {
+      name: 'Kalkulator 12 Digit Sharp',
+      h1: 'Kalkulator Ilmiah & Bisnis Sharp 12 Digit',
+      metaTitle: 'Kalkulator Sharp 12 Digit Online – Layar Jelas & Memori M+/M- | Ultimatrix',
+      metaDescription:
+        'Layar presisi tinggi 12 digit dengan pemisah ribuan jelas, tombol memori M+/M-, dan fungsi ilmiah.',
+      tagline: 'Layar 12 digit berpresisi tinggi lengkap dengan memori dan tombol teknis.',
+      keywords: ['kalkulator 12 digit', 'kalkulator sharp online', 'kalkulator dagang'],
+      faqQuestion: 'Mengapa kalkulator tampilan 12 digit berguna untuk akuntansi dan perhitungan teknik?',
+    },
+    '/discount-calculator': {
+      name: 'Kalkulator Diskon & Harga Akhir',
+      h1: 'Kalkulator Diskon Persen & Potongan Harga',
+      metaTitle: 'Kalkulator Diskon Online – Hitung Harga Akhir & Hemat | Ultimatrix',
+      metaDescription:
+        'Hitung harga akhir setelah diskon tunggal maupun diskon ganda bertingkat beserta total uang yang dihemat.',
+      tagline: 'Hitung potongan harga tunggal atau diskon ganda dan nominal hemat.',
+      keywords: ['kalkulator diskon', 'cara menghitung diskon', 'harga setelah diskon'],
+      faqQuestion: 'Bagaimana cara menghitung harga akhir dan diskon ganda bertingkat?',
+    },
+    '/discount-calculator-with-tax': {
+      name: 'Kalkulator Diskon dengan Pajak (PPN)',
+      h1: 'Kalkulator Diskon Ditambah Pajak (PPN / Sales Tax)',
+      metaTitle: 'Kalkulator Diskon Plus Pajak PPN – Total Bayar Kasir | Ultimatrix',
+      metaDescription:
+        'Hitung total bayar sebenarnya di kasir dengan menerapkan persentase diskon terlebih dahulu lalu menambahkan PPN atau pajak.',
+      tagline: 'Terapkan potongan diskon sebelum menambahkan tarif pajak penjualan.',
+      keywords: ['kalkulator diskon dan pajak', 'harga diskon plus ppn', 'hitung ppn setelah diskon'],
+      faqQuestion: 'Apakah pajak dihitung sebelum atau sesudah potongan diskon?',
+    },
+    '/emi-calculator': {
+      name: 'Kalkulator Cicilan Pinjaman (EMI)',
+      h1: 'Kalkulator Angsuran Bulanan Pinjaman & KPR (EMI)',
+      metaTitle: 'Kalkulator Cicilan KPR & Pinjaman EMI – Tabel Amortisasi | Ultimatrix',
+      metaDescription:
+        'Hitung cicilan bulanan, total bunga, dan jadwal amortisasi tahunan untuk KPR, kredit kendaraan, maupun pinjaman pribadi.',
+      tagline: 'Simulasi angsuran bulanan, total bunga, dan jadwal pelunasan tahunan.',
+      keywords: ['kalkulator cicilan pinjaman', 'kalkulator kpr emi', 'simulasi angsuran bulanan'],
+      faqQuestion: 'Bagaimana rumus perhitungan cicilan bulanan (EMI) untuk KPR dan pinjaman?',
+    },
+    '/hdfc-emi-calculator': {
+      name: 'Kalkulator EMI HDFC',
+      h1: 'Kalkulator EMI Pinjaman HDFC (Rumah, Mobil & Pribadi)',
+      metaTitle: 'Kalkulator EMI HDFC – Simulasi Cicilan Rumah & Mobil | Ultimatrix',
+      metaDescription:
+        'Perkirakan angsuran bulanan EMI untuk kredit rumah, kendaraan, atau pinjaman multiguna lengkap dengan tabel pokok dan bunga.',
+      tagline: 'Perkiraan cicilan bulanan dan rincian bunga tahunan per jenis pinjaman.',
+      keywords: ['kalkulator hdfc emi', 'simulasi kredit rumah', 'cicilan mobil emi'],
+      faqQuestion: 'Bagaimana cara memperkirakan cicilan bulanan dan total bunga pinjaman di Kalkulator EMI HDFC?',
+    },
+    '/sip-calculator': {
+      name: 'Kalkulator Investasi Rutin (SIP)',
+      h1: 'Kalkulator Investasi Berkala SIP & Bunga Majemuk',
+      metaTitle: 'Kalkulator Investasi SIP – Proyeksi Reksa Dana & Bunga Majemuk | Ultimatrix',
+      metaDescription:
+        'Proyeksikan nilai masa depan investasi rutin bulanan Anda dengan simulasi imbal hasil tahunan dan bunga majemuk.',
+      tagline: 'Hitung total modal disetor, keuntungan bunga majemuk, dan nilai akhir investasi.',
+      keywords: ['kalkulator investasi sip', 'kalkulator bunga majemuk bulanan', 'simulasi reksa dana'],
+      faqQuestion: 'Bagaimana cara kerja bunga majemuk pada kalkulator investasi bulanan SIP?',
+    },
+    '/gst-calculator': {
+      name: 'Kalkulator Pajak GST / PPN',
+      h1: 'Kalkulator Pajak GST / PPN (Termasuk & Belum Termasuk)',
+      metaTitle: 'Kalkulator GST & PPN Online – Tambah atau Pisahkan Pajak | Ultimatrix',
+      metaDescription:
+        'Tambahkan tarif GST/PPN ke harga dasar atau pisahkan nilai pajak dari harga total termasuk pajak secara instan.',
+      tagline: 'Tambah atau ekstrak tarif pajak GST/PPN lengkap dengan rincian nilai dasar.',
+      keywords: ['kalkulator gst', 'kalkulator ppn online', 'hitung dpp dan ppn'],
+      faqQuestion: 'Bagaimana cara memisahkan nilai pajak GST/PPN dari harga yang sudah termasuk pajak?',
+    },
+  },
+  tr: {
+    '/bmi-calculator': {
+      name: 'VKİ (BMI) Hesaplama',
+      h1: 'Vücut Kitle İndeksi (VKİ / BMI) Hesaplama',
+      metaTitle: 'VKİ (BMI) Hesaplama – İdeal Kilo & Vücut Kitle İndeksi | Ultimatrix',
+      metaDescription:
+        'Boy (cm/ft) ve kilonuzu (kg/lbs) girerek Vücut Kitle İndeksinizi (VKİ), DSÖ kategorinizi ve ideal kilo aralığınızı hemen öğrenin.',
+      tagline: 'Kg, cm veya pound birimlerinde anlık VKİ ve sağlıklı kilo aralığı hesaplama.',
+      keywords: ['vki hesaplama', 'bmi hesaplama', 'vücut kitle indeksi', 'ideal kilo hesaplama'],
+      faqQuestion: 'Vücut Kitle İndeksi (VKİ) nasıl hesaplanır ve sonuçlar ne anlama gelir?',
+    },
+    '/bmi-calculator/men': {
+      name: 'Erkekler İçin VKİ Hesaplama',
+      h1: 'Erkekler İçin VKİ (BMI) ve İdeal Kilo Hesaplama',
+      metaTitle: 'Erkek VKİ Hesaplama – Kas Kütlesi ve İdeal Kilo | Ultimatrix',
+      metaDescription:
+        'Erkekler için kas kütlesi ve yağ oranı rehberiyle Vücut Kitle İndeksi ve sağlıklı kilo aralığını hesaplayın.',
+      tagline: 'Kas kütlesi ve vücut yağ oranı referanslarıyla erkeklere özel VKİ analizi.',
+      keywords: ['erkek vki hesaplama', 'erkek ideal kilo', 'erkek bmi hesaplama'],
+      faqQuestion: 'Erkeklerde VKİ ve kas kütlesi ilişkisi nasıl yorumlanmalıdır?',
+    },
+    '/bmi-calculator/women': {
+      name: 'Kadınlar İçin VKİ Hesaplama',
+      h1: 'Kadınlar İçin VKİ (BMI) ve Yaşa Göre Yağ Oranı',
+      metaTitle: 'Kadın VKİ Hesaplama – İdeal Kilo & Yaş Referansı | Ultimatrix',
+      metaDescription:
+        'Kadınlar için VKİ değerini hesaplayın ve yaş gruplarına göre sağlıklı vücut yağ oranlarını inceleyin.',
+      tagline: 'Yaşa bağlı sağlıklı vücut yağ oranı rehberiyle kadınlar için VKİ değerlendirmesi.',
+      keywords: ['kadın vki hesaplama', 'bayan ideal kilo', 'kadın bmi hesaplama'],
+      faqQuestion: 'Kadınlar için VKİ ve ideal kilo aralığı nasıl değerlendirilir?',
+    },
+    '/child-bmi-calculator': {
+      name: 'Çocuk ve Genç VKİ Hesaplama',
+      h1: 'Çocuk ve Ergen VKİ Hesaplama (2–19 Yaş Persentil)',
+      metaTitle: 'Çocuk VKİ Hesaplama – 2–19 Yaş CDC Persentil Değeri | Ultimatrix',
+      metaDescription:
+        '2–19 yaş arası çocuklar ve gençler için yaş (yıl/ay) ve cinsiyete göre tam VKİ ve CDC/DSÖ persentil kategorisini hesaplayın.',
+      tagline: 'Yaş, ay ve cinsiyete göre pediatrik VKİ persentil değerlendirmesi.',
+      keywords: ['çocuk vki hesaplama', 'çocuk boy kilo persentil', 'genç bmi hesaplama'],
+      faqQuestion: '2–19 yaş çocuklarda VKİ neden yetişkin sınırları yerine persentil ile ölçülür?',
+    },
+    '/bmi-calculator-by-age': {
+      name: 'Yaşa ve Cinsiyete Göre VKİ Hesaplama',
+      h1: 'Yaşa ve Cinsiyete Göre VKİ (BMI) Hesaplama',
+      metaTitle: 'Yaşa Göre VKİ Hesaplama – Çocuktan İleri Yaşa Tablo | Ultimatrix',
+      metaDescription:
+        '2 yaşından 100+ yaşa kadar çocuk persentili ile yetişkin yaş aralıkları arasında otomatik geçiş yapan VKİ hesaplayıcı.',
+      tagline: 'Yaşınıza göre pediatrik persentil ve yetişkin VKİ aralıkları arasında otomatik geçiş.',
+      keywords: ['yaşa göre vki', 'yaş cinsiyet bmi hesaplama', 'yaşa göre ideal kilo'],
+      faqQuestion: 'Sağlıklı VKİ aralığı yaşa göre nasıl değişir?',
+    },
+    '/height-calculator': {
+      name: 'Boy Çevirici ve Boy Tahmini',
+      h1: 'Boy Hesaplama: Fit/İnç–Cm Çevirici ve Çocuk Boy Tahmini',
+      metaTitle: 'Boy Çevirici (Fit-Cm) ve Çocuk Yetişkin Boy Tahmini | Ultimatrix',
+      metaDescription:
+        'Fit ve inçi anında santimetreye çevirin; anne ve baba boyuna göre çocuğunuzun tahmini yetişkin boyunu hesaplayın.',
+      tagline: 'Fit/inç ↔ cm dönüşümü ve ebeveyn boyuna göre tahmini yetişkin boyu.',
+      keywords: ['boy hesaplama', 'fit cm çevirme', 'çocuk boy tahmini'],
+      faqQuestion: 'Fit ve inç santimetreye nasıl çevrilir ve çocuğun yetişkin boyu nasıl tahmin edilir?',
+    },
+    '/pregnancy-due-date-calculator': {
+      name: 'Doğum Tarihi ve Gebelik Haftası Hesaplama',
+      h1: 'Tahmini Doğum Tarihi ve Gebelik Haftası Hesaplama',
+      metaTitle: 'Gebelik Haftası & Doğum Tarihi Hesaplama (SAT & Tüp Bebek) | Ultimatrix',
+      metaDescription:
+        'Son adet tarihi, döllenme tarihi veya tüp bebek (IVF) transferine göre tahmini doğum tarihini, gebelik haftasını ve trimesteri hesaplayın.',
+      tagline: 'Son adet tarihi, gebelik başlangıcı veya IVF transferine göre doğum tarihi.',
+      keywords: ['doğum tarihi hesaplama', 'gebelik haftası hesaplama', 'tahmini doğum tarihi'],
+      faqQuestion: 'Tahmini doğum tarihi ve gebelik haftası nasıl hesaplanır?',
+    },
+    '/dog-pregnancy-due-date-calculator': {
+      name: 'Köpek Gebelik ve Doğum Hesaplama',
+      h1: 'Köpek Gebelik Süresi ve Doğum Tarihi Hesaplama (63 Gün)',
+      metaTitle: 'Köpek Doğum Tarihi Hesaplama – 63 Gün Kuralı | Ultimatrix',
+      metaDescription:
+        'Çiftleşme tarihine göre köpeğinizin tahmini doğum tarihini (63 gün kuralı), doğum aralığını ve haftalık gelişimini hesaplayın.',
+      tagline: 'Köpeklerde tahmini doğum günü, normal doğum aralığı ve haftalık takip.',
+      keywords: ['köpek gebelik hesaplama', 'köpek doğum tarihi', 'köpek kaç günde doğurur'],
+      faqQuestion: 'Köpek gebeliği kaç gün sürer ve doğum tarihi nasıl hesaplanır?',
+    },
+    '/age-calculator': {
+      name: 'Yaş Hesaplama',
+      h1: 'Doğum Tarihine Göre Tam Yaş Hesaplama',
+      metaTitle: 'Yaş Hesaplama – Yıl, Ay, Hafta ve Gün Olarak Yaş | Ultimatrix',
+      metaDescription:
+        'Doğum tarihinizden itibaren tam yaşınızı yıl, ay, hafta ve gün olarak hesaplayın; bir sonraki doğum gününüze kalan süreyi görün.',
+      tagline: 'Yıl, ay, gün cinsinden kesin yaş ve doğum günü geri sayımı.',
+      keywords: ['yaş hesaplama', 'doğum tarihi yaş', 'kaç gün yaşadım'],
+      faqQuestion: 'Yaş hesaplayıcı tam yaşı yıl, ay ve gün olarak nasıl hesaplar?',
+    },
+    '/child-age-calculator': {
+      name: 'Bebek ve Çocuk Ay Hesaplama',
+      h1: 'Bebek Yaşı Ay, Hafta ve Gün Hesaplama',
+      metaTitle: 'Bebek Ay Hesaplama – Bebek Kaç Aylık & Haftalık | Ultimatrix',
+      metaDescription:
+        'Bebeğinizin doğum tarihine göre tam ay, hafta ve gün yaşını hesaplayın; aşı ve doktor kontrollerini kolayca takip edin.',
+      tagline: 'Pediatrik kontroller ve gelişim takibi için kesin bebek ay ve hafta hesabı.',
+      keywords: ['bebek ay hesaplama', 'bebeğim kaç aylık', 'çocuk yaşı hafta hesaplama'],
+      faqQuestion: 'İlk iki yılda bebek yaşı neden ay ve hafta olarak takip edilir?',
+    },
+    '/date-calculator': {
+      name: 'Tarih ve Gün Farkı Hesaplama',
+      h1: 'İki Tarih Arasındaki Gün Sayısı Hesaplama',
+      metaTitle: 'Tarih Hesaplama – İki Tarih Arası Gün Farkı & Gün Ekleme | Ultimatrix',
+      metaDescription:
+        'İki tarih arasındaki tam gün, hafta ve ay farkını hesaplayın ya da seçilen bir tarihe gün, hafta veya ay ekleyin/çıkarın.',
+      tagline: 'Tarihler arası gün farkını bulun veya takvime gün, hafta, ay ekleyin.',
+      keywords: ['iki tarih arası gün hesaplama', 'tarih hesaplama', 'gün ekleme çıkarma'],
+      faqQuestion: 'İki tarih arasındaki kesin gün sayısı nasıl hesaplanır?',
+    },
+    '/time-duration-calculator': {
+      name: 'Saat ve Süre Hesaplama',
+      h1: 'Saat, Dakika ve Saniye Süre Hesaplama',
+      metaTitle: 'Saat Hesaplama – Çalışma Süresi & Saat Farkı | Ultimatrix',
+      metaDescription:
+        'İki saat arasındaki geçen süreyi saat, dakika ve saniye cinsinden bulun veya zaman aralıklarını toplayıp çıkarın.',
+      tagline: 'Başlangıç-bitiş saat farkı ve saat-dakika-saniye toplama/çıkarma.',
+      keywords: ['saat hesaplama', 'iki saat arası süre', 'mesai saati hesaplama'],
+      faqQuestion: 'Başlangıç ve bitiş saatleri arasındaki toplam süre nasıl hesaplanır?',
+    },
+    '/percentage-calculator': {
+      name: 'Yüzde Hesaplama',
+      h1: 'Online Yüzde Hesaplama (3 Farklı Mod)',
+      metaTitle: 'Yüzde Hesaplama – Artış, Azalış ve Oran Hesabı | Ultimatrix',
+      metaDescription:
+        'Bir sayının yüzdesini, iki sayı arasındaki yüzde oranını ve yüzde artış/azalış değişimini anında hesaplayın.',
+      tagline: 'Yüzde bulma, oran hesaplama ve yüzde değişim analizi.',
+      keywords: ['yüzde hesaplama', 'yüzde artış hesaplama', 'oran yüzde bulma'],
+      faqQuestion: 'Yüzde hesaplama ve yüzde değişim hangi formüllerle bulunur?',
+    },
+    '/cgpa-to-percentage-calculator': {
+      name: 'CGPA / 100’lük Not Çevirici',
+      h1: 'CGPA / GPA Yüzdelik Not Dönüştürücü (10, 5 ve 4 Sistem)',
+      metaTitle: 'CGPA Yüzde Çevirme – 10’luk ve 4’lük Not Dönüştürücü | Ultimatrix',
+      metaDescription:
+        '10, 5 veya 4’lük sistemdeki CGPA not ortalamanızı uluslararası başvurular için yüzdelik nota dönüştürün.',
+      tagline: 'Üniversite ve iş başvuruları için CGPA puanını yüzdelik sisteme çevirin.',
+      keywords: ['cgpa yüzde çevirme', 'not ortalaması yüzdelik çevirme', 'gpa yüzde hesaplama'],
+      faqQuestion: '10, 5 ve 4’lük sistemlerde CGPA notu yüzdeye nasıl çevrilir?',
+    },
+    '/gpa-calculator': {
+      name: 'Üniversite Not Ortalaması (GPA)',
+      h1: 'Kredi Ağırlıklı Üniversite GPA / AGNO Hesaplama (4.0)',
+      metaTitle: 'Üniversite GPA / AGNO Hesaplama – 4.0 Kredi Sistemi | Ultimatrix',
+      metaDescription:
+        'Ders notlarınızı ve kredilerinizi girerek dönemlik ve genel not ortalamanızı (GPA / AGNO) anında hesaplayın.',
+      tagline: 'Dönemlik ve genel not ortalamasını kredi ağırlıklı olarak hesaplayın.',
+      keywords: ['gpa hesaplama', 'üniversite not ortalaması', 'agno hesaplama'],
+      faqQuestion: 'Kredi ağırlıklı dönem ve genel not ortalaması (GPA) nasıl hesaplanır?',
+    },
+    '/high-school-gpa-calculator': {
+      name: 'Lise GPA Hesaplama',
+      h1: 'Lise Not Ortalaması Hesaplama (Normal, Honors & AP/IB)',
+      metaTitle: 'Lise GPA Hesaplama – Ağırlıklı ve Ağırlıksız Ortalama | Ultimatrix',
+      metaDescription:
+        'Normal derslerin yanı sıra Honors ve AP/IB ek puanlı dersler için ağırlıklı ve ağırlıksız lise GPA hesaplayın.',
+      tagline: 'Üniversite başvuruları için normal ve AP/IB ağırlıklı lise ortalaması.',
+      keywords: ['lise gpa hesaplama', 'ağırlıklı gpa', 'ap ib not hesaplama'],
+      faqQuestion: 'Ağırlıksız (Unweighted) ve ağırlıklı (Weighted) lise GPA arasındaki fark nedir?',
+    },
+    '/weight-loss-percentage-calculator': {
+      name: 'Kilo Kaybı Yüzdesi Hesaplama',
+      h1: 'Kilo Verme Yüzdesi Hesaplama (Kg / Lbs)',
+      metaTitle: 'Kilo Kaybı Yüzdesi Hesaplama – Kaç Kilo Verdim % | Ultimatrix',
+      metaDescription:
+        'Başlangıç kilonuza göre verdiğiniz kilo miktarını ve vücut ağırlığınızın yüzde kaçını kaybettiğinizi hesaplayın.',
+      tagline: 'Başlangıç ve güncel kilonuzla tam kilo kaybı yüzdesini takip edin.',
+      keywords: ['kilo kaybı yüzdesi', 'zayıflama yüzdesi hesaplama', 'verilen kilo yüzdesi'],
+      faqQuestion: 'Kilo verme yüzdesi nasıl hesaplanır?',
+    },
+    '/scientific-calculator': {
+      name: 'Bilimsel Hesap Makinesi',
+      h1: 'Online Bilimsel Hesap Makinesi (Trigonometri & Logaritma)',
+      metaTitle: 'Online Bilimsel Hesap Makinesi – Sin, Cos, Tan, Log & Klavye | Ultimatrix',
+      metaDescription:
+        'sin, cos, tan, log, ln, üs, kök, faktöriyel, DEG/RAD modu ve klavye desteği sunan tam özellikli bilimsel hesap makinesi.',
+      tagline: 'Trigonometri, logaritma, faktöriyel, Ans belleği ve klavye kısayolları.',
+      keywords: ['bilimsel hesap makinesi', 'online bilimsel hesap makinesi', 'trigonometri hesaplama'],
+      faqQuestion: 'Bu Online Bilimsel Hesap Makinesinde hangi fonksiyonlar bulunur?',
+    },
+    '/casio-fx-115es-scientific-calculator': {
+      name: 'Casio fx-115ES Tarzı Hesap Makinesi',
+      h1: 'Casio fx-115ES Plus Tarzı Bilimsel Hesap Makinesi',
+      metaTitle: 'Casio fx-115ES Online Hesap Makinesi – Kesir & nPr/nCr | Ultimatrix',
+      metaDescription:
+        'Kesir işlemleri, permütasyon nPr, kombinasyon nCr ve DEG/RAD/GRAD modlarıyla Casio fx-115ES Plus esintili hesap makinesi.',
+      tagline: 'Kesirler, nPr/nCr kombinatorik ve açı modlarıyla mühendislik düzeni.',
+      keywords: ['casio hesap makinesi online', 'casio fx 115es', 'kesirli hesap makinesi'],
+      faqQuestion: 'Casio fx-115ES tarzı bu hesap makinesi sınav ve mühendislik için neden kullanışlıdır?',
+    },
+    '/sharp-12-digit-scientific-calculator': {
+      name: 'Sharp 12 Haneli Hesap Makinesi',
+      h1: 'Sharp 12 Haneli Bilimsel ve Ticari Hesap Makinesi',
+      metaTitle: 'Sharp 12 Haneli Hesap Makinesi Online – Yüksek Hassasiyet | Ultimatrix',
+      metaDescription:
+        'Net 12 haneli ekran, binlik ayırıcılar, M+/M- bellek tuşları ve bilimsel fonksiyonlarla yüksek hassasiyetli hesap makinesi.',
+      tagline: 'Net 12 haneli ekran, bellek tuşları ve gelişmiş matematik fonksiyonları.',
+      keywords: ['12 haneli hesap makinesi', 'sharp hesap makinesi online', 'ticari hesap makinesi'],
+      faqQuestion: '12 haneli ekranlı hesap makinesi finans ve teknik hesaplarda ne avantaj sağlar?',
+    },
+    '/discount-calculator': {
+      name: 'İndirim Hesaplama',
+      h1: 'Yüzde İndirim ve İndirimli Fiyat Hesaplama',
+      metaTitle: 'İndirim Hesaplama – Çift İndirim & Kazanç Hesabı | Ultimatrix',
+      metaDescription:
+        'Tekli veya art arda çift yüzde indirim sonrası ödenecek son fiyatı ve toplam tasarruf tutarını anında hesaplayın.',
+      tagline: 'Tek veya kademeli indirim sonrası net fiyat ve tasarruf tutarı.',
+      keywords: ['indirim hesaplama', 'yüzde indirim hesaplama', 'indirimli fiyat'],
+      faqQuestion: 'İndirimli fiyat ve kademeli çift indirim nasıl hesaplanır?',
+    },
+    '/discount-calculator-with-tax': {
+      name: 'İndirim + KDV Vergi Hesaplama',
+      h1: 'İndirim ve KDV / Satış Vergisi Dahil Fiyat Hesaplama',
+      metaTitle: 'İndirim + KDV Hesaplama – Kasadaki Net Tutar | Ultimatrix',
+      metaDescription:
+        'Önce yüzde indirimi uygulayın, ardından KDV veya satış vergisini ekleyerek kasada ödeyeceğiniz toplam tutarı görün.',
+      tagline: 'İndirim uygulandıktan sonraki tutara KDV veya satış vergisini ekler.',
+      keywords: ['indirim kdv hesaplama', 'indirimli fiyata kdv ekleme', 'vergi dahil indirim'],
+      faqQuestion: 'İndirimli alışverişlerde KDV indirimden önce mi sonra mı hesaplanır?',
+    },
+    '/emi-calculator': {
+      name: 'Kredi Taksit (EMI) Hesaplama',
+      h1: 'Aylık Kredi Taksiti (EMI) ve Ödeme Planı Hesaplama',
+      metaTitle: 'Kredi Hesaplama (EMI) – Aylık Taksit & Amortisman Tablosu | Ultimatrix',
+      metaDescription:
+        'Konut, taşıt veya ihtiyaç krediniz için aylık taksit tutarını, toplam faizi ve yıllık ödeme tablosunu hesaplayın.',
+      tagline: 'Aylık taksit, toplam faiz maliyeti ve yıllık kredi ödeme planı.',
+      keywords: ['kredi hesaplama', 'aylık kredi taksiti emi', 'konut kredisi hesaplama'],
+      faqQuestion: 'Aylık kredi taksiti (EMI) ve toplam faiz nasıl hesaplanır?',
+    },
+    '/hdfc-emi-calculator': {
+      name: 'HDFC Kredi EMI Hesaplama',
+      h1: 'HDFC Konut, Taşıt ve İhtiyaç Kredisi EMI Hesaplama',
+      metaTitle: 'HDFC EMI Hesaplama – Konut, Araç & Bireysel Kredi | Ultimatrix',
+      metaDescription:
+        'Konut, araç ve bireysel krediler için aylık taksit tutarını, faiz toplamını ve yıllık amortisman çizelgesini hesaplayın.',
+      tagline: 'Kredi türüne göre aylık EMI taksiti ve anapara/faiz dökümü.',
+      keywords: ['hdfc emi hesaplama', 'konut kredisi emi', 'taşıt kredisi hesaplama'],
+      faqQuestion: 'HDFC EMI hesaplayıcı ile aylık taksit ve faiz yükü nasıl tahmin edilir?',
+    },
+    '/sip-calculator': {
+      name: 'Düzenli Yatırım (SIP) Hesaplama',
+      h1: 'Aylık Düzenli Yatırım (SIP) ve Bileşik Getiri Hesaplama',
+      metaTitle: 'SIP Yatırım Hesaplama – Bileşik Faiz & Gelecek Değer | Ultimatrix',
+      metaDescription:
+        'Aylık düzenli yatırım tutarınıza, yıllık getiri oranına ve vadeye göre bileşik getiriyle ulaşacağınız toplam sermayeyi hesaplayın.',
+      tagline: 'Yatırılan anapara, bileşik kazanç ve uzun vadeli portföy büyümesi.',
+      keywords: ['sip hesaplama', 'bileşik getiri hesaplama', 'aylık birikim hesaplama'],
+      faqQuestion: 'Aylık düzenli yatırımlarda (SIP) bileşik getiri nasıl hesaplanır?',
+    },
+    '/gst-calculator': {
+      name: 'KDV / GST Vergi Hesaplama',
+      h1: 'KDV / GST Hesaplama (Vergi Dahil ve Hariç)',
+      metaTitle: 'KDV ve GST Hesaplama Online – KDV Ekleme ve Ayırma | Ultimatrix',
+      metaDescription:
+        'Net tutara KDV / GST ekleyin veya brüt tutardan vergi matrahını ve vergi miktarını anında ayırın.',
+      tagline: 'Vergi hariçten toplama ve vergi dahilden matrah ayırma işlemleri.',
+      keywords: ['kdv hesaplama', 'gst hesaplama', 'kdv dahil hariç ayırma'],
+      faqQuestion: 'KDV veya GST dahil fiyattan vergi tutarı nasıl ayrıştırılır?',
+    },
+  },
+  ar: {
+    '/bmi-calculator': {
+      name: 'حاسبة مؤشر كتلة الجسم BMI',
+      h1: 'حاسبة مؤشر كتلة الجسم (بالكيلوغرام، السنتيمتر والباوند)',
+      metaTitle: 'حاسبة مؤشر كتلة الجسم BMI مجاناً – الوزن المثالي | Ultimatrix',
+      metaDescription:
+        'احسب مؤشر كتلة الجسم (BMI) فوراً بالكيلو والسنتيمتر أو الباوند وتعرّف على تصنيف منظمة الصحة العالمية والوزن الصحي.',
+      tagline: 'حساب دقيق لمؤشر كتلة الجسم ونطاق الوزن المثالي بالوحدات المترية والإمبراطورية.',
+      keywords: ['حاسبة كتلة الجسم', 'حساب bmi', 'مؤشر كتلة الجسم', 'الوزن المثالي'],
+      faqQuestion: 'كيف يتم حساب مؤشر كتلة الجسم (BMI) وما دلالة نتائجه؟',
+    },
+    '/bmi-calculator/men': {
+      name: 'حاسبة كتلة الجسم للرجال',
+      h1: 'حاسبة مؤشر كتلة الجسم للرجال مع سياق الكتلة العضلية',
+      metaTitle: 'حاسبة BMI للرجال – الوزن المثالي ونسبة الدهون | Ultimatrix',
+      metaDescription:
+        'احسب مؤشر كتلة الجسم للرجال مع مراعاة الكتلة العضلية ونطاقات الدهون الصحية للذكور.',
+      tagline: 'تقييم مؤشر كتلة الجسم للرجال مع مراجع الكتلة العضلية ونسبة الدهون.',
+      keywords: ['حاسبة bmi للرجال', 'الوزن المثالي للرجل', 'كتلة الجسم للرجال'],
+      faqQuestion: 'كيف يختلف تفسير مؤشر كتلة الجسم لدى الرجال أصحاب الكتلة العضلية؟',
+    },
+    '/bmi-calculator/women': {
+      name: 'حاسبة كتلة الجسم للنساء',
+      h1: 'حاسبة مؤشر كتلة الجسم للنساء حسب العمر والطول',
+      metaTitle: 'حاسبة BMI للنساء – الوزن المثالي ونسبة الدهون | Ultimatrix',
+      metaDescription:
+        'احسبي مؤشر كتلة الجسم للنساء مع نطاقات الدهون الصحية الموصى بها حسب الفئة العمرية.',
+      tagline: 'تقييم مؤشر كتلة الجسم للنساء مع مرجع نسبة الدهون حسب العمر.',
+      keywords: ['حاسبة bmi للنساء', 'الوزن المثالي للمرأة', 'كتلة الجسم للنساء'],
+      faqQuestion: 'كيف تستخدمين حاسبة كتلة الجسم للنساء لتقدير نطاق الوزن الصحي؟',
+    },
+    '/child-bmi-calculator': {
+      name: 'حاسبة كتلة الجسم للأطفال والمراهقين',
+      h1: 'حاسبة مؤشر كتلة الجسم للأطفال والمراهقين (2 إلى 19 سنة)',
+      metaTitle: 'حاسبة BMI للأطفال – النسب المئوية CDC/WHO | Ultimatrix',
+      metaDescription:
+        'احسب مؤشر كتلة الجسم والمئين العمري للأطفال والمراهقين من سنتين إلى 19 سنة حسب العمر بالسنوات والأشهر والجنس.',
+      tagline: 'مئين مؤشر كتلة الجسم للأطفال وفق معايير CDC حسب العمر والجنس.',
+      keywords: ['حاسبة bmi للاطفال', 'وزن الطفل المثالي', 'مؤشر كتلة الجسم للمراهقين'],
+      faqQuestion: 'لماذا يُقاس مؤشر كتلة الجسم للأطفال (2–19 سنة) بالمئينات العمرية بدلاً من حدود البالغين؟',
+    },
+    '/bmi-calculator-by-age': {
+      name: 'حاسبة كتلة الجسم حسب العمر والجنس',
+      h1: 'حاسبة مؤشر كتلة الجسم حسب العمر والجنس (أطفال وبالغين)',
+      metaTitle: 'حاسبة BMI حسب العمر والجنس – من سنتين إلى كبار السن | Ultimatrix',
+      metaDescription:
+        'احسب مؤشر كتلة الجسم من عمر سنتين حتى 100+ سنة مع التبديل التلقائي بين مئينات الأطفال ونطاقات البالغين.',
+      tagline: 'تبديل تلقائي بين معايير الأطفال ونطاقات البالغين حسب العمر والجنس.',
+      keywords: ['حاسبة bmi حسب العمر', 'كتلة الجسم حسب العمر والجنس', 'جدول الوزن حسب العمر'],
+      faqQuestion: 'هل يتغير نطاق مؤشر كتلة الجسم الصحي مع التقدم في العمر؟',
+    },
+    '/height-calculator': {
+      name: 'حاسبة ومحول الطول',
+      h1: 'حاسبة الطول: تحويل القدم والبوصة إلى سم وتوقع طول الطفل',
+      metaTitle: 'محول الطول من قدم إلى سم وتوقع طول الطفل المستقبلي | Ultimatrix',
+      metaDescription:
+        'حوّل الطول من القدم والبوصة إلى السنتيمتر فوراً وتوقع طول الطفل عند البلوغ بناءً على طول الأب والأم.',
+      tagline: 'تحويل فوري بين القدم/البوصة والسنتيمتر وتقدير طول البلوغ للأطفال.',
+      keywords: ['حاسبة الطول', 'تحويل القدم الى سم', 'توقع طول الطفل'],
+      faqQuestion: 'كيف يتم تحويل القدم والبوصة إلى سنتيمتر وتقدير طول الطفل عند البلوغ؟',
+    },
+    '/pregnancy-due-date-calculator': {
+      name: 'حاسبة الحمل وموعد الولادة',
+      h1: 'حاسبة الحمل وتاريخ الولادة المتوقع (آخر دورة والحقن المجهري)',
+      metaTitle: 'حاسبة الحمل وموعد الولادة المتوقع بالأسابيع والأشهر | Ultimatrix',
+      metaDescription:
+        'احسبي تاريخ الولادة المتوقع وأسابيع الحمل الحالية والأثلاث الثلاثة عبر تاريخ آخر دورة أو التلقيح أو أطفال الأنابيب IVF.',
+      tagline: 'تقدير موعد الولادة وأسبوع الحمل حسب آخر دورة أو التخصيب أو IVF.',
+      keywords: ['حاسبة الحمل', 'حساب موعد الولادة', 'حاسبة اسابيع الحمل'],
+      faqQuestion: 'كيف يتم حساب موعد الولادة المتوقع وأسابيع الحمل بدقة؟',
+    },
+    '/dog-pregnancy-due-date-calculator': {
+      name: 'حاسبة حمل الكلاب وموعد الولادة',
+      h1: 'حاسبة مدة حمل الكلاب وتاريخ الولادة (قاعدة 63 يوماً)',
+      metaTitle: 'حاسبة حمل الكلاب – موعد الولادة ونافذة الوضع | Ultimatrix',
+      metaDescription:
+        'احسب تاريخ الولادة المتوقع للكلبة بناءً على قاعدة 63 يوماً من تاريخ التزاوج مع نطاق الولادة الطبيعي ومتابعة الأسابيع.',
+      tagline: 'تاريخ الولادة المتوقع للكلاب وفترة الوضع المحتملة ومتابعة أسبوعية.',
+      keywords: ['حاسبة حمل الكلاب', 'مدة حمل الكلاب', 'موعد ولادة الكلبة'],
+      faqQuestion: 'كم تبلغ مدة حمل الكلاب وكيف يُحسب موعد الولادة المتوقع؟',
+    },
+    '/age-calculator': {
+      name: 'حاسبة العمر الدقيقة',
+      h1: 'حاسبة العمر الدقيق بالسنوات والأشهر والأيام',
+      metaTitle: 'حاسبة العمر – احسب عمرك الدقيق بالميلادي | Ultimatrix',
+      metaDescription:
+        'احسب عمرك الدقيق بالسنوات والأشهر والأسابيع والأيام من تاريخ ميلادك مع عداد الأيام المتبقية لعيد ميلادك القادم.',
+      tagline: 'عمرك الدقيق بالسنوات والأشهر والأيام وإجمالي الأسابيع حتى اليوم.',
+      keywords: ['حاسبة العمر', 'احسب عمرك', 'حساب العمر بالميلادي'],
+      faqQuestion: 'كيف تحسب أداة حساب العمر السنوات والأشهر والأيام بدقة؟',
+    },
+    '/child-age-calculator': {
+      name: 'حاسبة عمر الرضع والأطفال',
+      h1: 'حاسبة عمر الطفل والرضيع بالأشهر والأسابيع والأيام',
+      metaTitle: 'حاسبة عمر الرضيع بالأشهر والأسابيع الدقيقة | Ultimatrix',
+      metaDescription:
+        'احسب عمر طفلك أو رضيعك بدقة بالأشهر والأسابيع والأيام لمتابعة التطعيمات ومراحل النمو.',
+      tagline: 'حساب دقيق لعمر الرضع والأطفال لمتابعة زيارات الطبيب والنمو.',
+      keywords: ['حاسبة عمر الطفل', 'عمر الرضيع بالاشهر', 'حساب عمر الرضيع بالاسابيع'],
+      faqQuestion: 'لماذا يُحسب عمر الرضع بالأشهر والأسابيع خلال أول عامين؟',
+    },
+    '/date-calculator': {
+      name: 'حاسبة التواريخ والأيام',
+      h1: 'حاسبة عدد الأيام بين تاريخين وإضافة أو طرح الأيام',
+      metaTitle: 'حاسبة التاريخ – الفرق بين تاريخين وحساب الأيام | Ultimatrix',
+      metaDescription:
+        'احسب عدد الأيام والأسابيع والأشهر بين أي تاريخين، أو أضف واطرح أياماً وأسابيع وشهوراً من أي تاريخ.',
+      tagline: 'حساب الفرق الدقيق بين تاريخين وإضافة أو طرح المدد الزمنية.',
+      keywords: ['حاسبة التاريخ', 'الفرق بين تاريخين', 'حساب عدد الايام'],
+      faqQuestion: 'كيف يتم حساب عدد الأيام الدقيق بين تاريخين في التقويم؟',
+    },
+    '/time-duration-calculator': {
+      name: 'حاسبة المدة الزمنية والساعات',
+      h1: 'حاسبة الوقت والساعات والدقائق والثواني',
+      metaTitle: 'حاسبة الوقت – حساب ساعات العمل والمدة الزمنية | Ultimatrix',
+      metaDescription:
+        'احسب المدة الزمنية المنقضية بين وقتين بالساعات والدقائق والثواني أو اجمع واطرح فترات الوقت بسهولة.',
+      tagline: 'حساب ساعات العمل والمدة الدقيقة بين وقتين وجمع أو طرح الوقت.',
+      keywords: ['حاسبة الوقت', 'حساب ساعات العمل', 'الفرق بين وقتين'],
+      faqQuestion: 'كيف أحسب المدة الزمنية الإجمالية بين وقت البدء ووقت الانتهاء؟',
+    },
+    '/percentage-calculator': {
+      name: 'حاسبة النسبة المئوية',
+      h1: 'حاسبة النسبة المئوية أونلاين (3 أوضاع)',
+      metaTitle: 'حاسبة النسبة المئوية – حساب النسبة والزيادة والنقصان | Ultimatrix',
+      metaDescription:
+        'احسب X% من Y، أو نسبة X إلى Y، أو نسبة الزيادة والنقصان المئوية فوراً وبكل دقة.',
+      tagline: 'حساب قيمة النسبة المئوية، ونسبة الجزء للكل، ونسبة التغير.',
+      keywords: ['حاسبة النسبة المئوية', 'حساب النسبة المئوية', 'نسبة الزيادة والنقصان'],
+      faqQuestion: 'ما هي القوانين المستخدمة لحساب النسبة المئوية ونسبة التغير؟',
+    },
+    '/cgpa-to-percentage-calculator': {
+      name: 'محول CGPA إلى نسبة مئوية',
+      h1: 'حاسبة تحويل المعدل التراكمي CGPA إلى نسبة مئوية',
+      metaTitle: 'تحويل CGPA إلى نسبة مئوية (مقياس 10 و 5 و 4) | Ultimatrix',
+      metaDescription:
+        'حوّل معدلك التراكمي CGPA إلى نسبة مئوية مكافئة وفق معادلات الجامعات بمقياس 10 و 5 و 4.',
+      tagline: 'تحويل فوري للمعدل التراكمي إلى نسبة مئوية للتقديمات الأكاديمية.',
+      keywords: ['تحويل cgpa الى نسبة مئوية', 'حساب المعدل بالنسبة المئوية', 'تحويل المعدل'],
+      faqQuestion: 'كيف يتم تحويل المعدل التراكمي CGPA إلى نسبة مئوية؟',
+    },
+    '/gpa-calculator': {
+      name: 'حاسبة المعدل التراكمي GPA',
+      h1: 'حاسبة المعدل الفصلي والتراكمي GPA (مقياس 4.0)',
+      metaTitle: 'حاسبة المعدل الجامعي GPA – بالساعات المعتمدة | Ultimatrix',
+      metaDescription:
+        'احسب معدلك الفصلي والتراكمي GPA بدقة بإدخال المواد والتقديرات والساعات المعتمدة.',
+      tagline: 'حساب المعدل الفصلي والتراكمي الموزون بالساعات المعتمدة.',
+      keywords: ['حاسبة المعدل التراكمي', 'حساب gpa', 'حاسبة المعدل الجامعي'],
+      faqQuestion: 'كيف يُحسب المعدل الجامعي الفصلي والتراكمي بناءً على الساعات المعتمدة؟',
+    },
+    '/high-school-gpa-calculator': {
+      name: 'حاسبة معدل الثانوية العامة GPA',
+      h1: 'حاسبة معدل المرحلة الثانوية (العادي والموزون Honors و AP)',
+      metaTitle: 'حاسبة معدل الثانوية GPA – الموزون وغير الموزون | Ultimatrix',
+      metaDescription:
+        'احسب معدل الثانوية العامة غير الموزون والموزون مع احتساب النقاط الإضافية لمقررات Honors و AP/IB.',
+      tagline: 'حساب معدل الثانوية العادي والموزون لتجهيز ملفات القبول الجامعي.',
+      keywords: ['حاسبة معدل الثانوية', 'gpa الموزون', 'حساب درجات الثانوي'],
+      faqQuestion: 'ما الفرق بين معدل الثانوية غير الموزون والموزون (Weighted GPA)؟',
+    },
+    '/weight-loss-percentage-calculator': {
+      name: 'حاسبة نسبة خسارة الوزن',
+      h1: 'حاسبة النسبة المئوية لفقدان الوزن (كجم / باوند)',
+      metaTitle: 'حاسبة نسبة نزول الوزن – احسب نسبة فقدان وزنك | Ultimatrix',
+      metaDescription:
+        'احسب النسبة المئوية للوزن المفقود ومقدار الكيلوغرامات التي خسرتها مقارنة بوزنك الابتدائي.',
+      tagline: 'تتبّع تقدمك في إنقاص الوزن بالنسبة المئوية الدقيقة.',
+      keywords: ['نسبة خسارة الوزن', 'حساب نسبة نزول الوزن', 'حاسبة الرجيم'],
+      faqQuestion: 'كيف يتم حساب النسبة المئوية لفقدان الوزن؟',
+    },
+    '/scientific-calculator': {
+      name: 'آلة حاسبة علمية أونلاين',
+      h1: 'الآلة الحاسبة العلمية المتقدمة (مثلثات ولوغاريتمات)',
+      metaTitle: 'آلة حاسبة علمية أونلاين مجانية – الدرجات والراديان | Ultimatrix',
+      metaDescription:
+        'آلة حاسبة علمية كاملة تدعم الدوال المثلثية واللوغاريتمات والأسس والجذور والمضروب ولوحة المفاتيح.',
+      tagline: 'الدوال المثلثية، اللوغاريتمات، المضروب، ذاكرة Ans ودعم لوحة المفاتيح.',
+      keywords: ['الة حاسبة علمية', 'حاسبة علمية اونلاين', 'حاسبة المثلثات'],
+      faqQuestion: 'ما الوظائف المتاحة في هذه الآلة الحاسبة العلمية عبر الإنترنت؟',
+    },
+    '/casio-fx-115es-scientific-calculator': {
+      name: 'حاسبة علمية بنمط Casio fx-115ES',
+      h1: 'آلة حاسبة علمية بنمط Casio fx-115ES Plus',
+      metaTitle: 'حاسبة Casio fx-115ES أونلاين – الكسور والتباديل | Ultimatrix',
+      metaDescription:
+        'محاكاة لحاسبة Casio fx-115ES Plus مع الكسور، التباديل nPr، التوافيق nCr، وأوضاع DEG/RAD/GRAD.',
+      tagline: 'تصميم هندسي مع الكسور والتوافيق والتباديل وأوضاع الزوايا.',
+      keywords: ['حاسبة كاسيو اونلاين', 'casio fx 115es', 'الة حاسبة كسور'],
+      faqQuestion: 'ما الذي يميز الآلة الحاسبة بنمط Casio fx-115ES في الدراسة والهندسة؟',
+    },
+    '/sharp-12-digit-scientific-calculator': {
+      name: 'حاسبة Sharp من 12 خانة',
+      h1: 'آلة حاسبة علمية وتجارية Sharp بـ 12 رقماً',
+      metaTitle: 'حاسبة Sharp 12 خانة أونلاين – دقة عالية وذاكرة | Ultimatrix',
+      metaDescription:
+        'شاشة واضحة من 12 خانة مع فواصل الآلاف، مفاتيح الذاكرة M+/M-، والوظائف العلمية الكاملة.',
+      tagline: 'عرض واضح لـ 12 خانة مع مفاتيح الذاكرة والعمليات العلمية.',
+      keywords: ['حاسبة 12 خانة', 'حاسبة شارب اونلاين', 'الة حاسبة دقيقة'],
+      faqQuestion: 'ما فائدة شاشة الـ 12 خانة في الحاسبة للمحاسبة والعمليات الهندسية؟',
+    },
+    '/discount-calculator': {
+      name: 'حاسبة الخصم والتخفيضات',
+      h1: 'حاسبة نسبة الخصم والسعر النهائي بعد التخفيض',
+      metaTitle: 'حاسبة الخصم أونلاين – حساب التخفيض والتوفير | Ultimatrix',
+      metaDescription:
+        'احسب السعر بعد الخصم ومبلغ التوفير الفعلي مع دعم تطبيق خصم واحد أو خصمين متتاليين.',
+      tagline: 'حساب السعر النهائي ومقدار التوفير لخصم مفرد أو خصمين إضافيين.',
+      keywords: ['حاسبة الخصم', 'حساب نسبة التخفيض', 'السعر بعد الخصم'],
+      faqQuestion: 'كيف يُحسب السعر النهائي عند تطبيق خصم أو خصمين متتاليين؟',
+    },
+    '/discount-calculator-with-tax': {
+      name: 'حاسبة الخصم مع الضريبة',
+      h1: 'حاسبة الخصم مضافاً إليه الضريبة (VAT / Sales Tax)',
+      metaTitle: 'حاسبة الخصم مع ضريبة القيمة المضافة – الإجمالي النهائي | Ultimatrix',
+      metaDescription:
+        'احسب السعر الإجمالي عند الدفع بتطبيق نسبة الخصم أولاً ثم إضافة ضريبة القيمة المضافة أو المبيعات.',
+      tagline: 'خصم النسبة المئوية أولاً ثم إضافة الضريبة لحساب الفاتورة النهائية.',
+      keywords: ['حاسبة الخصم والضريبة', 'السعر بعد الخصم والضريبة', 'حساب الضريبة بعد الخصم'],
+      faqQuestion: 'هل تُحسب الضريبة قبل الخصم أم بعد تطبيق الخصم؟',
+    },
+    '/emi-calculator': {
+      name: 'حاسبة أقساط القروض (EMI)',
+      h1: 'حاسبة القسط الشهري للقروض وجدول السداد (EMI)',
+      metaTitle: 'حاسبة القروض والأقساط الشهرية EMI – الفوائد والجدول | Ultimatrix',
+      metaDescription:
+        'احسب القسط الشهري للقروض العقارية والشخصية وقروض السيارات مع إجمالي الفوائد وجدول السداد السنوي.',
+      tagline: 'حساب القسط الشهري وإجمالي الفائدة وجدول الاستهلاك السنوي للقرض.',
+      keywords: ['حاسبة القروض', 'حساب القسط الشهري', 'جدول سداد القرض'],
+      faqQuestion: 'كيف يتم حساب القسط الشهري المتساوي (EMI) وإجمالي فوائد القرض؟',
+    },
+    '/hdfc-emi-calculator': {
+      name: 'حاسبة قرض HDFC (EMI)',
+      h1: 'حاسبة أقساط قروض HDFC (عقاري، سيارات، شخصي)',
+      metaTitle: 'حاسبة قروض HDFC EMI – القسط الشهري والفوائد | Ultimatrix',
+      metaDescription:
+        'قدّر القسط الشهري لقروض المنازل والسيارات والقروض الشخصية مع تفصيل أصل القرض والفائدة سنوياً.',
+      tagline: 'تقدير القسط الشهري وتوزيع الأصل والفائدة حسب نوع القرض.',
+      keywords: ['حاسبة hdfc emi', 'حاسبة التمويل العقاري', 'حاسبة قرض السيارة'],
+      faqQuestion: 'كيف تساعد حاسبة HDFC EMI في تخطيط القسط الشهري والفوائد؟',
+    },
+    '/sip-calculator': {
+      name: 'حاسبة الاستثمار الدوري (SIP)',
+      h1: 'حاسبة الاستثمار الشهري (SIP) والفائدة المركبة',
+      metaTitle: 'حاسبة الاستثمار SIP والفائدة المركبة الشهرية | Ultimatrix',
+      metaDescription:
+        'توقّع القيمة المستقبلية لاستثماراتك الشهرية المنتظمة مع حساب العائد المركب وإجمالي الأرباح.',
+      tagline: 'تقدير رأس المال المستثمر والعوائد المركبة والقيمة المستقبلية.',
+      keywords: ['حاسبة الاستثمار sip', 'حاسبة الفائدة المركبة', 'الاستثمار الشهري'],
+      faqQuestion: 'كيف تنمو الاستثمارات الشهرية المنتظمة (SIP) بفضل الفائدة المركبة؟',
+    },
+    '/gst-calculator': {
+      name: 'حاسبة ضريبة القيمة المضافة / GST',
+      h1: 'حاسبة الضريبة المضافة GST / VAT (شاملة وغير شاملة)',
+      metaTitle: 'حاسبة ضريبة القيمة المضافة والـ GST أونلاين | Ultimatrix',
+      metaDescription:
+        'أضف الضريبة المضافة إلى السعر الصافي أو استخرج قيمة الضريبة والمبلغ الصافي من السعر الإجمالي فوراً.',
+      tagline: 'إضافة الضريبة أو استخراجها من المبلغ الشامل مع تفاصيل صافي السعر.',
+      keywords: ['حاسبة الضريبة', 'حاسبة ضريبة القيمة المضافة', 'استخراج الضريبة من المبلغ'],
+      faqQuestion: 'كيف أستخرج قيمة الضريبة والمبلغ الصافي من سعر شامل للضريبة؟',
+    },
+  },
+  pl: {
+    '/bmi-calculator': {
+      name: 'Kalkulator BMI Online',
+      h1: 'Kalkulator BMI (Kg, Cm, Funty i Stopy)',
+      metaTitle: 'Kalkulator BMI Online Za Darmo – Prawidłowa Waga WHO | Ultimatrix',
+      metaDescription:
+        'Oblicz swój wskaźnik masy ciała (BMI) w kg/cm lub funtach i sprawdź przedział prawidłowej wagi według norm WHO.',
+      tagline: 'Oblicz wskaźnik BMI w jednostkach metrycznych lub imperialnych wraz z normą wagi.',
+      keywords: ['kalkulator bmi', 'oblicz bmi online', 'wskaznik masy ciala', 'prawidlowa waga'],
+      faqQuestion: 'Jak obliczyć BMI i jak interpretować wynik w kalkulatorze?',
+    },
+    '/bmi-calculator/men': {
+      name: 'Kalkulator BMI dla Mężczyzn',
+      h1: 'Kalkulator BMI dla Mężczyzn – Wzrost i Masa Mięśniowa',
+      metaTitle: 'Kalkulator BMI Mężczyzn – Waga Idealna i Tkanka Tłuszczowa | Ultimatrix',
+      metaDescription:
+        'Oblicz męski wskaźnik BMI z uwzględnieniem masy mięśniowej i zalecanego poziomu tkanki tłuszczowej.',
+      tagline: 'Ocena BMI dla mężczyzn z kontekstem masy mięśniowej i tkanki tłuszczowej.',
+      keywords: ['kalkulator bmi dla mezczyzn', 'bmi mezczyzna', 'idealna waga mezczyzny'],
+      faqQuestion: 'Jak interpretować BMI u mężczyzn z dużą masą mięśniową?',
+    },
+    '/bmi-calculator/women': {
+      name: 'Kalkulator BMI dla Kobiet',
+      h1: 'Kalkulator BMI dla Kobiet według Wieku i Wzrostu',
+      metaTitle: 'Kalkulator BMI Kobiet – Idealna Waga i Normy Wiekowe | Ultimatrix',
+      metaDescription:
+        'Oblicz kobiece BMI i sprawdź zalecane przedziały tkanki tłuszczowej dopasowane do grupy wiekowej.',
+      tagline: 'Ocena BMI dla kobiet z odniesieniem do wieku i tkanki tłuszczowej.',
+      keywords: ['kalkulator bmi dla kobiet', 'bmi kobieta', 'idealna waga kobiety'],
+      faqQuestion: 'Jak ocenić prawidłowe BMI i zakres masy ciała u kobiet?',
+    },
+    '/child-bmi-calculator': {
+      name: 'Kalkulator BMI Dzieci i Młodzieży',
+      h1: 'Kalkulator BMI dla Dzieci i Nastolatków (2–19 Lat)',
+      metaTitle: 'Kalkulator BMI Dziecka – Siatki Centylowe CDC i WHO | Ultimatrix',
+      metaDescription:
+        'Oblicz BMI oraz centyl pediatryczny dla dzieci i młodzieży w wieku 2–19 lat na podstawie wieku i płci.',
+      tagline: 'Siatki centylowe BMI dla dzieci według wieku w latach, miesiącach i płci.',
+      keywords: ['kalkulator bmi dziecka', 'siatki centylowe bmi', 'bmi nastolatka'],
+      faqQuestion: 'Dlaczego BMI dzieci w wieku 2–19 lat ocenia się na siatkach centylowych?',
+    },
+    '/bmi-calculator-by-age': {
+      name: 'Kalkulator BMI według Wieku i Płci',
+      h1: 'Kalkulator BMI według Wieku i Płci (Dzieci i Dorośli)',
+      metaTitle: 'Kalkulator BMI według Wieku i Płci – Normy od 2 do 100+ Lat | Ultimatrix',
+      metaDescription:
+        'Oblicz BMI od 2 do 100+ lat z automatycznym przełączaniem między centylami dziecięcymi a normami dla dorosłych.',
+      tagline: 'Automatyczne dopasowanie interpretacji BMI do wieku i płci.',
+      keywords: ['bmi wedlug wieku', 'kalkulator bmi wiek plec', 'norma bmi dla seniora'],
+      faqQuestion: 'Czy prawidłowy zakres BMI zmienia się wraz z wiekiem?',
+    },
+    '/height-calculator': {
+      name: 'Kalkulator i Przelicznik Wzrostu',
+      h1: 'Kalkulator Wzrostu: Stopy i Cale na Cm oraz Wzrost Dziecka',
+      metaTitle: 'Przelicznik Wzrostu Stopy na Cm i Prognoza Wzrostu Dziecka | Ultimatrix',
+      metaDescription:
+        'Przelicz stopy i cale na centymetry oraz oszacuj przyszły dorosły wzrost dziecka na podstawie wzrostu rodziców.',
+      tagline: 'Konwersja stopy/cale ↔ cm i prognoza dorosłego wzrostu dziecka.',
+      keywords: ['kalkulator wzrostu', 'stopy na cm', 'ile bedzie roslo dziecko'],
+      faqQuestion: 'Jak przeliczyć stopy i cale na cm oraz oszacować przyszły wzrost dziecka?',
+    },
+    '/pregnancy-due-date-calculator': {
+      name: 'Kalkulator Terminu Porodu i Ciąży',
+      h1: 'Kalkulator Ciąży i Daty Porodu (OM, Zapłodnienie, In Vitro)',
+      metaTitle: 'Kalkulator Terminu Porodu – Który Tydzień Ciąży | Ultimatrix',
+      metaDescription:
+        'Oblicz przewidywaną datę porodu, aktualny tydzień ciąży i trymestry na podstawie ostatniej miesiączki, poczęcia lub IVF.',
+      tagline: 'Termin porodu i tydzień ciąży według OM, daty poczęcia lub transferu IVF.',
+      keywords: ['kalkulator terminu porodu', 'kalkulator ciazy tygodnie', 'data porodu'],
+      faqQuestion: 'Jak dokładnie oblicza się termin porodu i tydzień ciąży?',
+    },
+    '/dog-pregnancy-due-date-calculator': {
+      name: 'Kalkulator Ciąży Psa',
+      h1: 'Kalkulator Ciąży i Terminu Porodu u Psa (63 Dni)',
+      metaTitle: 'Kalkulator Ciąży Psa – Kiedy Suka Urodzi | Ultimatrix',
+      metaDescription:
+        'Oblicz przewidywaną datę porodu suki (reguła 63 dni), bezpieczne okno porodu oraz etap rozwoju szczeniąt.',
+      tagline: 'Przewidywany dzień porodu u psa, okno porodu i przewodnik tygodniowy.',
+      keywords: ['kalkulator ciazy psa', 'ile trwa ciaza u psa', 'termin porodu suki'],
+      faqQuestion: 'Ile dni trwa ciąża u psa i jak obliczyć termin porodu?',
+    },
+    '/age-calculator': {
+      name: 'Dokładny Kalkulator Wieku',
+      h1: 'Kalkulator Wieku według Daty Urodzenia',
+      metaTitle: 'Kalkulator Wieku – Ile Masz Lat, Miesięcy i Dni | Ultimatrix',
+      metaDescription:
+        'Oblicz dokładny wiek w latach, miesiącach, tygodniach i dniach od daty urodzenia oraz odliczanie do kolejnych urodzin.',
+      tagline: 'Dokładny wiek w latach, miesiącach, dniach i odliczanie do urodzin.',
+      keywords: ['kalkulator wieku', 'ile mam dokladnie lat', 'liczba przezytych dni'],
+      faqQuestion: 'Jak kalkulator wieku oblicza dokładną liczbę lat, miesięcy i dni?',
+    },
+    '/child-age-calculator': {
+      name: 'Kalkulator Wieku Niemowlęcia i Dziecka',
+      h1: 'Kalkulator Wieku Dziecka w Miesiącach, Tygodniach i Dniach',
+      metaTitle: 'Kalkulator Wieku Niemowlaka – Miesiące i Tygodnie | Ultimatrix',
+      metaDescription:
+        'Sprawdź dokładny wiek niemowlęcia w ukończonych miesiącach, tygodniach i dniach na potrzeby bilansów i szczepień.',
+      tagline: 'Precyzyjny wiek niemowlęcia w miesiącach i tygodniach dla pediatry.',
+      keywords: ['kalkulator wieku niemowlaka', 'ile tygodni ma dziecko', 'wiek dziecka w miesiacach'],
+      faqQuestion: 'Dlaczego wiek niemowląt podaje się w tygodniach i miesiącach?',
+    },
+    '/date-calculator': {
+      name: 'Kalkulator Dat i Liczby Dni',
+      h1: 'Kalkulator Dni Między Datami oraz Dodawanie Dni',
+      metaTitle: 'Kalkulator Dat – Ile Dni Między Datami | Ultimatrix',
+      metaDescription:
+        'Oblicz dokładną liczbę dni, tygodni i miesięcy między dwiema datami lub dodaj i odejmij dni w kalendarzu.',
+      tagline: 'Liczba dni pomiędzy datami oraz dodawanie lub odejmowanie dni i miesięcy.',
+      keywords: ['kalkulator dat', 'ile dni miedzy datami', 'dodawanie dni do daty'],
+      faqQuestion: 'Jak obliczyć dokładną liczbę dni pomiędzy dwiema datami?',
+    },
+    '/time-duration-calculator': {
+      name: 'Kalkulator Czasu i Godzin',
+      h1: 'Kalkulator Czasu Trwania (Godziny, Minuty, Sekundy)',
+      metaTitle: 'Kalkulator Godzin i Czasu Pracy Online | Ultimatrix',
+      metaDescription:
+        'Oblicz czas trwania między dwiema godzinami w godzinach, minutach i sekundach lub dodaj i odejmij przedziały czasu.',
+      tagline: 'Obliczanie czasu pracy, różnicy godzin oraz sumowania czasu.',
+      keywords: ['kalkulator godzin', 'kalkulator czasu pracy', 'roznica miedzy godzinami'],
+      faqQuestion: 'Jak obliczyć całkowity czas trwania między godziną rozpoczęcia a zakończenia?',
+    },
+    '/percentage-calculator': {
+      name: 'Kalkulator Procentowy Online',
+      h1: 'Kalkulator Procentów (3 Tryby Obliczeń)',
+      metaTitle: 'Kalkulator Procentowy – Oblicz Procent z Liczby i Zmianę % | Ultimatrix',
+      metaDescription:
+        'Oblicz X% z liczby Y, jakim procentem Y jest X oraz procentowy wzrost lub spadek wartości w czasie rzeczywistym.',
+      tagline: 'Procent z kwoty, udział procentowy oraz zmiana procentowa.',
+      keywords: ['kalkulator procentowy', 'obliczanie procentow', 'procent wzrostu'],
+      faqQuestion: 'Jakimi wzorami oblicza się procenty oraz zmianę procentową?',
+    },
+    '/cgpa-to-percentage-calculator': {
+      name: 'Konwerter CGPA na Procenty',
+      h1: 'Kalkulator CGPA na Procenty (Skala 10, 5 i 4)',
+      metaTitle: 'Przelicznik CGPA na Procenty – Skala 10, 5 i 4 | Ultimatrix',
+      metaDescription:
+        'Przelicz średnią ocen CGPA na procentowy wynik akademicki w skalach 10, 5 oraz 4 dla rekrutacji na studia.',
+      tagline: 'Szybkie przeliczanie ocen CGPA na wartości procentowe.',
+      keywords: ['cgpa na procenty', 'przelicznik ocen cgpa', 'kalkulator cgpa'],
+      faqQuestion: 'Jak przeliczyć ocenę CGPA na procenty w skali 10, 5 i 4?',
+    },
+    '/gpa-calculator': {
+      name: 'Kalkulator Średniej Ocen (GPA)',
+      h1: 'Kalkulator GPA Ważony Punktami ECTS / Kredytami (4.0)',
+      metaTitle: 'Kalkulator GPA na Studia – Średnia Semestralna i Ogólna | Ultimatrix',
+      metaDescription:
+        'Oblicz semestralną i skumulowaną średnią GPA, wpisując przedmioty, oceny oraz liczbę punktów kredytowych.',
+      tagline: 'Średnia ocen GPA ważona punktami kredytowymi w skali 4.0.',
+      keywords: ['kalkulator gpa', 'srednia ocen studia gpa', 'kalkulator sredniej wazonej'],
+      faqQuestion: 'Jak oblicza się średnią ocen GPA ważoną punktami kredytowymi?',
+    },
+    '/high-school-gpa-calculator': {
+      name: 'Kalkulator GPA Liceum',
+      h1: 'Kalkulator GPA dla Liceum (Standard, Honors i AP/IB)',
+      metaTitle: 'Kalkulator GPA Szkoła Średnia – Ważona i Nieważona | Ultimatrix',
+      metaDescription:
+        'Oblicz średnią GPA ze szkoły średniej w wersji zwykłej oraz ważonej z bonusami za kursy Honors i AP/IB.',
+      tagline: 'Zwykła i ważona średnia GPA przydatna przy aplikacjach na uczelnie.',
+      keywords: ['gpa liceum', 'kalkulator gpa wazona', 'srednia ocen liceum'],
+      faqQuestion: 'Czym różni się nieważone GPA od ważonego (Weighted GPA) w liceum?',
+    },
+    '/weight-loss-percentage-calculator': {
+      name: 'Kalkulator Procentowej Utraty Wagi',
+      h1: 'Kalkulator Procentu Utraty Masy Ciała (Kg / Lbs)',
+      metaTitle: 'Kalkulator Procentu Odchudzania – Ile Procent Wagi Spadło | Ultimatrix',
+      metaDescription:
+        'Sprawdź, jaki procent początkowej masy ciała udało Ci się zrzucić od startu odchudzania do aktualnej wagi.',
+      tagline: 'Śledź dokładny procentowy postęp redukcji wagi w kg lub funtach.',
+      keywords: ['procent utraty wagi', 'kalkulator odchudzania procent', 'ile schudlem procent'],
+      faqQuestion: 'Jak obliczyć procentową utratę masy ciała?',
+    },
+    '/scientific-calculator': {
+      name: 'Kalkulator Naukowy Online',
+      h1: 'Kalkulator Naukowy Online (Trygonometria i Logarytmy)',
+      metaTitle: 'Darmowy Kalkulator Naukowy Online – Stopnie i Radiany | Ultimatrix',
+      metaDescription:
+        'Zaawansowany kalkulator naukowy z funkcjami sin, cos, tan, log, ln, potęgami, pierwiastkami, silnią i obsługą klawiatury.',
+      tagline: 'Trygonometria, logarytmy, potęgi, pamięć Ans i skróty klawiszowe.',
+      keywords: ['kalkulator naukowy online', 'kalkulator trygonometryczny', 'kalkulator logarytmy'],
+      faqQuestion: 'Jakie funkcje matematyczne oferuje ten kalkulator naukowy online?',
+    },
+    '/casio-fx-115es-scientific-calculator': {
+      name: 'Kalkulator Naukowy w Stylu Casio fx-115ES',
+      h1: 'Kalkulator Naukowy Styl Casio fx-115ES Plus Online',
+      metaTitle: 'Kalkulator Casio fx-115ES Online – Ułamki i nPr/nCr | Ultimatrix',
+      metaDescription:
+        'Kalkulator inspirowany Casio fx-115ES Plus z ułamkami, permutacjami nPr, kombinacjami nCr oraz trybami DEG/RAD/GRAD.',
+      tagline: 'Układ inżynierski Casio z ułamkami, kombinatoryką i kątami.',
+      keywords: ['kalkulator casio online', 'casio fx 115es', 'kalkulator z ulamkami'],
+      faqQuestion: 'Dlaczego kalkulator w stylu Casio fx-115ES sprawdza się na studiach i egzaminach?',
+    },
+    '/sharp-12-digit-scientific-calculator': {
+      name: 'Kalkulator 12-Cyfrowy Sharp',
+      h1: 'Kalkulator Naukowy i Biurowy Sharp 12-Cyfrowy',
+      metaTitle: 'Kalkulator Sharp 12-Cyfrowy Online – Wysoka Precyzja | Ultimatrix',
+      metaDescription:
+        'Wyraźny wyświetlacz 12-cyfrowy z separatorami tysięcy, pamięcią M+/M- oraz funkcjami naukowymi.',
+      tagline: 'Czytelny ekran 12-cyfrowy z pamięcią operacyjną i klawiszami naukowymi.',
+      keywords: ['kalkulator 12 cyfrowy', 'kalkulator sharp online', 'kalkulator biurowy'],
+      faqQuestion: 'Do czego przydaje się 12-cyfrowy wyświetlacz w księgowości i obliczeniach technicznych?',
+    },
+    '/discount-calculator': {
+      name: 'Kalkulator Rabatu i Promocji',
+      h1: 'Kalkulator Rabatu Procentowego i Ceny po Zniżce',
+      metaTitle: 'Kalkulator Rabatu Online – Cena po Obniżce i Oszczędność | Ultimatrix',
+      metaDescription:
+        'Oblicz cenę końcową oraz kwotę oszczędności przy jednym lub dwóch nakładających się rabatach procentowych.',
+      tagline: 'Cena po rabacie pojedynczym lub podwójnym oraz dokładna kwota zniżki.',
+      keywords: ['kalkulator rabatu', 'oblicz znizke procentowa', 'cena po rabacie'],
+      faqQuestion: 'Jak obliczyć cenę końcową przy podwójnym rabacie procentowym?',
+    },
+    '/discount-calculator-with-tax': {
+      name: 'Kalkulator Rabatu z Podatkiem VAT',
+      h1: 'Kalkulator Rabatu Plus Podatek (VAT / Sales Tax)',
+      metaTitle: 'Kalkulator Rabatu i Podatku VAT – Kwota do Zapłaty | Ultimatrix',
+      metaDescription:
+        'Zastosuj rabat procentowy, a następnie dolicz podatek VAT lub podatek od sprzedaży, aby poznać końcową cenę przy kasie.',
+      tagline: 'Naliczanie rabatu przed doliczeniem stawki podatku VAT.',
+      keywords: ['rabat z vat kalkulator', 'cena po rabacie brutto', 'kalkulator znizka i podatek'],
+      faqQuestion: 'Czy podatek VAT nalicza się przed czy po odliczeniu rabatu?',
+    },
+    '/emi-calculator': {
+      name: 'Kalkulator Raty Kredytu (EMI)',
+      h1: 'Kalkulator Miesięcznej Raty Kredytu i Harmonogramu (EMI)',
+      metaTitle: 'Kalkulator Kredytowy EMI – Rata Miesięczna i Odsetki | Ultimatrix',
+      metaDescription:
+        'Oblicz miesięczną ratę równą (EMI), całkowity koszt odsetek i roczny harmonogram spłaty dla kredytu hipotecznego lub gotówkowego.',
+      tagline: 'Miesięczna rata, suma odsetek oraz roczny plan spłaty kredytu.',
+      keywords: ['kalkulator raty kredytu', 'kalkulator kredytowy emi', 'harmonogram splaty'],
+      faqQuestion: 'Jak oblicza się miesięczną ratę równą (EMI) i całkowite odsetki kredytu?',
+    },
+    '/hdfc-emi-calculator': {
+      name: 'Kalkulator Kredytu HDFC EMI',
+      h1: 'Kalkulator Rat EMI HDFC (Hipoteczny, Samochodowy, Gotówkowy)',
+      metaTitle: 'Kalkulator HDFC EMI – Raty Kredytu i Odsetki | Ultimatrix',
+      metaDescription:
+        'Oszacuj miesięczną ratę EMI dla kredytów mieszkaniowych, samochodowych i osobistych wraz z wykresem kapitału i odsetek.',
+      tagline: 'Szacowanie raty miesięcznej i rozkładu odsetek według rodzaju kredytu.',
+      keywords: ['kalkulator hdfc emi', 'rata kredytu hipotecznego', 'kredyt samochodowy rata'],
+      faqQuestion: 'Jak oszacować miesięczną ratę i koszt odsetek w kalkulatorze HDFC EMI?',
+    },
+    '/sip-calculator': {
+      name: 'Kalkulator Inwestycji Regularnych (SIP)',
+      h1: 'Kalkulator Oszczędzania SIP i Procentu Składanego',
+      metaTitle: 'Kalkulator SIP i Procent Składany – Prognoza Zysku | Ultimatrix',
+      metaDescription:
+        'Oblicz przyszłą wartość regularnych miesięcznych wpłat inwestycyjnych dzięki sile procentu składanego.',
+      tagline: 'Symulacja wpłaconego kapitału, zysku z procentu składanego i wartości końcowej.',
+      keywords: ['kalkulator sip', 'kalkulator procentu skladanego', 'inwestycje miesieczne'],
+      faqQuestion: 'Jak działa procent składany przy regularnych miesięcznych wpłatach SIP?',
+    },
+    '/gst-calculator': {
+      name: 'Kalkulator Podatku VAT / GST',
+      h1: 'Kalkulator Podatku GST / VAT (Netto na Brutto i Odwrotnie)',
+      metaTitle: 'Kalkulator VAT i GST Online – Dodaj lub Wylicz Podatek | Ultimatrix',
+      metaDescription:
+        'Dolicz stawkę VAT / GST do kwoty netto lub wylicz kwotę netto i sam podatek z ceny brutto w ułamku sekundy.',
+      tagline: 'Przeliczanie netto ↔ brutto dla dowolnej stawki podatku VAT lub GST.',
+      keywords: ['kalkulator vat', 'netto na brutto', 'kalkulator gst'],
+      faqQuestion: 'Jak wyliczyć kwotę netto i podatek z ceny zawierającej VAT lub GST?',
+    },
+  },
+  vi: {
+    '/bmi-calculator': {
+      name: 'Công cụ tính BMI Online',
+      h1: 'Máy Tính Chỉ Số BMI (Kg, Cm, Pound & Feet)',
+      metaTitle: 'Tính Chỉ Số BMI Online Miễn Phí – Cân Nặng Lý Tưởng WHO | Ultimatrix',
+      metaDescription:
+        'Tính chỉ số khối cơ thể (BMI) ngay lập tức theo kg/cm hoặc lbs và xem mức cân nặng lý tưởng theo chuẩn WHO.',
+      tagline: 'Tính chỉ số BMI và khoảng cân nặng khỏe mạnh theo đơn vị mét hoặc Anh.',
+      keywords: ['tinh bmi', 'cong cu tinh bmi', 'chi so khoi co the', 'can nang ly tuong'],
+      faqQuestion: 'Cách tính chỉ số BMI và đọc kết quả phân loại như thế nào?',
+    },
+    '/bmi-calculator/men': {
+      name: 'Tính BMI cho Nam giới',
+      h1: 'Công Cụ Tính BMI Cho Nam Giới Theo Chiều Cao & Cơ Bắp',
+      metaTitle: 'Tính BMI Nam Giới – Cân Nặng Chuẩn & Tỷ Lệ Mỡ | Ultimatrix',
+      metaDescription:
+        'Đánh giá chỉ số BMI cho nam giới kèm thông tin tham khảo về khối lượng cơ bắp và tỷ lệ mỡ cơ thể.',
+      tagline: 'Đánh giá BMI cho nam giới kèm ngưỡng khối cơ và tỷ lệ mỡ khỏe mạnh.',
+      keywords: ['tinh bmi nam', 'can nang chuan nam gioi', 'chi so bmi nam'],
+      faqQuestion: 'Chỉ số BMI ở nam giới có nhiều cơ bắp nên được hiểu như thế nào?',
+    },
+    '/bmi-calculator/women': {
+      name: 'Tính BMI cho Nữ giới',
+      h1: 'Công Cụ Tính BMI Cho Nữ Giới Theo Độ Tuổi & Chiều Cao',
+      metaTitle: 'Tính BMI Nữ Giới – Vóc Dáng Chuẩn & Mỡ Cơ Thể | Ultimatrix',
+      metaDescription:
+        'Tính chỉ số BMI cho nữ giới kèm bảng tỷ lệ mỡ cơ thể khỏe mạnh theo từng nhóm độ tuổi.',
+      tagline: 'Tính BMI cho nữ giới với hướng dẫn tỷ lệ mỡ cơ thể theo tuổi.',
+      keywords: ['tinh bmi nu', 'can nang chuan nu gioi', 'chi so bmi nu'],
+      faqQuestion: 'Cách sử dụng công cụ tính BMI cho nữ để xác định cân nặng hợp lý là gì?',
+    },
+    '/child-bmi-calculator': {
+      name: 'Tính BMI cho Trẻ em & Thanh thiếu niên',
+      h1: 'Tính BMI Cho Trẻ Em & Tuổi Teen (2–19 Tuổi)',
+      metaTitle: 'Tính BMI Trẻ Em – Bách Phân Vị CDC & WHO (2–19 Tuổi) | Ultimatrix',
+      metaDescription:
+        'Tính chỉ số BMI và bách phân vị nhi khoa theo tuổi (năm/tháng) và giới tính cho trẻ em từ 2 đến 19 tuổi.',
+      tagline: 'Đánh giá bách phân vị BMI nhi khoa CDC theo đúng tuổi và giới tính.',
+      keywords: ['tinh bmi tre em', 'bach phan vi bmi tre', 'bmi tuoi teen'],
+      faqQuestion: 'Vì sao BMI trẻ em 2–19 tuổi dùng bách phân vị thay vì ngưỡng người lớn?',
+    },
+    '/bmi-calculator-by-age': {
+      name: 'Tính BMI theo Độ tuổi & Giới tính',
+      h1: 'Công Cụ Tính BMI Theo Độ Tuổi & Giới Tính',
+      metaTitle: 'Tính BMI Theo Tuổi & Giới Tính – Từ Trẻ Em Đến Người Lớn | Ultimatrix',
+      metaDescription:
+        'Tính BMI từ 2 đến hơn 100 tuổi với chế độ tự động chuyển đổi giữa bách phân vị trẻ em và ngưỡng người lớn.',
+      tagline: 'Tự động chuyển đổi giữa chuẩn nhi khoa và chuẩn người lớn theo tuổi.',
+      keywords: ['tinh bmi theo tuoi', 'bmi theo tuoi va gioi tinh', 'bang bmi theo do tuoi'],
+      faqQuestion: 'Ngưỡng BMI khỏe mạnh có thay đổi theo độ tuổi hay không?',
+    },
+    '/height-calculator': {
+      name: 'Đổi & Dự đoán Chiều cao',
+      h1: 'Công Cụ Đổi Chiều Cao (Feet/Inch sang Cm) & Dự Đoán Chiều Cao Bé',
+      metaTitle: 'Đổi Feet Sang Cm & Dự Đoán Chiều Cao Tương Lai Của Trẻ | Ultimatrix',
+      metaDescription:
+        'Chuyển đổi nhanh chiều cao feet & inch sang cm và dự đoán chiều cao trưởng thành của trẻ dựa theo bố mẹ.',
+      tagline: 'Đổi đơn vị feet/inch ↔ cm và dự đoán chiều cao khi trưởng thành của trẻ.',
+      keywords: ['tinh chieu cao', 'doi feet sang cm', 'du doan chieu cao cua be'],
+      faqQuestion: 'Cách đổi feet/inch sang cm và dự đoán chiều cao trưởng thành của trẻ ra sao?',
+    },
+    '/pregnancy-due-date-calculator': {
+      name: 'Tính Ngày Dự Sinh & Tuần Thai',
+      h1: 'Công Cụ Tính Ngày Dự Sinh & Tuổi Thai (Kỳ Kinh Cuối, IVF)',
+      metaTitle: 'Tính Ngày Dự Sinh & Tuần Thai Chính Xác | Ultimatrix',
+      metaDescription:
+        'Tính ngày dự sinh, số tuần thai hiện tại và từng tam cá nguyệt dựa trên ngày đầu kỳ kinh cuối, thụ thai hoặc IVF.',
+      tagline: 'Ước tính ngày dự sinh và tuần thai từ kỳ kinh cuối, ngày thụ thai hoặc IVF.',
+      keywords: ['tinh ngay du sinh', 'tinh tuan thai', 'cong cu tinh tuoi thai'],
+      faqQuestion: 'Ngày dự sinh và tuần tuổi thai được tính chính xác bằng cách nào?',
+    },
+    '/dog-pregnancy-due-date-calculator': {
+      name: 'Tính Ngày Sinh Cho Chó Mang Thai',
+      h1: 'Công Cụ Tính Thai Kỳ & Ngày Sinh Của Chó (Quy Tắc 63 Ngày)',
+      metaTitle: 'Tính Ngày Chó Đẻ – Lịch Mang Thai 63 Ngày | Ultimatrix',
+      metaDescription:
+        'Tính ngày dự sinh của chó mẹ theo quy tắc 63 ngày từ ngày phối giống, khoảng sinh an toàn và theo dõi từng tuần.',
+      tagline: 'Dự đoán ngày sinh cho chó, khung thời gian sinh và mốc phát triển theo tuần.',
+      keywords: ['tinh ngay cho de', 'cho mang thai bao nhieu ngay', 'du sinh cho cho'],
+      faqQuestion: 'Chó mang thai bao nhiêu ngày và cách tính ngày sinh dự kiến như thế nào?',
+    },
+    '/age-calculator': {
+      name: 'Tính Tuổi Chính Xác',
+      h1: 'Công Cụ Tính Tuổi Chính Xác Theo Ngày Sinh',
+      metaTitle: 'Tính Tuổi Online – Chính Xác Theo Năm, Tháng, Tuần & Ngày | Ultimatrix',
+      metaDescription:
+        'Tính chính xác số tuổi theo năm, tháng, tuần, tổng số ngày từ ngày sinh và đếm ngược đến sinh nhật tiếp theo.',
+      tagline: 'Xem tuổi chính xác đến từng ngày và đếm ngược tới sinh nhật sắp tới.',
+      keywords: ['tinh tuoi', 'tinh tuoi theo ngay sinh', 'toi bao nhieu tuoi'],
+      faqQuestion: 'Công cụ tính tuổi xác định chính xác số năm, tháng và ngày như thế nào?',
+    },
+    '/child-age-calculator': {
+      name: 'Tính Tuổi Em bé theo Tháng & Tuần',
+      h1: 'Tính Tuổi Trẻ Sơ Sinh Theo Tháng, Tuần & Ngày',
+      metaTitle: 'Tính Tháng Tuổi Cho Bé – Theo Tháng & Tuần Chính Xác | Ultimatrix',
+      metaDescription:
+        'Tính chính xác tháng tuổi, số tuần và ngày tuổi của bé để tiện theo dõi lịch tiêm chủng và khám định kỳ.',
+      tagline: 'Đo tuổi chính xác của trẻ sơ sinh theo tháng và tuần cho sổ tiêm chủng.',
+      keywords: ['tinh thang tuoi cho be', 'be duoc bao nhieu tuan tuoi', 'tinh tuoi tre so sinh'],
+      faqQuestion: 'Vì sao tuổi của trẻ nhỏ thường được tính theo tháng và tuần trong 2 năm đầu?',
+    },
+    '/date-calculator': {
+      name: 'Tính Khoảng Cách Ngày & Lịch',
+      h1: 'Công Cụ Đếm Số Ngày Giữa Hai Mốc Thời Gian',
+      metaTitle: 'Tính Số Ngày Giữa Hai Ngày & Cộng Trừ Ngày | Ultimatrix',
+      metaDescription:
+        'Tính chính xác số ngày, tuần và tháng giữa hai mốc ngày hoặc cộng, trừ ngày vào bất kỳ ngày lịch nào.',
+      tagline: 'Đếm số ngày giữa hai mốc thời gian và cộng/trừ ngày, tuần, tháng.',
+      keywords: ['tinh so ngay giua hai ngay', 'dem ngay online', 'cong tru ngay'],
+      faqQuestion: 'Cách tính chính xác số ngày giữa hai mốc thời gian trên lịch là gì?',
+    },
+    '/time-duration-calculator': {
+      name: 'Tính Thời Lượng Giờ Phút Giây',
+      h1: 'Công Cụ Tính Khoảng Thời Gian (Giờ, Phút, Giây)',
+      metaTitle: 'Tính Thời Gian Làm Việc & Khoảng Cách Giờ Online | Ultimatrix',
+      metaDescription:
+        'Tính thời lượng trôi qua giữa hai mốc giờ theo giờ, phút, giây hoặc cộng trừ tổng thời gian làm việc.',
+      tagline: 'Tính giờ làm việc, khoảng cách hai mốc giờ và cộng trừ giờ phút giây.',
+      keywords: ['tinh thoi gian', 'tinh gio lam viec', 'khoang cach giua hai gio'],
+      faqQuestion: 'Làm sao để tính tổng thời lượng giữa giờ bắt đầu và giờ kết thúc?',
+    },
+    '/percentage-calculator': {
+      name: 'Tính Phần Trăm Online',
+      h1: 'Công Cụ Tính Phần Trăm (3 Chế Độ Nhanh)',
+      metaTitle: 'Tính Phần Trăm (%) Online – Tăng Giảm & Tỷ Lệ | Ultimatrix',
+      metaDescription:
+        'Tính X% của Y, X chiếm bao nhiêu % của Y và phần trăm tăng hoặc giảm ngay lập tức với độ chính xác cao.',
+      tagline: 'Tính giá trị phần trăm, tỷ trọng % và mức thay đổi phần trăm.',
+      keywords: ['tinh phan tram', 'cach tinh phan tram', 'phan tram tang giam'],
+      faqQuestion: 'Những công thức nào được dùng để tính phần trăm và % thay đổi?',
+    },
+    '/cgpa-to-percentage-calculator': {
+      name: 'Quy đổi CGPA sang Phần trăm',
+      h1: 'Công Cụ Đổi Điểm CGPA Sang Phần Trăm (Thang 10, 5 & 4)',
+      metaTitle: 'Đổi CGPA Sang Phần Trăm – Thang Điểm 10, 5 & 4 | Ultimatrix',
+      metaDescription:
+        'Quy đổi điểm trung bình CGPA sang phần trăm (%) theo công thức chuẩn của các trường đại học thang 10, 5 và 4.',
+      tagline: 'Quy đổi nhanh điểm CGPA sang tỷ lệ phần trăm cho hồ sơ du học.',
+      keywords: ['doi cgpa sang phan tram', 'quy doi diem gpa', 'tinh phan tram cgpa'],
+      faqQuestion: 'Cách quy đổi điểm CGPA sang phần trăm ở thang điểm 10, 5 và 4 như thế nào?',
+    },
+    '/gpa-calculator': {
+      name: 'Tính Điểm GPA Đại học',
+      h1: 'Công Cụ Tính Điểm GPA Theo Tín Chỉ (Thang 4.0)',
+      metaTitle: 'Tính Điểm GPA Đại Học – Trung Bình Học Kỳ & Tích Lũy | Ultimatrix',
+      metaDescription:
+        'Tính điểm GPA học kỳ và GPA tích lũy bằng cách nhập môn học, điểm chữ và số tín chỉ từng môn.',
+      tagline: 'Tính điểm GPA có trọng số tín chỉ cho từng học kỳ và toàn khóa.',
+      keywords: ['tinh diem gpa', 'tinh gpa dai hoc', 'gpa thang diem 4'],
+      faqQuestion: 'Điểm GPA đại học theo tín chỉ được tính bằng công thức nào?',
+    },
+    '/high-school-gpa-calculator': {
+      name: 'Tính Điểm GPA Cấp 3 (THPT)',
+      h1: 'Công Cụ Tính GPA Trung Học (Thường, Honors & AP/IB)',
+      metaTitle: 'Tính GPA Trung Học Phổ Thông – Có & Không Trọng Số | Ultimatrix',
+      metaDescription:
+        'Tính điểm GPA cấp 3 dạng không trọng số (Unweighted) và có trọng số cộng điểm cho lớp Honors, AP/IB.',
+      tagline: 'GPA cấp 3 chuẩn và có trọng số phục vụ hồ sơ xét tuyển đại học.',
+      keywords: ['tinh gpa cap 3', 'gpa co trong so ap', 'tinh diem trung binh thpt'],
+      faqQuestion: 'GPA trung học không trọng số và có trọng số (Weighted) khác nhau ở điểm nào?',
+    },
+    '/weight-loss-percentage-calculator': {
+      name: 'Tính Phần Trăm Giảm Cân',
+      h1: 'Công Cụ Tính Tỷ Lệ Phần Trăm Giảm Cân (Kg / Lbs)',
+      metaTitle: 'Tính Phần Trăm Giảm Cân – Theo Dõi Giảm Mỡ | Ultimatrix',
+      metaDescription:
+        'Tính chính xác bạn đã giảm được bao nhiêu phần trăm trọng lượng cơ thể từ cân nặng ban đầu đến hiện tại.',
+      tagline: 'Theo dõi tiến độ giảm cân qua số kg đã giảm và tỷ lệ phần trăm.',
+      keywords: ['phan tram giam can', 'tinh ty le giam can', 'theo doi giam can'],
+      faqQuestion: 'Cách tính tỷ lệ phần trăm cân nặng đã giảm như thế nào?',
+    },
+    '/scientific-calculator': {
+      name: 'Máy Tính Khoa Học Online',
+      h1: 'Máy Tính Khoa Học Trực Tuyến (Lượng Giác & Logarit)',
+      metaTitle: 'Máy Tính Khoa Học Online Miễn Phí – Sin, Cos, Tan, Log | Ultimatrix',
+      metaDescription:
+        'Máy tính khoa học đầy đủ hàm lượng giác, logarit, lũy thừa, căn bậc hai, giai thừa, DEG/RAD và hỗ trợ bàn phím.',
+      tagline: 'Lượng giác, logarit, giai thừa, bộ nhớ Ans và thao tác bằng bàn phím.',
+      keywords: ['may tinh khoa hoc online', 'may tinh luong giac', 'may tinh bo tui'],
+      faqQuestion: 'Máy tính khoa học trực tuyến này hỗ trợ những hàm toán học nào?',
+    },
+    '/casio-fx-115es-scientific-calculator': {
+      name: 'Máy Tính Khoa Học Kiểu Casio fx-115ES',
+      h1: 'Máy Tính Khoa Học Phong Cách Casio fx-115ES Plus',
+      metaTitle: 'Máy Tính Casio fx-115ES Online – Phân Số & Tổ Hợp | Ultimatrix',
+      metaDescription:
+        'Giao diện mô phỏng Casio fx-115ES Plus hỗ trợ phân số, chỉnh hợp nPr, tổ hợp nCr và chế độ góc DEG/RAD/GRAD.',
+      tagline: 'Thiết kế kỹ thuật Casio hỗ trợ phân số, nPr/nCr và đổi đơn vị góc.',
+      keywords: ['may tinh casio online', 'casio fx 115es', 'may tinh phan so'],
+      faqQuestion: 'Điểm nổi bật của máy tính kiểu Casio fx-115ES cho học tập và thi cử là gì?',
+    },
+    '/sharp-12-digit-scientific-calculator': {
+      name: 'Máy Tính 12 Chữ Số Sharp',
+      h1: 'Máy Tính Khoa Học & Văn Phòng Sharp 12 Chữ Số',
+      metaTitle: 'Máy Tính Sharp 12 Số Online – Độ Chính Xác Cao | Ultimatrix',
+      metaDescription:
+        'Màn hình hiển thị 12 chữ số sắc nét có dấu phân cách hàng nghìn, bộ nhớ M+/M- và các phím hàm khoa học.',
+      tagline: 'Màn hình 12 số rõ nét kèm bộ nhớ tính toán và hàm kỹ thuật.',
+      keywords: ['may tinh 12 so', 'may tinh sharp online', 'may tinh ke toan'],
+      faqQuestion: 'Vì sao màn hình 12 chữ số lại hữu ích cho kế toán và tính toán kỹ thuật?',
+    },
+    '/discount-calculator': {
+      name: 'Tính Giảm Giá & Khuyến Mãi',
+      h1: 'Công Cụ Tính Giá Sau Giảm Giá & Tiền Tiết Kiệm',
+      metaTitle: 'Tính Giảm Giá Online – Giảm Đơn & Giảm Kép (%) | Ultimatrix',
+      metaDescription:
+        'Tính ngay giá bán cuối cùng và số tiền tiết kiệm được khi áp dụng một hoặc hai mức giảm giá phần trăm liên tiếp.',
+      tagline: 'Tính giá sau giảm đơn hoặc giảm chồng 2 tầng và số tiền tiết kiệm.',
+      keywords: ['tinh giam gia', 'tinh phan tram giam gia', 'gia sau khi giam'],
+      faqQuestion: 'Cách tính giá cuối cùng khi áp dụng 2 mức giảm giá liên tiếp là gì?',
+    },
+    '/discount-calculator-with-tax': {
+      name: 'Tính Giảm Giá Kèm Thuế VAT',
+      h1: 'Công Cụ Tính Giảm Giá Cộng Thuế (VAT / Sales Tax)',
+      metaTitle: 'Tính Giảm Giá Có Thuế VAT – Tổng Tiền Thanh Toán | Ultimatrix',
+      metaDescription:
+        'Áp dụng mức giảm giá phần trăm trước rồi cộng thêm thuế VAT hoặc thuế bán hàng để biết chính xác số tiền trả tại quầy.',
+      tagline: 'Tính giá đã chiết khấu trước khi cộng thêm thuế suất bán hàng.',
+      keywords: ['tinh giam gia co thue', 'giam gia cong vat', 'gia cuoi cung co thue'],
+      faqQuestion: 'Thuế VAT được tính trước hay sau khi áp dụng giảm giá?',
+    },
+    '/emi-calculator': {
+      name: 'Tính Tiền Vay Trả Góp (EMI)',
+      h1: 'Công Cụ Tính Khoản Trả Góp Hàng Tháng (EMI)',
+      metaTitle: 'Tính Lãi Suất Vay Trả Góp Hàng Tháng (EMI) | Ultimatrix',
+      metaDescription:
+        'Tính số tiền phải trả hàng tháng, tổng tiền lãi và lịch trả nợ theo từng năm cho vay mua nhà, mua xe hoặc tín chấp.',
+      tagline: 'Ước tính tiền trả góp hàng tháng, tổng lãi và bảng khấu hao theo năm.',
+      keywords: ['tinh lai suat vay tra gop', 'cong cu tinh emi', 'tinh tien tra gop hang thang'],
+      faqQuestion: 'Khoản trả góp hàng tháng (EMI) và tổng tiền lãi vay được tính thế nào?',
+    },
+    '/hdfc-emi-calculator': {
+      name: 'Tính Vay Trả Góp HDFC EMI',
+      h1: 'Công Cụ Tính Vay HDFC EMI (Nhà, Xe & Cá Nhân)',
+      metaTitle: 'Tính HDFC EMI – Mô Phỏng Vay Mua Nhà & Mua Xe | Ultimatrix',
+      metaDescription:
+        'Ước tính khoản trả góp hàng tháng EMI cho gói vay mua nhà, vay ô tô hoặc vay tiêu dùng kèm biểu đồ gốc và lãi.',
+      tagline: 'Ước tính khoản trả hàng tháng và cơ cấu gốc/lãi theo loại khoản vay.',
+      keywords: ['tinh hdfc emi', 'tinh vay mua nha', 'tinh tra gop mua xe'],
+      faqQuestion: 'Công cụ HDFC EMI giúp ước tính tiền trả góp và lãi suất ra sao?',
+    },
+    '/sip-calculator': {
+      name: 'Tính Đầu Tư Định Kỳ (SIP)',
+      h1: 'Công Cụ Tính Đầu Tư Hàng Tháng (SIP) & Lãi Kép',
+      metaTitle: 'Tính Đầu Tư SIP & Lãi Kép Hàng Tháng | Ultimatrix',
+      metaDescription:
+        'Dự phóng giá trị tương lai từ khoản tích lũy đầu tư định kỳ mỗi tháng với lãi kép và tỷ suất sinh lời kỳ vọng.',
+      tagline: 'Ước tính tổng vốn góp, lợi nhuận lãi kép và giá trị tài sản tương lai.',
+      keywords: ['tinh dau tu sip', 'tinh lai kep hang thang', 'tich luy dau tu'],
+      faqQuestion: 'Lãi kép hoạt động như thế nào trong mô hình đầu tư định kỳ SIP?',
+    },
+    '/gst-calculator': {
+      name: 'Tính Thuế VAT / GST',
+      h1: 'Công Cụ Tính Thuế GST / VAT (Đã Gồm & Chưa Gồm Thuế)',
+      metaTitle: 'Tính Thuế VAT & GST Online – Cộng Hoặc Tách Thuế | Ultimatrix',
+      metaDescription:
+        'Cộng thêm thuế suất VAT/GST vào giá chưa thuế hoặc tách nhanh tiền thuế và giá gốc từ tổng tiền đã gồm thuế.',
+      tagline: 'Cộng thuế hoặc tách ngược giá trước thuế và tiền thuế chỉ trong một bước.',
+      keywords: ['tinh thue vat', 'tach thue vat tu tong tien', 'tinh thue gst'],
+      faqQuestion: 'Làm thế nào để tách tiền thuế VAT/GST ra khỏi giá đã bao gồm thuế?',
+    },
+  },
+  'zh-tw': {
+    '/bmi-calculator': {
+      name: '線上 BMI 計算機',
+      h1: 'BMI 身體質量指數計算機（公斤/公分/磅/英尺）',
+      metaTitle: '免費線上 BMI 計算機 – 標準體重與 WHO 過重判定 | Ultimatrix',
+      metaDescription:
+        '輸入身高與體重即時計算 BMI 身體質量指數，對照 WHO 與成人標準體重範圍。',
+      tagline: '支援公制與英制單位，即時算出 BMI 指數與健康體重區間。',
+      keywords: ['bmi計算機', 'bmi計算', '身體質量指數', '標準體重計算'],
+      faqQuestion: 'BMI 身體質量指數該怎麼計算與判讀結果？',
+    },
+    '/bmi-calculator/men': {
+      name: '男性專用 BMI 計算機',
+      h1: '男性 BMI 計算機（肌肉量與體脂率參考）',
+      metaTitle: '男性 BMI 計算機 – 理想體重與體脂肪區間 | Ultimatrix',
+      metaDescription:
+        '針對成年男性設計的 BMI 與理想體重計算工具，附帶肌肉量與男性健康體脂率參考範圍。',
+      tagline: '結合男性肌肉量說明與健康體脂率區間的 BMI 評估工具。',
+      keywords: ['男性bmi計算', '男生標準體重', '男性體脂參考'],
+      faqQuestion: '肌肉量較高的男性該如何正確解讀 BMI 指數？',
+    },
+    '/bmi-calculator/women': {
+      name: '女性專用 BMI 計算機',
+      h1: '女性 BMI 計算機（依年齡與身高參考）',
+      metaTitle: '女性 BMI 計算機 – 理想體重與分齡體脂參考 | Ultimatrix',
+      metaDescription:
+        '計算女性專屬 BMI 與理想體重範圍，並提供不同年齡層的健康體脂率標準對照。',
+      tagline: '提供分齡健康體脂率標準的女性 BMI 計算機。',
+      keywords: ['女性bmi計算', '女生標準體重', '女性理想體重'],
+      faqQuestion: '女性應如何搭配年齡與體脂率來評估 BMI 健康範圍？',
+    },
+    '/child-bmi-calculator': {
+      name: '兒童與青少年 BMI 計算機',
+      h1: '兒童及青少年 BMI 百分位計算機（2 至 19 歲）',
+      metaTitle: '兒童 BMI 計算機 – 2～19 歲生長百分位判讀 | Ultimatrix',
+      metaDescription:
+        '依性別與精確年齡（歲與月）計算 2 至 19 歲兒童與青少年的 BMI 及 CDC/WHO 生長百分位分類。',
+      tagline: '依據實歲、月齡與性別計算兒童與青少年的 BMI 百分位等級。',
+      keywords: ['兒童bmi計算', '青少年bmi百分位', '小孩體重標準'],
+      faqQuestion: '為什麼 2 至 19 歲兒童與青少年要用百分位而非成人 BMI 標準判讀？',
+    },
+    '/bmi-calculator-by-age': {
+      name: '依年齡與性別 BMI 計算機',
+      h1: '分齡與性別 BMI 計算機（兒童至銀髮族適用）',
+      metaTitle: '年齡別 BMI 計算機 – 各年齡層健康體位標準 | Ultimatrix',
+      metaDescription:
+        '涵蓋 2 歲至 100 歲以上，自動依年齡切換兒童百分位與各年齡段成人 BMI 建議區間。',
+      tagline: '依年齡自動切換兒童百分位與成人分齡 BMI 標準範圍。',
+      keywords: ['年齡bmi計算', '分齡bmi標準', '銀髮族bmi'],
+      faqQuestion: '健康的 BMI 建議範圍會隨著年齡增長而改變嗎？',
+    },
+    '/height-calculator': {
+      name: '身高換算與預測計算機',
+      h1: '身高計算機（英尺英吋轉公分 & 兒童未來身高預測）',
+      metaTitle: '身高單位換算（ft/in 轉 cm）與兒童身高預測 | Ultimatrix',
+      metaDescription:
+        '即時將英尺英吋換算成公分 (cm)，並依父母身高預測孩子未來的成人身高區間。',
+      tagline: '英尺/英吋與公分雙向換算，以及父母遺傳身高預測工具。',
+      keywords: ['身高換算', '英尺轉公分', '兒童身高預測'],
+      faqQuestion: '如何將英尺英吋換算成公分並估算孩子的成人身高？',
+    },
+    '/pregnancy-due-date-calculator': {
+      name: '預產期與懷孕週數計算機',
+      h1: '懷孕週數與預產期計算機（末次月經、受孕日與試管嬰兒）',
+      metaTitle: '預產期計算機 – 懷孕週數與產檢孕期換算 | Ultimatrix',
+      metaDescription:
+        '依最後一次月經、受孕日或試管嬰兒（IVF）胚胎植入日，精準算出預產期、目前懷孕週數與孕期階段。',
+      tagline: '支援末次月經、受孕日及 IVF 植入日的預產期與週數推算工具。',
+      keywords: ['預產期計算', '懷孕週數計算', '試管嬰兒預產期'],
+      faqQuestion: '預產期和目前的懷孕週數是如何計算出來的？',
+    },
+    '/dog-pregnancy-due-date-calculator': {
+      name: '狗狗懷孕預產期計算機',
+      h1: '狗狗懷孕週數與分娩預產期計算機（63 天法則）',
+      metaTitle: '狗狗預產期計算機 – 配種日推算生產日期 | Ultimatrix',
+      metaDescription:
+        '依配種日期以 63 天標準推算母犬預產期、正常分娩窗口（58～68 天）與每週胎兒發育進度。',
+      tagline: '犬隻預產期、分娩期區間與每週妊娠里程碑推算。',
+      keywords: ['狗狗懷孕計算', '狗狗預產期', '母狗懷孕天數'],
+      faqQuestion: '狗狗懷孕大約幾天？該如何推算母犬的預產期？',
+    },
+    '/age-calculator': {
+      name: '實歲年齡精確計算機',
+      h1: '出生年月日實歲與天數計算機',
+      metaTitle: '年齡計算機 – 精確計算實歲年、月、週與出生天數 | Ultimatrix',
+      metaDescription:
+        '輸入出生日期即可算出精確的實歲（年、月、日）、總週數、總天數以及距離下次生日的倒數天數。',
+      tagline: '精確換算年、月、日實歲與下次生日倒數天數。',
+      keywords: ['年齡計算機', '實歲計算', '出生天數計算'],
+      faqQuestion: '年齡計算機如何精確算出實歲幾年幾個月幾天？',
+    },
+    '/child-age-calculator': {
+      name: '嬰幼兒月齡與週齡計算機',
+      h1: '寶寶精確月齡、週齡與天數計算機',
+      metaTitle: '嬰兒月齡計算機 – 寶寶出生幾個月幾週 | Ultimatrix',
+      metaDescription:
+        '精確算出新生兒與幼兒的滿月數、週數與天數，方便對照健兒門診與疫苗接種時程。',
+      tagline: '專為家長設計的寶寶實歲月齡、週齡與兒童發展里程碑計算工具。',
+      keywords: ['寶寶月齡計算', '嬰兒週齡', '小孩幾個月計算'],
+      faqQuestion: '為什麼兩歲以內的嬰幼兒常以「月齡」和「週齡」計算年齡？',
+    },
+    '/date-calculator': {
+      name: '日期相減與天數計算機',
+      h1: '兩日期天數差與日期加減計算機',
+      metaTitle: '日期計算機 – 計算兩日期相差天數與日期推算 | Ultimatrix',
+      metaDescription:
+        '快速算出兩個日期之間相差的總天數、週數與月數，或從指定日期往前後加減天數、週數或月份。',
+      tagline: '支援兩日期間距天數計算，以及日曆天數、週數、月數加減推算。',
+      keywords: ['日期計算機', '天數計算', '日期相加減'],
+      faqQuestion: '如何精確計算兩個日期之間相隔的總天數？',
+    },
+    '/time-duration-calculator': {
+      name: '時間差與工時計算機',
+      h1: '時間經過與時分秒加減計算機',
+      metaTitle: '時間計算機 – 工時時數與時間差計算 | Ultimatrix',
+      metaDescription:
+        '計算起始與結束時間之間經過的小時、分鐘與秒數，並支援時間區間的加法與減法運算。',
+      tagline: '精確計算工作時數、兩時刻時間差以及時分秒加減。',
+      keywords: ['時間計算機', '工時計算', '時間差計算'],
+      faqQuestion: '如何計算開始時間與結束時間之間的總經過時數？',
+    },
+    '/percentage-calculator': {
+      name: '百分比計算機',
+      h1: '線上百分比計算機（三種常用模式）',
+      metaTitle: '百分比計算機 – 比例、佔比與漲跌幅計算 | Ultimatrix',
+      metaDescription:
+        '即時計算「X 的 Y%」、「X 佔 Y 的百分之幾」以及數值的百分比增減幅度（漲跌幅）。',
+      tagline: '涵蓋百分比數值、比例換算與成長／衰退百分比變化。',
+      keywords: ['百分比計算機', '趴數計算', '成長率百分比'],
+      faqQuestion: '計算百分比與百分比漲跌幅時分別使用什麼公式？',
+    },
+    '/cgpa-to-percentage-calculator': {
+      name: 'CGPA 換算百分比計算機',
+      h1: 'CGPA 成績換算百分比工具（10 分、5 分與 4 分制）',
+      metaTitle: 'CGPA 轉百分比計算機 – 留學申請成績換算 | Ultimatrix',
+      metaDescription:
+        '支援 10 分制、5 分制與 4 分制，將大學 CGPA 平均積點快速換算為等值百分比成績。',
+      tagline: '快速將各制別 CGPA 成績換算為申請學校所需的百分比。',
+      keywords: ['cgpa轉百分比', '成績換算百分比', 'gpa換算'],
+      faqQuestion: '10 分制、5 分制與 4 分制的 CGPA 如何換算成百分比？',
+    },
+    '/gpa-calculator': {
+      name: '大學學分加權 GPA 計算機',
+      h1: '大學學期與累計 GPA 計算機（4.0 學分加權）',
+      metaTitle: '大學 GPA 計算機 – 學分加權平均成績試算 | Ultimatrix',
+      metaDescription:
+        '輸入修課科目、等第成績與學分數，即時計算當學期 GPA 與累計總 GPA。',
+      tagline: '依各科等第與學分數即時算出學期與累計 GPA。',
+      keywords: ['gpa計算機', '大學gpa試算', '學分加權平均'],
+      faqQuestion: '如何依據課程學分數與等第計算大學加權 GPA？',
+    },
+    '/high-school-gpa-calculator': {
+      name: '高中 GPA 計算機',
+      h1: '高中 GPA 計算機（一般、Honors 與 AP/IB 加權）',
+      metaTitle: '高中 GPA 計算機 – 加權與未加權成績試算 | Ultimatrix',
+      metaDescription:
+        '同時計算高中未加權 GPA 及含 Honors (+0.5)、AP/IB (+1.0) 加分的加權 GPA。',
+      tagline: '支援美國高中與國際學校常見的一般及 AP/IB 加權制度。',
+      keywords: ['高中gpa計算', '加權gpa', 'ap ib成績試算'],
+      faqQuestion: '高中未加權 GPA（Unweighted）與加權 GPA（Weighted）有什麼差別？',
+    },
+    '/weight-loss-percentage-calculator': {
+      name: '減重百分比計算機',
+      h1: '減重成效與體重下降百分比計算機',
+      metaTitle: '減肥百分比計算機 – 體重減輕比例試算 | Ultimatrix',
+      metaDescription:
+        '輸入初始體重與目前體重，立即算出已減去的公斤/磅數與體重下降百分比。',
+      tagline: '精確追蹤瘦身進度，顯示減去重量與體重下降比例。',
+      keywords: ['減重百分比計算', '減肥比例', '體重下降百分比'],
+      faqQuestion: '體重下降的減重百分比該如何計算？',
+    },
+    '/scientific-calculator': {
+      name: '線上工程計算機',
+      h1: '線上科學與工程計算機（三角函數與對數）',
+      metaTitle: '免費線上工程計算機 – 三角函數、對數與鍵盤輸入 | Ultimatrix',
+      metaDescription:
+        '支援 sin、cos、tan、log、ln、次方、開根號、階乘、DEG/RAD 切換與電腦鍵盤快捷操作。',
+      tagline: '完整三角函數、對數、指數、Ans 記憶與實體鍵盤支援。',
+      keywords: ['線上工程計算機', '科學計算機', '三角函數計算機'],
+      faqQuestion: '這台線上工程計算機支援哪些進階數學運算功能？',
+    },
+    '/casio-fx-115es-scientific-calculator': {
+      name: 'Casio fx-115ES 風格工程計算機',
+      h1: 'Casio fx-115ES Plus 風格線上工程計算機',
+      metaTitle: 'Casio fx-115ES 線上工程計算機 – 分數與排列組合 | Ultimatrix',
+      metaDescription:
+        '仿照 Casio fx-115ES Plus 鍵盤配置，支援分數運算、排列 nPr、組合 nCr 與 DEG/RAD/GRAD 角度模式。',
+      tagline: '經典 Casio 工程排版，支援分數、排列組合與多角度模式。',
+      keywords: ['casio計算機線上', 'fx 115es', '排列組合計算機'],
+      faqQuestion: 'Casio fx-115ES 風格計算機有哪些適合考試與工程計算的特點？',
+    },
+    '/sharp-12-digit-scientific-calculator': {
+      name: 'Sharp 12 位數商務工程計算機',
+      h1: 'Sharp 12 位數高精準商務與科學計算機',
+      metaTitle: 'Sharp 12 位數線上計算機 – 千分位清晰顯示與記憶鍵 | Ultimatrix',
+      metaDescription:
+        '具備清晰 12 位數大螢幕、千分位分隔符、M+/M- 記憶功能及常用科學運算按鍵。',
+      tagline: '高對比 12 位數顯示器搭配記憶功能與工程按鍵。',
+      keywords: ['12位數計算機', 'sharp計算機線上', '會計計算機'],
+      faqQuestion: '12 位數顯示與獨立記憶鍵對會計及工程運算有什麼好處？',
+    },
+    '/discount-calculator': {
+      name: '折扣與優惠價計算機',
+      h1: '百分比折扣與折上折計算機',
+      metaTitle: '打折計算機 – 折扣後價格與省下金額試算 | Ultimatrix',
+      metaDescription:
+        '快速算出單一折扣或兩層連環折扣（折上折）後的最終售價與總共省下的金額。',
+      tagline: '支援單次折扣與雙重疊加折扣，立即顯示折後價格與省下金額。',
+      keywords: ['折扣計算機', '打折計算', '折上折計算'],
+      faqQuestion: '遇到雙重折扣（折上折）時，最終價格應該怎麼計算？',
+    },
+    '/discount-calculator-with-tax': {
+      name: '折扣加稅金計算機',
+      h1: '商品折扣後含稅總價計算機（營業稅 / Sales Tax）',
+      metaTitle: '折扣加稅金計算機 – 結帳含稅總金額試算 | Ultimatrix',
+      metaDescription:
+        '先套用百分比折扣，再加上營業稅或消費稅，精確計算實際結帳時需支付的總金額。',
+      tagline: '先扣折扣再加計消費稅率，輕鬆掌握實際結帳金額。',
+      keywords: ['折扣含稅計算', '折後加稅計算機', '稅金折扣試算'],
+      faqQuestion: '購物結帳時，稅金是依原價還是折扣後的價格計算？',
+    },
+    '/emi-calculator': {
+      name: '貸款月付金 (EMI) 計算機',
+      h1: '房貸、車貸與信貸每月還款額 (EMI) 試算表',
+      metaTitle: '貸款月付金 EMI 計算機 – 本息攤還表與總利息試算 | Ultimatrix',
+      metaDescription:
+        '輸入貸款金額、年利率與期數，立即算出每月本息攤還金額 (EMI)、總利息支出與年度攤還明細表。',
+      tagline: '每月還款額、總利息成本與逐年本金利息攤還明細。',
+      keywords: ['貸款試算', '房貸月付金emi', '本息平均攤還計算機'],
+      faqQuestion: '等額本息每月還款額（EMI）與總利息是如何計算的？',
+    },
+    '/hdfc-emi-calculator': {
+      name: 'HDFC 貸款 EMI 試算機',
+      h1: 'HDFC 房貸、車貸與個人信貸 EMI 計算機',
+      metaTitle: 'HDFC EMI 計算機 – 房貸、汽車與個人貸款試算 | Ultimatrix',
+      metaDescription:
+        '試算房屋貸款、汽車貸款與個人信貸的每月應繳金額 (EMI) 及年度本息分佈明細。',
+      tagline: '依貸款類別試算每月還款額與年度本金利息比例。',
+      keywords: ['hdfc emi計算', '房貸試算', '車貸月付金'],
+      faqQuestion: '如何使用 HDFC EMI 計算機估算不同貸款類型的月付金與利息？',
+    },
+    '/sip-calculator': {
+      name: '定期定額投資 (SIP) 計算機',
+      h1: '每月定期定額 (SIP) 與複利成長試算機',
+      metaTitle: 'SIP 定期定額計算機 – 複利投資未來報酬試算 | Ultimatrix',
+      metaDescription:
+        '根據每月扣款金額、預期年化報酬率與投資年限，推算複利累積後的未來總資產與投資獲利。',
+      tagline: '清楚呈現總投入本金、複利報酬與長期資產成長預測。',
+      keywords: ['sip計算機', '定期定額試算', '複利計算機'],
+      faqQuestion: '複利效應如何在每月定期定額（SIP）投資中發揮作用？',
+    },
+    '/gst-calculator': {
+      name: '營業稅 GST / VAT 計算機',
+      h1: '消費稅與營業稅 GST / VAT 計算機（含稅與未稅反推）',
+      metaTitle: '營業稅 GST / VAT 線上計算機 – 加稅與含稅反推未稅 | Ultimatrix',
+      metaDescription:
+        '將未稅金額加上 GST/VAT 稅率，或從含稅總金額反推未稅銷售額與稅額明細。',
+      tagline: '一鍵切換外加稅金與內含稅金反推，清楚列出稅前金額與稅額。',
+      keywords: ['營業稅計算機', '含稅反推未稅', 'gst計算機'],
+      faqQuestion: '如何從含稅總價中反推未稅金額與稅金？',
+    },
+  },
 };
 
 export function getLocalizedCalculator(
@@ -1687,7 +3260,7 @@ export function getLocalizedCalculator(
   const localizedFaqs: CalculatorFaq[] = calc.faqs.map((faq, idx) => {
     if (idx === 0) {
       return {
-        question: faq.question,
+        question: localized.faqQuestion ?? faq.question,
         answer: localizedDirectAnswer,
       };
     }

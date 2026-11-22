@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ArrowLeft, Check, ChevronRight, Copy, Mail, ShieldCheck, User } from 'lucide-react';
 import { getInfoPageContent, InfoPageSlug } from '../../data/infoPages';
 import { languages, SUPPORTED_LANGS } from '../../i18n/ui';
-import { useTranslations } from '../../i18n/utils';
+import { getHreflang, useTranslations } from '../../i18n/utils';
 import { SeoSchema } from '../seo/SeoSchema';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Link, useRoute } from './Router';
@@ -263,7 +263,7 @@ export function InfoPageView({ slug }: InfoPageViewProps) {
                 key={code}
                 href={translatePath(basePath, code)}
                 preserveLocale={false}
-                hrefLang={code}
+                hrefLang={getHreflang(code)}
                 className={`transition-colors whitespace-nowrap ${
                   code === lang ? 'font-semibold text-[#15803d]' : 'text-slate-600 hover:text-slate-900'
                 }`}

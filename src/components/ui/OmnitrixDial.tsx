@@ -72,6 +72,7 @@ export function OmnitrixDial({ selected, onSelect, counts }: OmnitrixDialProps) 
     >
       {/* Dial & Orbit Controls */}
       <div
+        dir="ltr"
         className="relative flex items-center justify-center gap-2 sm:gap-8 touch-pan-y"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}

@@ -1,7 +1,13 @@
 import { useEffect } from 'react';
 import { CalculatorDefinition } from '../../data/calculators';
 import { defaultLang, Lang, ogLocaleMap, showDefaultLang, SUPPORTED_LANGS } from '../../i18n/ui';
-import { getLangFromPathname, stripLangPrefix, useTranslations } from '../../i18n/utils';
+import {
+  getHreflang,
+  getLangFromPathname,
+  isRtlLang,
+  stripLangPrefix,
+  useTranslations,
+} from '../../i18n/utils';
 import { getCanonicalUrl, getSiteBaseUrl } from '../../seo/siteUrl';
 
 export interface SeoPageMeta {
@@ -46,7 +52,7 @@ function localizePathForHreflang(basePath: string, lang: Lang): string {
 
 function syncHreflangTags(basePath: string, origin: string) {
   const targets: { hreflang: string; href: string }[] = SUPPORTED_LANGS.map((code) => ({
-    hreflang: code,
+    hreflang: getHreflang(code),
     href: getCanonicalUrl(localizePathForHreflang(basePath, code), origin),
   }));
   targets.push({
@@ -97,8 +103,11 @@ export function SeoSchema({ calculator, pageMeta, canonicalPath }: SeoSchemaProp
     : t('hub.metaDescription');
   const keywords = calculator ? calculator.keywords.join(', ') : '';
 
+  const hreflangCode = getHreflang(lang);
+
   useEffect(() => {
-    document.documentElement.lang = lang;
+    document.documentElement.lang = hreflangCode;
+    document.documentElement.dir = isRtlLang(lang) ? 'rtl' : 'ltr';
     document.title = title;
     upsertMetaTag('name', 'robots', 'index, follow');
     upsertMetaTag('name', 'description', description);
@@ -122,7 +131,7 @@ export function SeoSchema({ calculator, pageMeta, canonicalPath }: SeoSchemaProp
           '@type': 'WebApplication',
           name: calculator.name,
           url: fullUrl,
-          inLanguage: lang,
+          inLanguage: hreflangCode,
           applicationCategory: 'UtilitiesApplication',
           operatingSystem: 'All',
           description: calculator.metaDescription,
@@ -167,7 +176,7 @@ export function SeoSchema({ calculator, pageMeta, canonicalPath }: SeoSchemaProp
         {
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
-          inLanguage: lang,
+          inLanguage: hreflangCode,
           mainEntity: calculator.faqs.map((faq) => ({
             '@type': 'Question',
             name: faq.question,
@@ -185,7 +194,7 @@ export function SeoSchema({ calculator, pageMeta, canonicalPath }: SeoSchemaProp
           '@type': pageMeta.type ?? 'WebPage',
           name: pageMeta.name,
           url: fullUrl,
-          inLanguage: lang,
+          inLanguage: hreflangCode,
           description,
           isPartOf: {
             '@type': 'WebSite',
@@ -218,7 +227,7 @@ export function SeoSchema({ calculator, pageMeta, canonicalPath }: SeoSchemaProp
           '@type': 'WebSite',
           name: 'Ultimatrix Calculator',
           url: fullUrl,
-          inLanguage: lang,
+          inLanguage: hreflangCode,
           description,
         },
         {
@@ -226,7 +235,7 @@ export function SeoSchema({ calculator, pageMeta, canonicalPath }: SeoSchemaProp
           '@type': 'WebApplication',
           name: 'Ultimatrix Calculator',
           url: fullUrl,
-          inLanguage: lang,
+          inLanguage: hreflangCode,
           applicationCategory: 'UtilitiesApplication',
           operatingSystem: 'All',
           description,

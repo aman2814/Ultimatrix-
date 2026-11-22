@@ -26,7 +26,7 @@ const EN_INFO_PAGES: Record<InfoPageSlug, InfoPageContent> = {
     schemaType: 'AboutPage',
     metaTitle: 'About Us – Ultimatrix Calculator',
     metaDescription:
-      'Learn about Ultimatrix Calculator, created by Aman Gutpta ("Call me azmath"), delivering fast, zero-clutter calculators with transparent formulas across 8 languages.',
+      'Learn about Ultimatrix Calculator, created by Aman Gutpta ("Call me azmath"), delivering fast, zero-clutter calculators with transparent formulas across 14 languages.',
     h1: 'About Ultimatrix Calculator',
     subtitle:
       'Precision calculation instruments engineered for instant answers, transparent math formulas, and zero visual clutter.',
@@ -43,7 +43,7 @@ const EN_INFO_PAGES: Record<InfoPageSlug, InfoPageContent> = {
         heading: 'Who Runs Ultimatrix Calculator',
         paragraphs: [
           'Ultimatrix Calculator is independently created and maintained by Aman Gutpta (known online as "Call me azmath").',
-          'Whether you are checking pediatric BMI percentiles, estimating loan EMIs, converting CGPA to percentage, or using a scientific keypad on mobile, our goal is accuracy, speed, and accessibility across all 8 supported languages.',
+          'Whether you are checking pediatric BMI percentiles, estimating loan EMIs, converting CGPA to percentage, or using a scientific keypad on mobile, our goal is accuracy, speed, and accessibility across all 14 supported languages.',
         ],
         bullets: [
           'Creator & Maintainer: Aman Gutpta ("Call me azmath")',
@@ -199,7 +199,7 @@ const TRANSLATED_TITLES: Partial<
     '/about': {
       metaTitle: 'Sobre Nosotros – Ultimatrix Calculator',
       metaDescription:
-        'Conoce Ultimatrix Calculator, creado por Aman Gutpta ("Call me azmath"), con calculadoras rápidas y fórmulas claras en 8 idiomas.',
+        'Conoce Ultimatrix Calculator, creado por Aman Gutpta ("Call me azmath"), con calculadoras rápidas y fórmulas claras en 14 idiomas.',
       h1: 'Sobre Ultimatrix Calculator',
       subtitle:
         'Instrumentos de cálculo de precisión diseñados para respuestas instantáneas, fórmulas transparentes y cero distracciones.',
@@ -395,6 +395,202 @@ const TRANSLATED_TITLES: Partial<
         'Contatta Aman Gutpta ("Call me azmath") all’indirizzo amangu2814@gmail.com.',
       h1: 'Contattaci',
       subtitle: 'Scrivi ad Aman Gutpta ("Call me azmath") all’indirizzo amangu2814@gmail.com.',
+    },
+  },
+  id: {
+    '/about': {
+      metaTitle: 'Tentang Kami – Ultimatrix Calculator',
+      metaDescription:
+        'Kenali Ultimatrix Calculator, dibuat oleh Aman Gutpta ("Call me azmath"), kalkulator cepat dengan rumus transparan dalam 14 bahasa.',
+      h1: 'Tentang Ultimatrix Calculator',
+      subtitle:
+        'Instrumen perhitungan presisi yang dirancang untuk hasil instan, rumus matematika transparan, dan tampilan bebas gangguan.',
+    },
+    '/privacy-policy': {
+      metaTitle: 'Kebijakan Privasi – Ultimatrix Calculator',
+      metaDescription:
+        'Baca Kebijakan Privasi Ultimatrix Calculator dan bagaimana perhitungan lokal di browser menjaga privasi data Anda.',
+      h1: 'Kebijakan Privasi',
+      subtitle:
+        'Data kesehatan, keuangan, dan akademik Anda dihitung langsung di browser tanpa disimpan di server kami.',
+    },
+    '/terms-and-conditions': {
+      metaTitle: 'Syarat & Ketentuan – Ultimatrix Calculator',
+      metaDescription:
+        'Tinjau Syarat & Ketentuan penggunaan Ultimatrix Calculator, disclaimer informasi, dan aturan penggunaan.',
+      h1: 'Syarat & Ketentuan',
+      subtitle: 'Pedoman penggunaan dan penafian informasi untuk Ultimatrix Calculator.',
+    },
+    '/contact': {
+      metaTitle: 'Hubungi Kami – Ultimatrix Calculator',
+      metaDescription:
+        'Hubungi pembuat Ultimatrix Calculator Aman Gutpta ("Call me azmath") di amangu2814@gmail.com.',
+      h1: 'Hubungi Kami',
+      subtitle:
+        'Punya saran kalkulator atau menemukan kendala? Hubungi Aman Gutpta ("Call me azmath") melalui amangu2814@gmail.com.',
+    },
+  },
+  tr: {
+    '/about': {
+      metaTitle: 'Hakkımızda – Ultimatrix Calculator',
+      metaDescription:
+        'Aman Gutpta ("Call me azmath") tarafından oluşturulan ve 14 dilde şeffaf formüller sunan Ultimatrix Calculator hakkında bilgi edinin.',
+      h1: 'Ultimatrix Calculator Hakkında',
+      subtitle:
+        'Anlık yanıtlar, anlaşılır matematiksel formüller ve sade bir deneyim için tasarlanmış hassas hesaplama araçları.',
+    },
+    '/privacy-policy': {
+      metaTitle: 'Gizlilik Politikası – Ultimatrix Calculator',
+      metaDescription:
+        'Ultimatrix Calculator Gizlilik Politikasını ve tarayıcı tabanlı hesaplamaların verilerinizi nasıl koruduğunu okuyun.',
+      h1: 'Gizlilik Politikası',
+      subtitle:
+        'Sağlık, finans ve eğitim verileriniz sunucularımıza kaydedilmeden doğrudan tarayıcınızda yerel olarak işlenir.',
+    },
+    '/terms-and-conditions': {
+      metaTitle: 'Kullanım Koşulları – Ultimatrix Calculator',
+      metaDescription:
+        'Ultimatrix Calculator kullanım koşullarını, bilgilendirme amaçlı feragatnameleri ve kuralları inceleyin.',
+      h1: 'Kullanım Koşulları',
+      subtitle: 'Ultimatrix Calculator erişim kuralları ve bilgilendirme amaçlı yasal uyarılar.',
+    },
+    '/contact': {
+      metaTitle: 'İletişim – Ultimatrix Calculator',
+      metaDescription:
+        'Geri bildirim veya destek için Aman Gutpta ("Call me azmath") ile amangu2814@gmail.com üzerinden iletişime geçin.',
+      h1: 'İletişim',
+      subtitle:
+        'Öneri veya hata bildirimleriniz için Aman Gutpta ("Call me azmath") ile amangu2814@gmail.com adresinden iletişime geçebilirsiniz.',
+    },
+  },
+  ar: {
+    '/about': {
+      metaTitle: 'من نحن – Ultimatrix Calculator',
+      metaDescription:
+        'تعرّف على Ultimatrix Calculator من تطوير Aman Gutpta ("Call me azmath") لتقديم حاسبات دقيقة ومعادلات واضحة بـ 14 لغة.',
+      h1: 'حول Ultimatrix Calculator',
+      subtitle:
+        'أدوات حساب دقيقة مصممة لإعطاء نتائج فورية ومعادلات رياضية واضحة دون أي تشويش.',
+    },
+    '/privacy-policy': {
+      metaTitle: 'سياسة الخصوصية – Ultimatrix Calculator',
+      metaDescription:
+        'اطلع على سياسة الخصوصية لموقع Ultimatrix Calculator وكيف تحمي الحسابات المحلية في المتصفح بياناتك.',
+      h1: 'سياسة الخصوصية',
+      subtitle:
+        'تُعالج مدخلاتك الصحية والمالية والأكاديمية محلياً داخل متصفحك دون تخزينها على خوادمنا.',
+    },
+    '/terms-and-conditions': {
+      metaTitle: 'الشروط والأحكام – Ultimatrix Calculator',
+      metaDescription:
+        'راجع شروط وأحكام استخدام موقع Ultimatrix Calculator وإخلاء المسؤولية المعلوماتي.',
+      h1: 'الشروط والأحكام',
+      subtitle: 'الإرشادات وشروط الاستخدام وإخلاء المسؤولية الخاص بـ Ultimatrix Calculator.',
+    },
+    '/contact': {
+      metaTitle: 'اتصل بنا – Ultimatrix Calculator',
+      metaDescription:
+        'تواصل مع مطوّر Ultimatrix Calculator أمان غوبتا ("Call me azmath") عبر amangu2814@gmail.com.',
+      h1: 'اتصل بنا',
+      subtitle:
+        'هل لديك اقتراح لأداة جديدة أو ملاحظة؟ راسل Aman Gutpta ("Call me azmath") عبر amangu2814@gmail.com.',
+    },
+  },
+  pl: {
+    '/about': {
+      metaTitle: 'O nas – Ultimatrix Calculator',
+      metaDescription:
+        'Poznaj Ultimatrix Calculator autorstwa Amana Gutpty ("Call me azmath") — szybkie kalkulatory z przejrzystymi wzorami w 14 językach.',
+      h1: 'O Ultimatrix Calculator',
+      subtitle:
+        'Precyzyjne narzędzia obliczeniowe stworzone z myślą o natychmiastowych wynikach, jasnych wzorach i czystym interfejsie.',
+    },
+    '/privacy-policy': {
+      metaTitle: 'Polityka prywatności – Ultimatrix Calculator',
+      metaDescription:
+        'Zapoznaj się z Polityką prywatności Ultimatrix Calculator i dowiedz się, jak obliczenia w przeglądarce chronią Twoje dane.',
+      h1: 'Polityka prywatności',
+      subtitle:
+        'Twoje dane zdrowotne, finansowe i akademickie są przetwarzane lokalnie w przeglądarce i nie trafiają do baz danych.',
+    },
+    '/terms-and-conditions': {
+      metaTitle: 'Regulamin – Ultimatrix Calculator',
+      metaDescription:
+        'Sprawdź regulamin korzystania z Ultimatrix Calculator oraz zastrzeżenia informacyjne.',
+      h1: 'Regulamin',
+      subtitle: 'Zasady korzystania z serwisu oraz informacje prawne dla Ultimatrix Calculator.',
+    },
+    '/contact': {
+      metaTitle: 'Kontakt – Ultimatrix Calculator',
+      metaDescription:
+        'Skontaktuj się z twórcą Ultimatrix Calculator Amanem Gutptą ("Call me azmath") pod adresem amangu2814@gmail.com.',
+      h1: 'Kontakt',
+      subtitle:
+        'Masz sugestię lub chcesz zgłosić błąd? Napisz do Amana Gutpty ("Call me azmath") na amangu2814@gmail.com.',
+    },
+  },
+  vi: {
+    '/about': {
+      metaTitle: 'Giới thiệu – Ultimatrix Calculator',
+      metaDescription:
+        'Tìm hiểu về Ultimatrix Calculator do Aman Gutpta ("Call me azmath") phát triển, cung cấp máy tính nhanh với công thức minh bạch bằng 14 ngôn ngữ.',
+      h1: 'Giới thiệu Ultimatrix Calculator',
+      subtitle:
+        'Bộ công cụ tính toán chính xác được thiết kế cho kết quả tức thì, công thức rõ ràng và giao diện tối giản.',
+    },
+    '/privacy-policy': {
+      metaTitle: 'Chính sách bảo mật – Ultimatrix Calculator',
+      metaDescription:
+        'Xem Chính sách bảo mật của Ultimatrix Calculator và cách tính toán trực tiếp trên trình duyệt bảo vệ dữ liệu của bạn.',
+      h1: 'Chính sách bảo mật',
+      subtitle:
+        'Dữ liệu sức khỏe, tài chính và học tập của bạn được xử lý cục bộ trên trình duyệt và không lưu trữ trên máy chủ.',
+    },
+    '/terms-and-conditions': {
+      metaTitle: 'Điều khoản sử dụng – Ultimatrix Calculator',
+      metaDescription:
+        'Xem Điều khoản sử dụng của Ultimatrix Calculator cùng các lưu ý miễn trừ trách nhiệm thông tin.',
+      h1: 'Điều khoản sử dụng',
+      subtitle: 'Quy định sử dụng và tuyên bố miễn trừ trách nhiệm của Ultimatrix Calculator.',
+    },
+    '/contact': {
+      metaTitle: 'Liên hệ – Ultimatrix Calculator',
+      metaDescription:
+        'Liên hệ tác giả Ultimatrix Calculator Aman Gutpta ("Call me azmath") qua email amangu2814@gmail.com.',
+      h1: 'Liên hệ',
+      subtitle:
+        'Bạn có góp ý tính năng hoặc báo lỗi? Hãy liên hệ Aman Gutpta ("Call me azmath") qua amangu2814@gmail.com.',
+    },
+  },
+  'zh-tw': {
+    '/about': {
+      metaTitle: '關於我們 – Ultimatrix Calculator',
+      metaDescription:
+        '認識由 Aman Gutpta（"Call me azmath"）打造的 Ultimatrix Calculator，支援 14 種語言的即時精準線上計算工具。',
+      h1: '關於 Ultimatrix Calculator',
+      subtitle: '專為即時解答、透明數學公式與零干擾操作體驗而設計的精密計算平台。',
+    },
+    '/privacy-policy': {
+      metaTitle: '隱私權政策 – Ultimatrix Calculator',
+      metaDescription:
+        '閱讀 Ultimatrix Calculator 隱私權政策，了解瀏覽器端本地運算如何保護您的健康、財務與個人數值資料。',
+      h1: '隱私權政策',
+      subtitle: '您的所有計算數值皆直接在瀏覽器本地端執行，不會上傳或儲存至我們的伺服器。',
+    },
+    '/terms-and-conditions': {
+      metaTitle: '服務條款 – Ultimatrix Calculator',
+      metaDescription:
+        '檢視 Ultimatrix Calculator 服務條款、資訊參考免責聲明與合理使用規範。',
+      h1: '服務條款',
+      subtitle: '使用 Ultimatrix Calculator 的服務條款與資訊僅供參考之聲明。',
+    },
+    '/contact': {
+      metaTitle: '聯絡我們 – Ultimatrix Calculator',
+      metaDescription:
+        '透過 amangu2814@gmail.com 聯絡 Ultimatrix Calculator 創辦人 Aman Gutpta（"Call me azmath"）。',
+      h1: '聯絡我們',
+      subtitle:
+        '有任何功能建議、公式回饋或問題回報？歡迎直接致信 Aman Gutpta（"Call me azmath"）：amangu2814@gmail.com。',
     },
   },
 };

@@ -1,14 +1,36 @@
-import { defaultLang, Lang, showDefaultLang, SUPPORTED_LANGS, ui, UiKey } from './ui';
+import {
+  defaultLang,
+  hreflangMap,
+  Lang,
+  showDefaultLang,
+  SUPPORTED_LANGS,
+  ui,
+  UiKey,
+} from './ui';
 
 export function isSupportedLang(segment: string): segment is Lang {
-  return (SUPPORTED_LANGS as readonly string[]).includes(segment);
+  return (SUPPORTED_LANGS as readonly string[]).includes(segment.toLowerCase());
+}
+
+export function normalizeLangSegment(segment: string): Lang | null {
+  const lower = segment.toLowerCase();
+  return isSupportedLang(lower) ? lower : null;
+}
+
+export function getHreflang(lang: Lang): string {
+  return hreflangMap[lang] ?? lang;
+}
+
+export function isRtlLang(lang: Lang): boolean {
+  return lang === 'ar';
 }
 
 export function getLangFromPathname(pathname: string): Lang {
   const clean = pathname.split('?')[0].split('#')[0];
   const [, firstSegment] = clean.split('/');
-  if (firstSegment && isSupportedLang(firstSegment)) {
-    return firstSegment;
+  if (firstSegment) {
+    const matched = normalizeLangSegment(firstSegment);
+    if (matched) return matched;
   }
   return defaultLang;
 }

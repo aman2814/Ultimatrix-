@@ -1,7 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { defaultLang, Lang } from '../../i18n/ui';
 import {
+  getHreflang,
   getLangFromPathname,
+  isRtlLang,
   isSupportedLang,
   stripLangPrefix,
   useTranslatedPath,
@@ -52,7 +54,8 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
-      document.documentElement.lang = lang;
+      document.documentElement.lang = getHreflang(lang);
+      document.documentElement.dir = isRtlLang(lang) ? 'rtl' : 'ltr';
     }
   }, [lang]);
 
