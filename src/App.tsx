@@ -30,6 +30,7 @@ import { WeightLossPercentageCalculator } from './components/calculators/WeightL
 import { HighSchoolGpaCalculator } from './components/calculators/HighSchoolGpaCalculator';
 import { DiscountWithTaxCalculator } from './components/calculators/DiscountWithTaxCalculator';
 import { HeightCalculator } from './components/calculators/HeightCalculator';
+import { CompoundInterestCalculator } from './components/calculators/CompoundInterestCalculator';
 
 function renderCalculatorWidget(slug: string) {
   switch (slug) {
@@ -85,6 +86,8 @@ function renderCalculatorWidget(slug: string) {
       return <SipCalculator />;
     case '/gst-calculator':
       return <GstCalculator />;
+    case '/compound-interest-calculator':
+      return <CompoundInterestCalculator />;
     default:
       return null;
   }

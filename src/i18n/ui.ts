@@ -98,7 +98,7 @@ export const ui = {
     'hub.title': 'Ultimatrix Calculator',
     'hub.subtitle':
       'Select a category on the Omnitrix dial or search by formula to launch any calculator in zero-clutter focus mode.',
-    'hub.searchPlaceholder': 'Search BMI, Height, Child BMI, Dog Due Date, HDFC EMI, Casio, GPA...',
+    'hub.searchPlaceholder': 'Search BMI, 복리계산기, Height, Dog Due Date, HDFC EMI, Casio, GPA...',
     'hub.clearSearch': 'Clear search query',
     'hub.noResults': 'No calculators matched your search.',
     'hub.showAll': 'Show All Calculators',
@@ -380,7 +380,7 @@ export const ui = {
     'hub.title': 'Ultimatrix Calculator',
     'hub.subtitle':
       '다이얼에서 카테고리를 선택하거나 검색창에 키워드를 입력해 원하는 계산기를 바로 실행하세요.',
-    'hub.searchPlaceholder': 'BMI, 키 변환, 나이, 출산 예정일, 대출 EMI, 퍼센트, 학점 GPA 검색...',
+    'hub.searchPlaceholder': '복리계산기, BMI, 키 변환, 나이, 출산 예정일, 대출 EMI, 퍼센트, 학점 GPA 검색...',
     'hub.clearSearch': '검색어 지우기',
     'hub.noResults': '검색어와 일치하는 계산기가 없습니다.',
     'hub.showAll': '모든 계산기 보기',

@@ -309,6 +309,12 @@ export function HomeHub() {
                 GST
               </Link>
               <Link
+                href="/compound-interest-calculator"
+                className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
+              >
+                복리계산기
+              </Link>
+              <Link
                 href="/scientific-calculator"
                 className="inline-flex min-h-[44px] md:min-h-0 items-center hover:text-slate-900 transition-colors"
               >

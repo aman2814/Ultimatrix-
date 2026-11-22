@@ -10,6 +10,7 @@ export interface LocalizedCalculatorCopy {
   keywords: string[];
   directAnswer?: string;
   faqQuestion?: string;
+  preserveBaseFaqs?: boolean;
 }
 
 type NonEnglishLang = Exclude<Lang, 'en'>;
@@ -250,6 +251,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       tagline: 'Agrega o desglosa tasas de IVA y GST al instante con base imponible.',
       keywords: ['calculadora iva', 'calculadora gst', 'desglosar iva online'],
     },
+    '/compound-interest-calculator': {
+      name: 'Calculadora de Interés Compuesto (복리계산기)',
+      h1: 'Calculadora de Interés Compuesto Diaria, Mensual y Anual',
+      metaTitle: 'Calculadora de Interés Compuesto – Simulador Mensual y Anual | Ultimatrix',
+      metaDescription:
+        'Calcula el crecimiento con interés compuesto diario, mensual, trimestral o anual con aportaciones mensuales y tabla por año.',
+      tagline: 'Simula capital inicial, aportes mensuales, frecuencia de capitalización y tabla anual.',
+      keywords: ['calculadora interes compuesto', 'interes compuesto mensual', '복리계산기'],
+      faqQuestion: '¿Cómo funciona la fórmula del interés compuesto mensual y diario?',
+    },
   },
   ja: {
     '/bmi-calculator': {
@@ -485,6 +496,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
         '金額に対して消費税/GSTを外税で加算、または税込金額から税抜価格と税額を逆算します。',
       tagline: '税抜きからの加算と税込みからの逆算、税率別内訳に対応。',
       keywords: ['消費税 計算', 'gst 計算機', '税込 税抜 逆算'],
+    },
+    '/compound-interest-calculator': {
+      name: '複利計算機（日・月・年複利）',
+      h1: '複利計算シミュレーション（毎日・毎月・年複利＆積立対応）',
+      metaTitle: '複利計算機 – 日複利・月複利・年複利の運用シミュレーション | Ultimatrix',
+      metaDescription:
+        '初期元本と毎月の積立額、年利、複利周期（日・月・四半期・年）から将来の複利資産と年次推移表を計算します。',
+      tagline: '一括投資と毎月積立の複利成長、72の法則、年次推移表を即時表示。',
+      keywords: ['複利計算機', '複利 シミュレーション', '72の法則', '복리계산기'],
+      faqQuestion: '複利の計算式と日複利・月複利・年複利の違いは何ですか？',
     },
   },
   fr: {
@@ -722,6 +743,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       tagline: 'Conversion HT vers TTC et extraction de taxe avec détail net.',
       keywords: ['calculateur tva', 'calculateur gst', 'ht en ttc'],
     },
+    '/compound-interest-calculator': {
+      name: 'Calculateur d’Intérêts Composés',
+      h1: 'Calculateur d’Intérêts Composés (Journalier, Mensuel, Annuel)',
+      metaTitle: 'Calculateur d’Intérêts Composés en Ligne – Simulation | Ultimatrix',
+      metaDescription:
+        'Calculez la croissance de votre capital avec intérêts composés quotidiens, mensuels ou annuels et versements réguliers.',
+      tagline: 'Capital initial, versements mensuels, fréquence et tableau annuel.',
+      keywords: ['calculateur interets composes', 'interet compose mensuel', '복리계산기'],
+      faqQuestion: 'Comment calculer les intérêts composés quotidiens, mensuels et annuels ?',
+    },
   },
   de: {
     '/bmi-calculator': {
@@ -957,6 +988,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
         'Berechnen Sie im Handumdrehen Nettobetrag, Bruttobetrag und Steueranteil bei jedem Steuersatz.',
       tagline: 'Steuer auf Nettobeträge aufschlagen oder aus Bruttobeträgen herausrechnen.',
       keywords: ['mehrwertsteuer rechner', 'brutto netto rechner', 'gst steuerrechner'],
+    },
+    '/compound-interest-calculator': {
+      name: 'Zinseszinsrechner',
+      h1: 'Zinseszinsrechner (Täglich, Monatlich, Jährlich)',
+      metaTitle: 'Zinseszinsrechner Online – Sparplan & 72er-Regel | Ultimatrix',
+      metaDescription:
+        'Berechnen Sie Ihr Endkapital mit Zinseszins bei täglicher, monatlicher oder jährlicher Verzinsung samt Jahrestabelle.',
+      tagline: 'Startkapital, monatliche Sparrate, Zinsintervall und Jahresübersicht.',
+      keywords: ['zinseszinsrechner', 'zinseszins berechnen', '72er regel', '복리계산기'],
+      faqQuestion: 'Wie berechnet man den Zinseszins bei monatlicher oder täglicher Gutschrift?',
     },
   },
   pt: {
@@ -1194,6 +1235,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       tagline: 'Cálculo instantâneo de imposto incluso ou adicionado ao valor base.',
       keywords: ['calculadora iva', 'calculadora gst', 'extrair imposto'],
     },
+    '/compound-interest-calculator': {
+      name: 'Calculadora de Juros Compostos',
+      h1: 'Calculadora de Juros Compostos (Diário, Mensal e Anual)',
+      metaTitle: 'Calculadora de Juros Compostos Online – Aportes Mensais | Ultimatrix',
+      metaDescription:
+        'Simule juros compostos diários, mensais ou anuais com aporte inicial, depósitos mensais e tabela ano a ano.',
+      tagline: 'Simulação de capital inicial, aportes mensais e tabela anual de rendimento.',
+      keywords: ['calculadora juros compostos', 'juros compostos mensal', '복리계산기'],
+      faqQuestion: 'Como calcular juros compostos com aportes mensais e capitalização diária?',
+    },
   },
   ko: {
     '/bmi-calculator': {
@@ -1430,6 +1481,29 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       tagline: '세금 가산 및 역산 계산을 한 화면에서 바로 처리.',
       keywords: ['부가세 계산기', 'gst 계산기', '공급가액 역산'],
     },
+    '/compound-interest-calculator': {
+      name: '복리계산기',
+      h1: '복리계산기 – 일복리·월복리·연복리 & 적립식 복리 수익 계산기',
+      metaTitle: '복리계산기 – 일복리·월복리·연복리 수익률 & 세후 실수령액 계산 | Ultimatrix',
+      metaDescription:
+        '무료 온라인 복리계산기. 초기 원금과 매월 적립금, 연 수익률, 복리 주기(일복리·월복리·분기복리·연복리), 일반과세 15.4% 세후 금액과 72의 법칙을 연도별 표로 즉시 계산하세요.',
+      tagline: '초기 원금·월 적립금·일/월/연복리 주기·15.4% 이자소득세까지 한 번에 계산하는 한국어 복리계산기.',
+      keywords: [
+        '복리계산기',
+        '복리 계산기',
+        '월복리 계산기',
+        '일복리 계산기',
+        '연복리 계산기',
+        '주식 복리계산기',
+        '적립식 복리계산기',
+        '예적금 복리계산기',
+        '72의 법칙 계산기',
+        '복리 이자 계산',
+      ],
+      directAnswer:
+        '이 한국어 복리계산기는 초기 거치금(원금)과 매월 추가 적립금을 입력해 일복리·월복리·분기복리·연복리 기준 최종 만기 수령액을 실시간으로 산출합니다. 한국 금융 기준에 맞춰 세전·일반과세(15.4%)·세금우대(9.5%) 선택과 72의 법칙(원금 2배 소요 기간), 연도별 복리 성장표를 함께 제공합니다.',
+      preserveBaseFaqs: true,
+    },
   },
   it: {
     '/bmi-calculator': {
@@ -1665,6 +1739,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
         'Aggiungi l’IVA/GST a un imponibile oppure esegui lo scorporo dell’imposta dal totale lordo.',
       tagline: 'Calcolo rapido di imponibile, imposta e totale lordo.',
       keywords: ['calcolatore iva', 'scorporo iva online', 'calcolatore gst'],
+    },
+    '/compound-interest-calculator': {
+      name: 'Calcolatore Interesse Composto',
+      h1: 'Calcolatore di Interesse Composto (Giornaliero, Mensile, Annuale)',
+      metaTitle: 'Calcolatore Interesse Composto Online – Simulatore | Ultimatrix',
+      metaDescription:
+        'Calcola il capitale finale con interesse composto giornaliero, mensile o annuale, versamenti mensili e tabella per anno.',
+      tagline: 'Simula capitale iniziale, versamenti periodici e crescita composta annuale.',
+      keywords: ['calcolatore interesse composto', 'interesse composto mensile', '복리계산기'],
+      faqQuestion: 'Come funziona il calcolo dell’interesse composto mensile e giornaliero?',
     },
   },
   id: {
@@ -1928,6 +2012,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       keywords: ['kalkulator gst', 'kalkulator ppn online', 'hitung dpp dan ppn'],
       faqQuestion: 'Bagaimana cara memisahkan nilai pajak GST/PPN dari harga yang sudah termasuk pajak?',
     },
+    '/compound-interest-calculator': {
+      name: 'Kalkulator Bunga Majemuk',
+      h1: 'Kalkulator Bunga Majemuk (Harian, Bulanan & Tahunan)',
+      metaTitle: 'Kalkulator Bunga Majemuk Online – Simulasi Investasi | Ultimatrix',
+      metaDescription:
+        'Hitung hasil bunga majemuk harian, bulanan, kuartalan, atau tahunan dengan setoran rutin bulanan dan tabel pertumbuhan tahunan.',
+      tagline: 'Simulasi modal awal, setoran bulanan, frekuensi bunga majemuk, dan tabel tahunan.',
+      keywords: ['kalkulator bunga majemuk', 'bunga majemuk bulanan', '복리계산기'],
+      faqQuestion: 'Bagaimana cara menghitung bunga majemuk harian, bulanan, dan tahunan?',
+    },
   },
   tr: {
     '/bmi-calculator': {
@@ -2189,6 +2283,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       tagline: 'Vergi hariçten toplama ve vergi dahilden matrah ayırma işlemleri.',
       keywords: ['kdv hesaplama', 'gst hesaplama', 'kdv dahil hariç ayırma'],
       faqQuestion: 'KDV veya GST dahil fiyattan vergi tutarı nasıl ayrıştırılır?',
+    },
+    '/compound-interest-calculator': {
+      name: 'Bileşik Faiz Hesaplayıcı',
+      h1: 'Bileşik Faiz ve Getiri Hesaplama (Günlük, Aylık, Yıllık)',
+      metaTitle: 'Bileşik Faiz Hesaplama – Aylık Birikim ve 72 Kuralı | Ultimatrix',
+      metaDescription:
+        'Başlangıç anaparası ve aylık ek yatırımlarla günlük, aylık, üç aylık ve yıllık bileşik faiz getirisini yıllık tabloyla hesaplayın.',
+      tagline: 'Anapara, aylık ekleme, bileşik faiz periyodu ve yıllık büyüme tablosu.',
+      keywords: ['bileşik faiz hesaplama', 'günlük bileşik faiz', '72 kuralı', '복리계산기'],
+      faqQuestion: 'Günlük, aylık ve yıllık bileşik faiz nasıl hesaplanır?',
     },
   },
   ar: {
@@ -2452,6 +2556,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       keywords: ['حاسبة الضريبة', 'حاسبة ضريبة القيمة المضافة', 'استخراج الضريبة من المبلغ'],
       faqQuestion: 'كيف أستخرج قيمة الضريبة والمبلغ الصافي من سعر شامل للضريبة؟',
     },
+    '/compound-interest-calculator': {
+      name: 'حاسبة الفائدة المركبة',
+      h1: 'حاسبة الفائدة المركبة (يومي، شهري، ربع سنوي وسنوي)',
+      metaTitle: 'حاسبة الفائدة المركبة أونلاين – جدول النمو السنوي | Ultimatrix',
+      metaDescription:
+        'احسب نمو استثماراتك بالفائدة المركبة اليومية أو الشهرية أو السنوية مع الإيداعات الشهرية وجدول العائد السنوي.',
+      tagline: 'حساب رأس المال الابتدائي والإيداع الشهري وفترات التركيب وقاعدة 72.',
+      keywords: ['حاسبة الفائدة المركبة', 'حساب الفائدة المركبة', '복리계산기'],
+      faqQuestion: 'كيف يتم حساب الفائدة المركبة اليومية والشهرية والسنوية؟',
+    },
   },
   pl: {
     '/bmi-calculator': {
@@ -2713,6 +2827,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       tagline: 'Przeliczanie netto ↔ brutto dla dowolnej stawki podatku VAT lub GST.',
       keywords: ['kalkulator vat', 'netto na brutto', 'kalkulator gst'],
       faqQuestion: 'Jak wyliczyć kwotę netto i podatek z ceny zawierającej VAT lub GST?',
+    },
+    '/compound-interest-calculator': {
+      name: 'Kalkulator Procentu Składanego',
+      h1: 'Kalkulator Procentu Składanego (Dzienny, Miesięczny, Roczny)',
+      metaTitle: 'Kalkulator Procentu Składanego Online – Tabela Roczna | Ultimatrix',
+      metaDescription:
+        'Oblicz kapitał końcowy z procentem składanym przy kapitalizacji dziennej, miesięcznej, kwartalnej lub rocznej.',
+      tagline: 'Kapitał początkowy, dopłaty miesięczne, kapitalizacja i tabela roczna.',
+      keywords: ['kalkulator procentu skladanego', 'procent skladany', '복리계산기'],
+      faqQuestion: 'Jak obliczyć procent składany przy kapitalizacji dziennej i miesięcznej?',
     },
   },
   vi: {
@@ -2976,6 +3100,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       keywords: ['tinh thue vat', 'tach thue vat tu tong tien', 'tinh thue gst'],
       faqQuestion: 'Làm thế nào để tách tiền thuế VAT/GST ra khỏi giá đã bao gồm thuế?',
     },
+    '/compound-interest-calculator': {
+      name: 'Công cụ tính Lãi Kép',
+      h1: 'Máy Tính Lãi Kép Trực Tuyến (Theo Ngày, Tháng, Năm)',
+      metaTitle: 'Công Cụ Tính Lãi Kép Online – Bảng Tăng Trưởng Hàng Năm | Ultimatrix',
+      metaDescription:
+        'Tính số tiền cuối kỳ với lãi kép theo ngày, tháng, quý hoặc năm kèm tiền gửi thêm hàng tháng và bảng chi tiết từng năm.',
+      tagline: 'Tính vốn gốc, góp thêm hàng tháng, chu kỳ ghép lãi và quy tắc 72.',
+      keywords: ['tinh lai kep', 'cong cu tinh lai kep', 'quy tac 72', '복리계산기'],
+      faqQuestion: 'Công thức tính lãi kép theo ngày, tháng và năm hoạt động như thế nào?',
+    },
   },
   'zh-tw': {
     '/bmi-calculator': {
@@ -3238,6 +3372,16 @@ const LOCALIZED_CALCULATORS: Record<NonEnglishLang, Record<string, LocalizedCalc
       keywords: ['營業稅計算機', '含稅反推未稅', 'gst計算機'],
       faqQuestion: '如何從含稅總價中反推未稅金額與稅金？',
     },
+    '/compound-interest-calculator': {
+      name: '線上複利計算機',
+      h1: '複利試算與定存投資計算機（日複利、月複利、年複利）',
+      metaTitle: '線上複利計算機 – 日/月/年複利成長試算與 72 法則 | Ultimatrix',
+      metaDescription:
+        '輸入初始本金與每月定期定額投入，立即試算日複利、月複利、季複利與年複利的未來總資產與逐年明細表。',
+      tagline: '支援單筆與定期定額複利試算、72 法則倍增年數與年度明細表。',
+      keywords: ['複利計算機', '複利試算', '月複利計算', '72法則', '복리계산기'],
+      faqQuestion: '日複利、月複利與年複利該如何計算？差別在哪裡？',
+    },
   },
 };
 
@@ -3257,15 +3401,17 @@ export function getLocalizedCalculator(
   const localizedDirectAnswer =
     localized.directAnswer ?? `${localized.metaDescription} ${localized.tagline}`;
 
-  const localizedFaqs: CalculatorFaq[] = calc.faqs.map((faq, idx) => {
-    if (idx === 0) {
-      return {
-        question: localized.faqQuestion ?? faq.question,
-        answer: localizedDirectAnswer,
-      };
-    }
-    return faq;
-  });
+  const localizedFaqs: CalculatorFaq[] = localized.preserveBaseFaqs
+    ? calc.faqs
+    : calc.faqs.map((faq, idx) => {
+        if (idx === 0) {
+          return {
+            question: localized.faqQuestion ?? faq.question,
+            answer: localizedDirectAnswer,
+          };
+        }
+        return faq;
+      });
 
   return {
     ...calc,

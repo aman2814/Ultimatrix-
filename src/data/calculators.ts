@@ -661,6 +661,7 @@ export const CALCULATORS: CalculatorDefinition[] = [
       { label: 'HDFC Loan EMI', slug: '/hdfc-emi-calculator' },
       { label: 'SIP', slug: '/sip-calculator' },
       { label: 'GST', slug: '/gst-calculator' },
+      { label: '복리계산기', slug: '/compound-interest-calculator' },
     ],
   },
   {
@@ -728,6 +729,7 @@ export const CALCULATORS: CalculatorDefinition[] = [
       { label: 'General EMI', slug: '/emi-calculator' },
       { label: 'HDFC Loan EMI', slug: '/hdfc-emi-calculator' },
       { label: 'SIP', slug: '/sip-calculator' },
+      { label: '복리계산기', slug: '/compound-interest-calculator' },
     ],
   },
   {
@@ -794,6 +796,7 @@ export const CALCULATORS: CalculatorDefinition[] = [
       { label: 'HDFC EMI', slug: '/hdfc-emi-calculator' },
       { label: 'SIP', slug: '/sip-calculator' },
       { label: 'GST', slug: '/gst-calculator' },
+      { label: '복리계산기', slug: '/compound-interest-calculator' },
     ],
   },
   {
@@ -860,6 +863,89 @@ export const CALCULATORS: CalculatorDefinition[] = [
       { label: 'EMI', slug: '/emi-calculator' },
       { label: 'HDFC EMI', slug: '/hdfc-emi-calculator' },
       { label: 'SIP', slug: '/sip-calculator' },
+      { label: 'GST', slug: '/gst-calculator' },
+      { label: '복리계산기', slug: '/compound-interest-calculator' },
+    ],
+  },
+  {
+    id: 'compound-interest-calculator',
+    slug: '/compound-interest-calculator',
+    name: '복리계산기',
+    shortName: '복리계산기',
+    category: 'Finance',
+    tagline: '초기 원금·월 적립금·일/월/연복리 주기·15.4% 이자소득세까지 한 번에 계산하는 한국어 복리계산기.',
+    keywords: [
+      '복리계산기',
+      '복리 계산기',
+      '월복리 계산기',
+      '일복리 계산기',
+      '연복리 계산기',
+      '주식 복리계산기',
+      '적립식 복리계산기',
+      '예적금 복리계산기',
+      '72의 법칙 계산기',
+      '복리 이자 계산',
+      'compound interest calculator korean',
+    ],
+    h1: '복리계산기 – 일복리·월복리·연복리 & 적립식 복리 수익 계산기',
+    metaTitle: '복리계산기 – 일복리·월복리·연복리 수익률 & 세후 실수령액 계산 | Ultimatrix',
+    metaDescription:
+      '무료 온라인 복리계산기. 초기 원금과 매월 적립금, 연 수익률, 복리 주기(일복리·월복리·분기복리·연복리), 일반과세 15.4% 세후 금액과 72의 법칙을 연도별 표로 즉시 계산하세요.',
+    directAnswer:
+      '이 한국어 복리계산기는 초기 거치금(원금)과 매월 추가 적립금을 입력해 일복리·월복리·분기복리·연복리 기준 최종 만기 수령액을 실시간으로 산출합니다. 한국 금융 기준에 맞춰 세전·일반과세(15.4%)·세금우대(9.5%) 선택과 72의 법칙(원금 2배 소요 기간), 연도별 복리 성장표를 함께 제공합니다.',
+    formulaTitle: '거치식 및 적립식 복리 계산 공식',
+    formulaExpression:
+      '거치식: FV = P × (1 + r/n)^(n×t)   |   월 적립식(월복리): FV = PMT × [((1 + r/12)^(12×t) − 1) ÷ (r/12)] × (1 + r/12)',
+    formulaNotes:
+      'P는 초기 투자 원금, PMT는 매월 추가 적립금, r은 연 이자율(소수), n은 연간 복리 횟수(일복리 365, 월복리 12, 분기복리 4, 연복리 1), t는 투자 기간(년)입니다.',
+    workedExample:
+      '초기 원금 1,000만 원에 매월 50만 원씩 연 8% 월복리로 10년(120개월) 투자하면 총 투자 원금은 7,000만 원, 세전 복리 이자는 약 4,475만 원이 되어 최종 평가액은 약 1억 1,475만 원이 됩니다.',
+    tableTitle: '초기 원금 1,000만 원 기준 연복리 vs 월복리 수익 비교 (세전)',
+    tableHeaders: ['투자 기간', '연 5% (월복리)', '연 8% (월복리)', '연 10% (월복리)', '연 12% (월복리)'],
+    tableRows: [
+      ['5년', '12,833,587원', '14,898,457원', '16,453,089원', '18,166,967원'],
+      ['10년', '16,470,095원', '22,196,402원', '27,070,415원', '33,003,869원'],
+      ['15년', '21,137,039원', '33,069,214원', '44,539,195원', '59,958,020원'],
+      ['20년', '27,126,403원', '49,268,028원', '73,280,736원', '108,925,537원'],
+      ['30년', '44,677,443원', '109,357,297원', '198,373,994원', '359,496,413원'],
+    ],
+    faqs: [
+      {
+        question: '복리계산기는 어떻게 사용하며 복리 계산 공식은 무엇인가요?',
+        answer:
+          '초기 투자 원금, 매월 추가 적립금(거치식만 계산하려면 0원), 연 수익률(%), 투자 기간(년), 복리 주기(일복리·월복리·분기복리·연복리)를 입력하면 즉시 결과가 계산됩니다. 거치식 복리 공식은 FV = P × (1 + r/n)^(n×t)이며, 이자가 원금에 재투자되어 다음 기간의 이자를 다시 불려줍니다.',
+      },
+      {
+        question: '단리와 복리의 차이는 무엇이며 왜 장기 투자에서 복리가 유리한가요?',
+        answer:
+          '단리는 최초 원금에 대해서만 매 기간 동일한 이자가 붙지만, 복리는 원금에 붙은 이자까지 새로운 원금에 합산되어 이자에 이자가 붙습니다. 예를 들어 1,000만 원을 연 10%로 20년 운용하면 단리는 3,000만 원이지만, 월복리는 약 7,328만 원으로 2.4배 이상 격차가 벌어집니다.',
+      },
+      {
+        question: '일복리, 월복리, 연복리 중 어느 주기가 가장 수익률이 높나요?',
+        answer:
+          '동일한 명목 연이자율(%)이라면 이자 정산 횟수(n)가 많은 일복리(365회) > 월복리(12회) > 분기복리(4회) > 연복리(1회) 순서로 실효 수익률(EAR)이 높아집니다. 예를 들어 연 10% 기준 실효 이자율은 연복리 10.00%, 월복리 10.47%, 일복리 10.52%입니다.',
+      },
+      {
+        question: '72의 법칙이란 무엇이며 원금이 2배 되는 기간은 어떻게 구하나요?',
+        answer:
+          '72의 법칙은 복리 투자 시 원금이 2배로 불어나는 데 걸리는 대략적인 햇수를 구하는 공식(72 ÷ 연 수익률%)입니다. 연 8% 복리 수익률이라면 72 ÷ 8 = 약 9년마다 자산이 두 배가 되며, 연 12%라면 약 6년이 걸립니다.',
+      },
+      {
+        question: '한국 예적금 이자소득세 15.4%와 비과세 계좌(ISA·연금저축)는 어떤 차이가 있나요?',
+        answer:
+          '한국 일반 예금·적금 및 배당소득에는 이자소득세 14%와 지방소득세 1.4%를 합한 15.4%가 원천징수됩니다. 복리계산기에서 "일반과세(15.4%)"를 선택하면 세후 실수령액을 바로 확인할 수 있으며, ISA(개인종합자산관리계좌)나 연금저축·IRP를 활용하면 과세이연과 절세 효과로 복리 눈덩이 속도가 더욱 빨라집니다.',
+      },
+      {
+        question: '주식, ETF, 미국 배당주 적립식 투자에도 복리계산기를 활용할 수 있나요?',
+        answer:
+          '네, 가능합니다. 매월 일정 금액을 S&P 500 ETF, 나스닥 100, 배당성장주 등에 적립식으로 투자하고 배당금을 재투자할 때 예상 연평균 수익률(CAGR)과 월 적립금을 입력하면 10년·20년·30년 후 은퇴 자산 목표를 현실적으로 시뮬레이션할 수 있습니다.',
+      },
+    ],
+    relatedSlugs: ['/sip-calculator', '/emi-calculator', '/percentage-calculator'],
+    variants: [
+      { label: '복리계산기', slug: '/compound-interest-calculator' },
+      { label: 'SIP', slug: '/sip-calculator' },
+      { label: 'EMI', slug: '/emi-calculator' },
       { label: 'GST', slug: '/gst-calculator' },
     ],
   },
