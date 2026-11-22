@@ -129,9 +129,13 @@ function ActiveView() {
   );
 }
 
-export default function App() {
+export interface AppProps {
+  initialPathname?: string;
+}
+
+export default function App({ initialPathname }: AppProps = {}) {
   return (
-    <RouterProvider>
+    <RouterProvider initialPathname={initialPathname}>
       <ActiveView />
     </RouterProvider>
   );

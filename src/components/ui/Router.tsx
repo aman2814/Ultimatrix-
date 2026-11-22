@@ -40,9 +40,19 @@ function hasExplicitLangPrefix(path: string): boolean {
   return Boolean(firstSegment && isSupportedLang(firstSegment));
 }
 
-export function RouterProvider({ children }: { children: React.ReactNode }) {
+export function RouterProvider({
+  children,
+  initialPathname,
+}: {
+  children: React.ReactNode;
+  initialPathname?: string;
+}) {
   const [pathname, setPathname] = useState<string>(() =>
-    typeof window !== 'undefined' ? normalizePathname(window.location.pathname) : '/'
+    initialPathname
+      ? normalizePathname(initialPathname)
+      : typeof window !== 'undefined'
+      ? normalizePathname(window.location.pathname)
+      : '/'
   );
   const [hash, setHash] = useState<string>(() =>
     typeof window !== 'undefined' ? window.location.hash : ''
